@@ -26,7 +26,7 @@ const Banner = () => {
             <h1 className="font-oswald font-bold text-[200px] text-[#A67458] tracking-wide">
               RT
             </h1>
-            <h1 className="font-oswald font-light text-[90px] text-[#d9d9d9] leading-[5rem] translate-x-[5px]">
+            <h1 className="font-oswald font-light text-[90px] text-[#d9d9d9] leading-[5rem] translate-x-[6px]">
               FOLIO
             </h1>
           </div>
