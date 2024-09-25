@@ -1,7 +1,9 @@
+import Banner from "./components/Banner/Banner";
+
 const App = () => {
   return (
-    <div>
-      <h1 className="font-oswald">My React App</h1>
+    <div className="bg-[#161414] min-h-screen">
+      <Banner />
     </div>
   );
 };
