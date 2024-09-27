@@ -1,7 +1,7 @@
 const Inspiration = () => {
   return (
     <div className="h-[597px] bg-[#A67458] mt-[120px] flex justify-center items-start">
-      <div className="w-[399px] h-[333px] mt-[131px] ml-[103px] font-poppins font-medium text-[14px] text-[#2D2D2D]">
+      <div className="w-[399px] h-[333px] text-balance mt-[131px] ml-[103px] font-poppins font-medium text-[14px] text-[#2D2D2D]">
         <p>
           Saul Bass&apos;s ability to distill complex ideas into simple,
           powerful visuals serves as a guiding principle for my designs. In
@@ -26,7 +26,29 @@ const Inspiration = () => {
       <div className="font-oswald text-[128px] font-semibold text-[#161414] leading-[105px] tracking-[-0.12em] -translate-x-[3.8rem] -mt-2">
         <h2 className="uppercase">design</h2>
         <h2 className="uppercase translate-x-[3.6rem] mr-[65px]">
-          insp<span className="text-[#D9D9D9]">i</span>ration
+          insp
+          <span className="text-[#D9D9D9] relative inline-block">
+            i
+            <svg
+              width="176"
+              height="272"
+              viewBox="0 0 176 272"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="absolute -bottom-1 left-5 -translate-x-full translate-y-full"
+            >
+              <circle cx="11.5" cy="260.5" r="11.5" fill="#2F67AA" />
+              <line
+                x1="21.9983"
+                y1="261"
+                x2="176.002"
+                y2="261"
+                stroke="#D9D9D9"
+              />
+              <line x1="175.5" y1="261" x2="175.5" stroke="#D9D9D9" />
+            </svg>
+          </span>
+          ration
         </h2>
       </div>
     </div>

@@ -6,11 +6,13 @@ const Philosophy = () => {
           design
         </h2>
         <h2 className="uppercase tracking-[-0.12em] text-[#d9d9d9] text-[128px] font-bold font-oswald">
-          ph<span className="text-[#2F67AA]">i</span>losophy
+          ph
+          <span className="text-[#2F67AA]">i </span>
+          losophy
         </h2>
       </div>
       <div className="h-[291px] w-[389px] font-poppins text-[#A67458] font-medium mt-[3px] text-[14px] ">
-        <p className="mb-6">
+        <p className="mb-6 ">
           Perhaps most importantly, I share Bass&apos;s philosophy of{" "}
           <b className="text-[16px] text-[#d9d9d9]">
             &quot;beauty for beauty&apos;s sake&quot;

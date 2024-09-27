@@ -31,7 +31,7 @@ const Banner = () => {
             </h1>
           </div>
           {/* NAME TAG */}
-          <div className="relative z-10 -translate-y-5 border min-w-[364px] min-h-[419px]">
+          <div className="relative z-10 -translate-y-5 min-w-[364px] min-h-[419px]">
             <img
               src="/images/rectangle.png"
               alt="rectangle"
