@@ -3,9 +3,11 @@ import ShowcaseCard from "./ShowcaseCard";
 const Showcase = () => {
   return (
     <div className="flex justify-between gap-x-[19px] mx-[154px] mt-[264px] w-[1132px] h-[671px] group showcase-gallery overflow-hidden">
-      <ShowcaseCard htmlFor={"showcase-1"} id={"showcase-1"} className={``}>
-        {" "}
-      </ShowcaseCard>
+      <ShowcaseCard
+        htmlFor={"showcase-1"}
+        id={"showcase-1"}
+        className={``}
+      ></ShowcaseCard>
       <ShowcaseCard
         htmlFor={"showcase-2"}
         id={"showcase-2"}
