@@ -1,6 +1,6 @@
 const Inspiration = () => {
   return (
-    <div className="h-[597px] bg-[#A67458] mt-[120px] flex justify-between items-start">
+    <div className="h-[597px] bg-[#A67458] mt-[120px] flex justify-center items-start">
       <div className="w-[399px] h-[333px] mt-[131px] ml-[103px] font-poppins font-medium text-[14px] text-[#2D2D2D]">
         <p>
           Saul Bass&apos;s ability to distill complex ideas into simple,
@@ -15,7 +15,7 @@ const Inspiration = () => {
           and film to inform my design process. This cross-pollination of ideas
           allows me to bring fresh perspectives to each project. For visual
           element, I experiment with dramatic typography that are both{" "}
-          <b>legible and visually aesthetic.</b>
+          <b className="text-[16px]">legible and visually aesthetic.</b>
         </p>
       </div>
       <img

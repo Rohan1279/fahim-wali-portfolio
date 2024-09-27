@@ -31,17 +31,21 @@ const Banner = () => {
             </h1>
           </div>
           {/* NAME TAG */}
-          <div className="relative z-10 -translate-y-5">
-            <img src="/images/rectangle.png" alt="Banner" className="" />
+          <div className="relative z-10 -translate-y-5 border min-w-[364px] min-h-[419px]">
+            <img
+              src="/images/rectangle.png"
+              alt="rectangle"
+              className="min-w-[304px] min-h-[372px]"
+            />
             <img
               src="/images/fahim.png"
-              alt="Banner"
-              className=" absolute inset-y-9 inset-x-12 w-[250px] h-[259px] rotate-[5.46deg]"
+              alt="fahim"
+              className="absolute inset-y-9 inset-x-12 w-[250px] h-[259px] rotate-[5.46deg]"
             />
             <img
               src="/images/product-designer-sketch.svg"
-              alt="Banner"
-              className="object-cover absolute inset-x-16 inset-y-[310px]  rotate-[3.08deg] "
+              alt="product-designer-sketch"
+              className="object-cover absolute inset-x-16 inset-y-[310px] rotate-[3.08deg]"
             />
           </div>
         </div>
