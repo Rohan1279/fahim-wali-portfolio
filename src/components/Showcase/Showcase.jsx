@@ -1,21 +1,24 @@
 import { useState } from "react";
 import ShowcaseCard from "./ShowcaseCard";
-
 const Showcase = () => {
   return (
-    <div className="flex justify-center gap-x-5 px-[154px] mt-[264px] group">
-      <ShowcaseCard className={` transition-all ease-in-out duration-300`}>
+    <div className="flex justify-between gap-x-[19px] mx-[154px] mt-[264px] w-[1132px]  group showcase-gallery">
+      <ShowcaseCard htmlFor={"showcase-1"} id={"showcase-1"} className={``}>
         {" "}
       </ShowcaseCard>
       <ShowcaseCard
-        className={` translate-y-[116px] transition-all ease-in-out duration-300`}
+        htmlFor={"showcase-2"}
+        id={"showcase-2"}
+        className={` translate-y-[116px]  transition-all ease-in-out duration-300`}
       >
         {" "}
       </ShowcaseCard>
-      <ShowcaseCard className={` transition-all ease-in-out duration-300`}>
+      <ShowcaseCard htmlFor={"showcase-3"} id={"showcase-3"} className={``}>
         {" "}
       </ShowcaseCard>
       <ShowcaseCard
+        htmlFor={"showcase-4"}
+        id={"showcase-4"}
         className={` translate-y-[38px] transition-all ease-in-out duration-300`}
       >
         {" "}

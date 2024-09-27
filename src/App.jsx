@@ -5,7 +5,7 @@ import Showcase from "./components/Showcase/Showcase";
 
 const App = () => {
   return (
-    <div className="bg-[#161414] min-h-screen">
+    <div className="bg-[#161414] min-h-screen flex flex-col justify-center items-center">
       <Hero />
       <Showcase />
       <Inspiration />
