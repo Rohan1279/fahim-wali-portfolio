@@ -13,7 +13,7 @@ const ShowcaseCard = ({ className, children, htmlFor, id }) => {
       className={`${className}   
  min-w-[268px] h-[555px] rounded-[10px] bg-[#d9d9d9]`}
     >
-      <input type="radio" id={id} className="invisible" />
+      <input type="checkbox" id={id} className="invisible" />
       {children}
     </label>
   );
