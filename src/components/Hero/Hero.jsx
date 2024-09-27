@@ -1,14 +1,14 @@
-const Banner = () => {
+const Hero = () => {
   return (
     <div className="pt-[9px]">
       {/* FAHIM WALI LOGO */}
       <img
         src="/images/fahimwali_logo.png"
-        alt="Banner"
+        alt="Hero"
         className="w-[202px] h-[116px] object-cover mx-auto"
       />
       <div className="flex space-x-[142px] justify-center items-center pl-[61px] pr-[92px]">
-        {/* BANNER LEFT */}
+        {/* HERO LEFT */}
         <div className=" translate-y-[40px]">
           <img
             src="/images/banner-left.svg"
@@ -16,7 +16,7 @@ const Banner = () => {
             className="w-[598px] h-[432px] object-cover"
           />
         </div>
-        {/* BANNER RIGHT */}
+        {/* HERO RIGHT */}
         <div className="flex relative  translate-y-[67px]">
           {/* PORTFOLIO TEXT */}
           <div className="leading-[11.3rem] translate-x-[53px] z-20">
@@ -54,4 +54,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default Hero;

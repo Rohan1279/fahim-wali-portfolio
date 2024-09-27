@@ -1,8 +1,8 @@
 const Philosophy = () => {
   return (
-    <div className="h-[572px] flex justify-center gap-x-[263px]  pl-[103px] pr-[176px] pt-[127px]">
-      <div className="leading-[105px] ">
-        <h2 className="uppercase font-oswald font-light text-[90px] text-[#A67458]">
+    <div className="h-fit flex justify-center gap-x-[286px] pl-[103px] pr-[176px] pt-[127px] pb-[154px]">
+      <div className="leading-[105px]">
+        <h2 className=" uppercase font-oswald font-light text-[90px] text-[#A67458]">
           design
         </h2>
         <h2 className="uppercase tracking-[-0.12em] text-[#d9d9d9] text-[128px] font-bold font-oswald">
@@ -11,7 +11,7 @@ const Philosophy = () => {
           losophy
         </h2>
       </div>
-      <div className="h-[291px] w-[389px] font-poppins text-[#A67458] font-medium mt-[3px] text-[14px] ">
+      <div className="h-fit w-[389px] font-poppins text-[#A67458] font-medium mt-[3px] text-[14px] ">
         <p className="mb-6 ">
           Perhaps most importantly, I share Bass&apos;s philosophy of{" "}
           <b className="text-[16px] text-[#d9d9d9]">

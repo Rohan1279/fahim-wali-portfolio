@@ -1,11 +1,11 @@
-import Banner from "./components/Banner/Banner";
+import Hero from "./components/Hero/Hero";
 import Inspiration from "./components/Inspiration/Inspiration";
 import Philosophy from "./components/Philosophy/Philosophy";
 
 const App = () => {
   return (
     <div className="bg-[#161414] min-h-screen">
-      <Banner />
+      <Hero />
       <Inspiration />
       <Philosophy />
     </div>

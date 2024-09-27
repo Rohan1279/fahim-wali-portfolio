@@ -1,7 +1,7 @@
 const Inspiration = () => {
   return (
-    <div className="h-[597px] bg-[#A67458] mt-[120px] flex justify-center items-start">
-      <div className="w-[399px] h-[333px] text-balance mt-[131px] ml-[103px] font-poppins font-medium text-[14px] text-[#2D2D2D]">
+    <div className="h-[597px] bg-[#A67458] mt-[120px] flex justify-center items-start pl-[103px] pr-[58px]">
+      <div className="w-[399px] h-[333px] text-balance mt-[131px] font-poppins font-medium text-[14px] text-[#2D2D2D]">
         <p>
           Saul Bass&apos;s ability to distill complex ideas into simple,
           powerful visuals serves as a guiding principle for my designs. In
