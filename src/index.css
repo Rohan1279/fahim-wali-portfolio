@@ -25,6 +25,9 @@
   transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
   animation: grow cubic-bezier(0.76, 0, 0.24, 1) forwards 0.5s;
 }
+.slide-transition {
+  transition: all 900ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 900ms;
+}
 @keyframes shrink-columns {
   0% {
     column-gap: 19px;
@@ -80,4 +83,10 @@
   100% {
     width: 100%;
   }
+}
+
+.linearBlur {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
