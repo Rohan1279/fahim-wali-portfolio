@@ -31,14 +31,11 @@ const Saas = () => {
     [isChecked]
   );
 
-  const handleCloseClick = useCallback(
-    (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      setIsChecked(false);
-    },
-    []
-  );
+  const handleCloseClick = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsChecked(false);
+  }, []);
 
   return (
     <ShowcaseCard
@@ -86,7 +83,6 @@ const Saas = () => {
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           className={`w-full h-full relative`}
         >
-          {/*  ${isChecked ? "opacity-100" : "opacity-0"} */}
           <SwiperSlide className="flex flex-col pr-[64px] relative">
             <img
               src="/images/saas/slide-1.png"

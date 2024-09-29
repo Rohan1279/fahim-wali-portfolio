@@ -1,5 +1,3 @@
-import { useState } from "react";
-import ShowcaseCard from "./ShowcaseCard";
 import Saas from "./Saas";
 import MobileApp from "./MobileApp";
 import UserInterface from "./UserInterface";
