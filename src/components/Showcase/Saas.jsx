@@ -16,9 +16,9 @@ const Saas = () => {
   const swiperRef = useRef(null);
   const swiper = useSwiper();
   const htmlFor = "saas";
-  const [isChecked, setIsChecked] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [isChecked, setIsChecked] = useState(false);
   const handleOnClick = useCallback(
     (e) => {
       if (!isChecked) {
