@@ -26,7 +26,7 @@ const UserInterface = () => {
       handleOnClick={handleOnClick}
       htmlFor={"user-interface"}
       id={"user-interface"}
-      className={`relative overflow-hidden group`}
+      className={`relative overflow-hidden group/interface`}
     >
       <img
         src="/images/user-interface.png"
