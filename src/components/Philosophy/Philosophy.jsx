@@ -7,7 +7,7 @@ const Philosophy = () => {
         </h2>
         <h2 className="uppercase tracking-[-0.12em] text-[#d9d9d9] text-[128px] font-bold font-oswald">
           ph
-          <span className="text-[#2F67AA]">i </span>
+          <span className="text-[#2F67AA]">i</span>
           losophy
         </h2>
       </div>
