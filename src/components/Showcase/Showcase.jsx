@@ -1,5 +1,5 @@
 import Saas from "./Saas";
-import MobileApp from "./MobileApp";
+import MobileApp from "./MobileApp/MobileApp";
 import UserInterface from "./UserInterface";
 import Branding from "./Branding";
 const Showcase = () => {
