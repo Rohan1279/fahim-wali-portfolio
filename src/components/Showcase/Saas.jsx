@@ -35,6 +35,33 @@ const Saas = () => {
     setIsChecked(false);
   }, []);
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      filter: "blur(4px)",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <ShowcaseCard
       htmlFor={"saas"}
@@ -43,32 +70,55 @@ const Saas = () => {
       handleOnClick={handleOnClick}
       className={`relative group`}
     >
-      <div className="z-50 pt-[126px] bg-[#d9d9d9]  w-fit h-full ">
+      <div className="z-50 pt-[126px] bg-[#d9d9d9] w-fit h-full">
         <p
-          className={`opacity-0 blur-sm group-has-[:checked]:blur-none group-has-[:checked]:opacity-100 transition-all duration-500 ease-in-out delay-150 font-poppins text-xl text-[#161414] tracking-widest  ml-[57px] font-medium`}
+          className={`font-poppins text-xl text-[#161414] tracking-widest ml-[57px] font-medium opacity-0 blur-sm ${
+            isChecked ? "opacity-100 blur-none" : ""
+          } transition-all duration-500 ease-in-out delay-150`}
         >
           product category
         </p>
-        <h2 className="font-poppins text-[80px] font-extrabold text-[#2d2d2d] leading-[90%] group-has-[:checked]:text-[#2d2d2d]/10 transition-all duration-300 ease-in-out delay-150 ml-[54px]">
+        <h2
+          className={`font-poppins text-[80px] font-extrabold text-[#2d2d2d] leading-[90%] ml-[54px] ${
+            isChecked ? "text-[#2d2d2d]/10" : ""
+          } transition-all duration-300 ease-in-out delay-150`}
+        >
           SaaS
         </h2>
-        <div className="mt-[78px] ml-[57px] opacity-0 blur-sm group-has-[:checked]:blur-none group-has-[:checked]:opacity-100 transition-all duration-500 ease-in-out">
-          <p className="font-poppins font-medium text-xl text-[#161414] tracking-widest">
-            product name
-          </p>
-          <h3 className="font-poppins font-extrabold text-[48px] text-[#2D2D2D]">
-            Driip
-          </h3>
-          <p className="font-poppins font-medium text-xl text-[#161414] tracking-widest leading-[3.7rem] mt-5">
-            role
-          </p>
-          <h3 className="font-poppins font-extralight text-[32px] text-[#2d2d2d] leading-[6px]">
-            product
-          </h3>
-          <h3 className="font-poppins font-extralight text-[32px] text-[#2d2d2d] ">
-            designer
-          </h3>
-        </div>
+
+        <motion.div
+          className="mt-[78px] ml-[57px]"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isChecked ? "visible" : "hidden"}
+        >
+          <motion.div variants={itemVariants}>
+            <p className="font-poppins font-medium text-xl text-[#161414] tracking-widest">
+              product name
+            </p>
+            <h3 className="font-poppins font-extrabold text-[48px] text-[#2D2D2D]">
+              Driip
+            </h3>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <p className="font-poppins font-medium text-xl text-[#161414] tracking-widest leading-[3.7rem] mt-5">
+              role
+            </p>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <h3 className="font-poppins font-extralight text-[32px] text-[#2d2d2d] leading-[6px]">
+              product
+            </h3>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <h3 className="font-poppins font-extralight text-[32px] text-[#2d2d2d]">
+              designer
+            </h3>
+          </motion.div>
+        </motion.div>
       </div>
       <AnimatePresence>
         {isChecked && (

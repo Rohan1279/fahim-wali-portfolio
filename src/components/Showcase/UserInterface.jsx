@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import ShowcaseCard from "./ShowcaseCard";
+import { motion } from "framer-motion";
 
 const UserInterface = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -8,7 +9,6 @@ const UserInterface = () => {
       if (!isChecked) {
         setIsChecked(true);
       } else {
-        // Prevent the click from propagating to the label when checked
         e.preventDefault();
       }
     },
@@ -20,66 +20,132 @@ const UserInterface = () => {
     e.stopPropagation();
     setIsChecked(false);
   }, []);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+  const kronImageVariants = {
+    hidden: { opacity: 0, y: 20, x: 0 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: -39, // This replaces the -translate-x-[39px] class
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
     <ShowcaseCard
       isChecked={isChecked}
       handleOnClick={handleOnClick}
       htmlFor={"user-interface"}
       id={"user-interface"}
-      className={`relative overflow-hidden group/interface`}
+      className="relative overflow-hidden group/interface"
     >
-      <img
+      <motion.img
         src="/images/user-interface.png"
         alt="user-interface"
-        className="opacity-0 peer-checked:opacity-100 transition-all delay-500 ease-in-out absolute right-0 top-0 w-full h-full object-cover z-40"
+        className="absolute right-0 top-0 w-full h-full object-cover z-40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isChecked ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
       />
-      {/* {isChecked && ()} */}
-      <button
+      <motion.button
         onClick={handleCloseClick}
-        className="absolute top-5 left-1/2 z-50 opacity-0 peer-checked:opacity-100 transition-all delay-500 ease-in-out"
+        className="absolute top-5 left-1/2 z-50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isChecked ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
       >
         <img
           src="/images/close-button-white.svg"
           alt="close-button"
           className="size-[55px]"
         />
-      </button>
+      </motion.button>
 
-      <div className="absolute right-7 group-has-[:checked]:right-[45px] group-has-[:checked]:translate-x-0 mt-[102px] transition-all delay-[600ms] z-50  text-[#2d2d2d] group-has-[:checked]:text-[#D9D9D920]">
-        <p
-          className={`opacity-0 blur-sm group-has-[:checked]:blur-none group-has-[:checked]:opacity-100 transition-all duration-500 ease-in-out delay-150 font-poppins text-xl text-[#D9D9D9]  font-medium`}
+      <motion.div
+        className="absolute right-7 mt-[102px] z-50 text-[#2d2d2d]"
+        animate={{
+          right: isChecked ? "45px" : "28px",
+          color: isChecked ? "#D9D9D920" : "#2d2d2d",
+        }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.p
+          className="font-poppins text-xl text-[#D9D9D9] font-medium"
+          initial={{ opacity: 0, filter: "blur(4px)" }}
+          animate={{
+            opacity: isChecked ? 1 : 0,
+            filter: isChecked ? "blur(0px)" : "blur(4px)",
+          }}
+          transition={{ duration: 0.5 }}
         >
           product category
-        </p>
-        <h2 className="font-poppins  font-extralight text-[40px] leading-[3.5rem] ">
+        </motion.p>
+        <motion.h2 className="font-poppins font-extralight text-[40px] leading-[3.5rem]">
           Diegetic
-        </h2>
-        <h2 className="font-poppins  font-extrabold text-[96px] leading-[3.5rem]">
+        </motion.h2>
+        <motion.h2 className="font-poppins font-extrabold text-[96px] leading-[3.5rem]">
           User
-        </h2>
-        <h2 className="font-poppins  font-semibold text-[40px] leading-[3.5rem] ml-[3px]">
+        </motion.h2>
+        <motion.h2 className="font-poppins font-semibold text-[40px] leading-[3.5rem] ml-[3px]">
           Interface
-        </h2>
-        <div className="opacity-0 group-has-[:checked]:opacity-100 transition-all duration-500 ease-in-out delay-[600ms]">
-          <h3 className="font-poppins font-medium text-xl text-[#D9D9D9] tracking-widest mt-[44px]">
+        </motion.h2>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isChecked ? "visible" : "hidden"}
+        >
+          <motion.h3
+            variants={itemVariants}
+            className="font-poppins font-medium text-xl text-[#D9D9D9] tracking-widest mt-[44px]"
+          >
             product name
-          </h3>
-          <img
+          </motion.h3>
+          <motion.img
+            variants={kronImageVariants}
             src="/images/KRON.png"
             alt="KRON-logo"
-            className="w-[217px] -translate-x-[39px] -translate-y-2"
+            className="w-[217px] -translate-y-2" // Removed -translate-x-[39px]
           />
-          <h3 className="font-poppins font-medium text-xl text-[#D9D9D9] tracking-widest mt-[34px] leading-[3.5rem]">
+          <motion.h3
+            variants={itemVariants}
+            className="font-poppins font-medium text-xl text-[#D9D9D9] tracking-widest mt-[34px] leading-[3.5rem]"
+          >
             role{" "}
-          </h3>
-          <h2 className="font-poppins text-[32px] font-extralight text-[#A67458] leading-[5px]">
+          </motion.h3>
+          <motion.h2
+            variants={itemVariants}
+            className="font-poppins text-[32px] font-extralight text-[#A67458] leading-[5px]"
+          >
             product
-          </h2>
-          <h2 className="font-poppins text-[32px] font-extralight text-[#A67458]">
+          </motion.h2>
+          <motion.h2
+            variants={itemVariants}
+            className="font-poppins text-[32px] font-extralight text-[#A67458]"
+          >
             designer
-          </h2>
-        </div>
-      </div>
+          </motion.h2>
+        </motion.div>
+      </motion.div>
     </ShowcaseCard>
   );
 };
