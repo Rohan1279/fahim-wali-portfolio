@@ -5,7 +5,10 @@ import Simvest from "./Simvest";
 
 const MobileApp = () => {
   const [currentApp, setCurrentApp] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   console.log("currentApp", currentApp);
+  console.log("currentIndex", currentIndex);
 
   const [isChecked, setIsChecked] = useState(false);
   const handleOnClick = useCallback(
@@ -35,75 +38,112 @@ const MobileApp = () => {
       id={"mobile-app"}
       className={`translate-y-[116px] overflow-hidden group`}
     >
-      <div className="border border-teal-500 w-fit h-full group-has-[:checked]:py-[57px] transition-all ease-in-out duration-300 z-50">
-        <h2
-          className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[90%] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   -mt-2"
-          style={{
-            WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D10",
-          }}
-        >
-          Mobile
-        </h2>
-        <h2
-          className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[90%] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   "
-          style={{
-            WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D25",
-          }}
-        >
-          Mobile
-        </h2>
-        <h2
-          className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[90%] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   "
-          style={{
-            WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D50",
-          }}
-        >
-          Mobile
-        </h2>
-        <h2
-          className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[90%] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   "
-          style={{
-            WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D75",
-          }}
-        >
-          Mobile
-        </h2>
-        {/* //! CENTER */}
-        <h2 className="font-poppins text-[64px] font-extrabold text-[#2D2D2D] leading-[90%] group-has-[:checked]:text-[#2d2d2d]/10 transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   -mt-[3px]">
-          Mobile
-        </h2>
-        <h2 className="font-poppins text-[64px] font-extrabold text-[#2D2D2D] leading-[3.8rem] group-has-[:checked]:text-[#2d2d2d]/10  transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px] ">
-          App
-        </h2>
-        {/* //! CENTER */}
-        <h2
-          className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[3.8rem] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   -mt-[3px]"
-          style={{
-            WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D75",
-          }}
-        >
-          App
-        </h2>
-        <h2
-          className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[3.8rem] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   -mt-[3px]"
-          style={{
-            WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D50",
-          }}
-        >
-          App
-        </h2>
-        <h2
-          className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[3.8rem] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   -mt-[3px]"
-          style={{
-            WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D25",
-          }}
-        >
-          App
-        </h2>
-      </div>
+      {currentIndex === 0 ? (
+        <div className=" border-teal-500 w-fit h-full group-has-[:checked]:py-[57px] group-has-[:checked]:pl-[43px] transition-all ease-in-out duration-300 z-50">
+          <h2
+            className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[90%] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   -mt-2"
+            style={{
+              WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D10",
+            }}
+          >
+            Mobile
+          </h2>
+          <h2
+            className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[90%] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   "
+            style={{
+              WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D25",
+            }}
+          >
+            Mobile
+          </h2>
+          <h2
+            className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[90%] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   "
+            style={{
+              WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D50",
+            }}
+          >
+            Mobile
+          </h2>
+          <h2
+            className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[90%] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   "
+            style={{
+              WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D75",
+            }}
+          >
+            Mobile
+          </h2>
+          {/* //! CENTER */}
+          <h2 className="font-poppins text-[64px] font-extrabold text-[#2D2D2D] leading-[90%] group-has-[:checked]:text-[#2d2d2d]/10 transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   -mt-[3px]">
+            Mobile
+          </h2>
+          <h2 className="font-poppins text-[64px] font-extrabold text-[#2D2D2D] leading-[3.8rem] group-has-[:checked]:text-[#2d2d2d]/10  transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px] ">
+            App
+          </h2>
+          {/* //! CENTER */}
+          <h2
+            className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[3.8rem] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   -mt-[3px]"
+            style={{
+              WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D75",
+            }}
+          >
+            App
+          </h2>
+          <h2
+            className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[3.8rem] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   -mt-[3px]"
+            style={{
+              WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D50",
+            }}
+          >
+            App
+          </h2>
+          <h2
+            className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[3.8rem] peer-checked:text-[#d9d9d9] transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]   -mt-[3px]"
+            style={{
+              WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D25",
+            }}
+          >
+            App
+          </h2>
+        </div>
+      ) : (
+        <div className="font-poppins pl-[43px] pt-[68px]">
+          <p className={`text-xl text-[#2D2D2D] font-medium tracking-widest`}>
+            product category
+          </p>
+          <h2 className=" text-[64px] font-extrabold text-[#2D2D2D]/10  leading-none mt-3">
+            Mobile
+          </h2>
+          <h2 className=" text-[64px] font-extrabold text-[#2D2D2D]/10  leading-none">
+            App
+          </h2>
+          <p
+            className={`text-xl text-[#2D2D2D] font-medium tracking-widest mt-[69px]`}
+          >
+            product name
+          </p>
+          {currentApp === "pedal" ? (
+            <img
+              src="/images/mobile-app/pedal/pedal-logo.png"
+              alt="pedal-logo"
+              className="w-[122px] -translate-x-10 -translate-y-3"
+            />
+          ) : (
+            <img
+              src="/images/mobile-app/simvest/simvest-logo.png"
+              alt="simvest-logo"
+              className="w-[193px] mt-[11px] mb-[37px]"
+            />
+          )}
+          <p className={`text-xl text-[#2D2D2D] font-medium tracking-widest`}>
+            role
+          </p>
+          <p className="text-[32px] font-extralight leading-none">ux/ui</p>
+          <p className="text-[32px] font-extralight leading-none">designer</p>
+        </div>
+      )}
 
       <div
-        className={`w-[748px] h-full  absolute right-[56px] top-0 invisible blur-sm peer-checked:blur-none peer-checked:visible transition-all duration-500 border border-red-400 z-40 `}
+        className={`w-[748px] h-full  absolute right-[56px] top-0 invisible blur-sm peer-checked:blur-none peer-checked:visible transition-all duration-500  border-red-400 z-40 `}
       >
         {!currentApp && (
           <div className="relative flex justify-center gap-x-[40px] pt-[89px] mr-1">
@@ -151,10 +191,20 @@ const MobileApp = () => {
           </div>
         )}
         {currentApp === "pedal" && (
-          <Pedal currentApp={currentApp} setCurrentApp={setCurrentApp} />
+          <Pedal
+            currentApp={currentApp}
+            setCurrentApp={setCurrentApp}
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+          />
         )}
         {currentApp === "simvest" && (
-          <Simvest currentApp={currentApp} setCurrentApp={setCurrentApp} />
+          <Simvest
+            currentApp={currentApp}
+            setCurrentApp={setCurrentApp}
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+          />
         )}
       </div>
 

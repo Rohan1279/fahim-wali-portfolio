@@ -10,12 +10,16 @@ import {
 } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
-const Simvest = ({ currentApp, setCurrentApp }) => {
+const Simvest = ({
+  currentApp,
+  setCurrentApp,
+  currentIndex,
+  setCurrentIndex,
+}) => {
   const swiperRef = useRef(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <div className="h-full  pt-[89px] leading-none flex border border-blue-500 ">
+    <div className="h-full  pt-[89px] leading-none flex border-blue-500 ">
       {/* <h1 className="text-6xl text-black">asdasd</h1> */}
 
       <Swiper
@@ -51,6 +55,9 @@ const Simvest = ({ currentApp, setCurrentApp }) => {
                   onClick={(e) => {
                     e.stopPropagation();
                     setCurrentApp(null);
+                    if (swiperRef.current) {
+                      swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+                    }
                   }}
                   className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373] mt-[70px]"
                 >
@@ -122,6 +129,9 @@ const Simvest = ({ currentApp, setCurrentApp }) => {
               onClick={(e) => {
                 e.stopPropagation();
                 setCurrentApp(null);
+                if (swiperRef.current) {
+                  swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+                }
               }}
               className="flex-1 font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373]"
             >

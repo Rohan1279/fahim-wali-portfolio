@@ -10,12 +10,15 @@ import {
 } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
-const Pedal = ({ currentApp, setCurrentApp }) => {
+const Pedal = ({
+  currentApp,
+  setCurrentApp,
+  currentIndex,
+  setCurrentIndex,
+}) => {
   const swiperRef = useRef(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  console.log("currentIndex", currentIndex);
   return (
-    <div className="h-full pt-[89px] leading-none flex border border-blue-500 ">
+    <div className="h-full pt-[89px] leading-none flex border-blue-500 ">
       <Swiper
         // spaceBetween={}
         slidesPerView={1}
@@ -67,6 +70,9 @@ const Pedal = ({ currentApp, setCurrentApp }) => {
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentApp(null);
+                  if (swiperRef.current) {
+                    swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+                  }
                 }}
                 className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373] mt-[70px]"
               >
@@ -95,47 +101,6 @@ const Pedal = ({ currentApp, setCurrentApp }) => {
             alt="slide-2"
             className="h-[455px] w-[669px] ml-auto"
           />
-          <div className="ml-auto flex justify-between w-[664px] mt-[40px]">
-            <button
-              className="size-[50px] z-50"
-              onClick={() => swiperRef.current.slidePrev()}
-            >
-              <img
-                src="/images/carousal-backward.png"
-                alt="carousal-backward"
-                className={` z-50  ${
-                  currentIndex !== 3
-                    ? "opacity-100 scale-100"
-                    : "opacity-0 scale-0"
-                } transition-all duration-[350] ease-in-out`}
-              />
-            </button>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setCurrentApp(null);
-              }}
-              className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373]"
-            >
-              back to mobile app{" "}
-            </button>
-
-            <button
-              className="size-[50px] z-50"
-              onClick={() => swiperRef.current.slideNext()}
-            >
-              <img
-                src="/images/carousal-forward.png"
-                alt="carousal-forward"
-                className={` z-50  ${
-                  currentIndex !== 3
-                    ? "opacity-100 scale-100"
-                    : "opacity-0 scale-0"
-                } transition-all duration-[350] ease-in-out`}
-              />
-            </button>
-          </div>
         </SwiperSlide>
         <SwiperSlide className="flex w-[657px] h-full flex-col relative pr-[16px] pt-2">
           <img
@@ -143,7 +108,16 @@ const Pedal = ({ currentApp, setCurrentApp }) => {
             alt="slide-2"
             className="h-[455px] w-[669px] ml-auto"
           />
-          <div className="ml-auto flex justify-between w-[664px] mt-[40px]">
+        </SwiperSlide>
+        <SwiperSlide className="flex w-[657px] h-full flex-col relative pr-[16px] pt-2">
+          <img
+            src="/images/mobile-app/pedal/slide-4.png"
+            alt="slide-2"
+            className="h-[455px] w-[669px] ml-auto"
+          />
+        </SwiperSlide>
+        {currentIndex > 0 && (
+          <div className="ml-auto flex justify-between w-[664px] absolute bottom-7 right-0 ">
             <button
               className="size-[50px] z-50"
               onClick={() => swiperRef.current.slidePrev()}
@@ -152,7 +126,7 @@ const Pedal = ({ currentApp, setCurrentApp }) => {
                 src="/images/carousal-backward.png"
                 alt="carousal-backward"
                 className={` z-50  ${
-                  currentIndex !== 3
+                  currentIndex <= 3
                     ? "opacity-100 scale-100"
                     : "opacity-0 scale-0"
                 } transition-all duration-[350] ease-in-out`}
@@ -163,8 +137,11 @@ const Pedal = ({ currentApp, setCurrentApp }) => {
               onClick={(e) => {
                 e.stopPropagation();
                 setCurrentApp(null);
+                if (swiperRef.current) {
+                  swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+                }
               }}
-              className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373]"
+              className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373] z-50"
             >
               back to mobile app{" "}
             </button>
@@ -177,47 +154,14 @@ const Pedal = ({ currentApp, setCurrentApp }) => {
                 src="/images/carousal-forward.png"
                 alt="carousal-forward"
                 className={` z-50  ${
-                  currentIndex !== 3
-                    ? "opacity-100 scale-100"
-                    : "opacity-0 scale-0"
+                  currentIndex === 3
+                    ? "opacity-0 scale-0"
+                    : "opacity-100 scale-100"
                 } transition-all duration-[350] ease-in-out`}
               />
             </button>
           </div>
-        </SwiperSlide>
-        <SwiperSlide className="flex w-[657px] h-full flex-col relative pr-[16px] pt-2">
-          <img
-            src="/images/mobile-app/pedal/slide-4.png"
-            alt="slide-2"
-            className="h-[455px] w-[669px] ml-auto"
-          />
-          <div className="ml-auto flex justify-between w-[664px] mt-[40px]">
-            <button
-              className="size-[50px] z-50"
-              onClick={() => swiperRef.current.slidePrev()}
-            >
-              <img
-                src="/images/carousal-backward.png"
-                alt="carousal-backward"
-                className={` z-50  ${
-                  currentIndex !== 4
-                    ? "opacity-100 scale-100"
-                    : "opacity-0 scale-0"
-                } transition-all duration-[350] ease-in-out`}
-              />
-            </button>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setCurrentApp(null);
-              }}
-              className="flex-1 font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373]"
-            >
-              back to mobile app{" "}
-            </button>
-          </div>
-        </SwiperSlide>
+        )}
       </Swiper>
     </div>
   );
