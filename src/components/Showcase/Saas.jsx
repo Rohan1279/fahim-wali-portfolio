@@ -49,7 +49,7 @@ const Saas = () => {
     hidden: {
       opacity: 0,
       y: 20,
-      filter: "blur(4px)",
+      // filter: "blur(4px)",
     },
     visible: {
       opacity: 1,

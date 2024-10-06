@@ -168,4 +168,3 @@ const Pedal = ({
 };
 
 export default Pedal;
-263 / 2;

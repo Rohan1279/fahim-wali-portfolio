@@ -19,7 +19,7 @@ const Simvest = ({
   const swiperRef = useRef(null);
 
   return (
-    <div className="h-full  pt-[89px] leading-none flex border-blue-500 ">
+    <div className="h-full  pt-[89px] leading-none flex border-blue-500 -z-50">
       {/* <h1 className="text-6xl text-black">asdasd</h1> */}
 
       <Swiper
