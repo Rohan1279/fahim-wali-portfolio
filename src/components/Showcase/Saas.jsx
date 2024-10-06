@@ -9,13 +9,12 @@ import {
   EffectCube,
 } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { motion, AnimatePresence } from "framer-motion";
 import ShowcaseCard from "./ShowcaseCard";
 import LinearBlur from "../ProgressiveBlur/ProgressiveBlur";
 
 const Saas = () => {
   const swiperRef = useRef(null);
-  const swiper = useSwiper();
-  const htmlFor = "saas";
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [isChecked, setIsChecked] = useState(false);
@@ -24,7 +23,6 @@ const Saas = () => {
       if (!isChecked) {
         setIsChecked(true);
       } else {
-        // Prevent the click from propagating to the label when checked
         e.preventDefault();
       }
     },
@@ -39,22 +37,22 @@ const Saas = () => {
 
   return (
     <ShowcaseCard
-      htmlFor={htmlFor}
+      htmlFor={"saas"}
       id={"saas"}
       isChecked={isChecked}
       handleOnClick={handleOnClick}
-      className={`relative`}
+      className={`relative group`}
     >
-      <>
+      <div className="z-50 pt-[126px] bg-[#d9d9d9]  w-fit h-full ">
         <p
-          className={`opacity-0 blur-sm peer-checked:blur-none peer-checked:opacity-100 transition-all duration-500 ease-in-out delay-150 font-poppins text-xl text-[#161414] tracking-widest mt-[126px] ml-[57px] font-medium`}
+          className={`opacity-0 blur-sm group-has-[:checked]:blur-none group-has-[:checked]:opacity-100 transition-all duration-500 ease-in-out delay-150 font-poppins text-xl text-[#161414] tracking-widest  ml-[57px] font-medium`}
         >
           product category
         </p>
-        <h2 className="font-poppins text-[80px] font-extrabold text-[#2d2d2d] leading-[90%] peer-checked:text-[#2d2d2d]/10 transition-all duration-300 ease-in-out delay-150 ml-[54px]">
+        <h2 className="font-poppins text-[80px] font-extrabold text-[#2d2d2d] leading-[90%] group-has-[:checked]:text-[#2d2d2d]/10 transition-all duration-300 ease-in-out delay-150 ml-[54px]">
           SaaS
         </h2>
-        <div className="mt-[78px] ml-[57px] opacity-0 blur-sm peer-checked:blur-none peer-checked:opacity-100 transition-all duration-500 ease-in-out">
+        <div className="mt-[78px] ml-[57px] opacity-0 blur-sm group-has-[:checked]:blur-none group-has-[:checked]:opacity-100 transition-all duration-500 ease-in-out">
           <p className="font-poppins font-medium text-xl text-[#161414] tracking-widest">
             product name
           </p>
@@ -70,74 +68,105 @@ const Saas = () => {
           <h3 className="font-poppins font-extralight text-[32px] text-[#2d2d2d] ">
             designer
           </h3>
-        </div>{" "}
-      </>
-      <div className="w-[745px] h-full absolute right-0 top-0 z-40 opacity-0 blur-sm peer-checked:blur-none peer-checked:opacity-100 transition-all duration-500">
-        <Swiper
-          spaceBetween={50}
-          slidesPerView={1}
-          effect=""
-          speed={500}
-          modules={[]}
-          onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
-          className={`w-full h-full relative`}
-        >
-          <SwiperSlide className="flex flex-col pr-[64px] relative">
-            <img
-              src="/images/saas/slide-1.png"
-              alt="slide-1"
-              className="mt-auto "
-            />
-          </SwiperSlide>
-          <SwiperSlide className="flex">
-            <img
-              src="/images/saas/slide-2.png"
-              alt="slide-2"
-              className="my-auto w-[652px]"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="flex">
-            <img
-              src="/images/saas/slide-3.png"
-              alt="slide-3"
-              className="my-auto w-[652px]"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="flex justify-center pr-[64px]">
-            {" "}
-            <img
-              src="/images/saas/slide-4.png"
-              alt="slide-4"
-              className="my-auto w-[423px]"
-            />
-          </SwiperSlide>
-
-          <button className="" onClick={() => swiperRef.current.slidePrev()}>
-            <img
-              src="/images/carousal-backward.png"
-              alt="carousal-backward"
-              className={`absolute bottom-[21px] left-0 size-[50px] z-50 ${
-                currentIndex !== 0
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-0"
-              } transition-all duration-[350] ease-in-out`}
-            />
-          </button>
-
-          <button className="" onClick={() => swiperRef.current.slideNext()}>
-            <img
-              src="/images/carousal-forward.png"
-              alt="carousal-forward"
-              className={`absolute bottom-[21px] right-[86px] size-[50px] z-50  ${
-                currentIndex !== 3
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-0"
-              } transition-all duration-[350] ease-in-out`}
-            />
-          </button>
-        </Swiper>
+        </div>
       </div>
+      <AnimatePresence>
+        {isChecked && (
+          <motion.div
+            initial={{
+              x: 100,
+              opacity: 0,
+              filter: "blur(10px)",
+            }}
+            animate={{
+              x: 0,
+              opacity: 1,
+              filter: "blur(0px)",
+            }}
+            exit={{
+              x: 100,
+              opacity: 0,
+              filter: "blur(10px)",
+            }}
+            transition={{
+              duration: isChecked ? 0.8 : 0.3,
+              ease: isChecked ? [0.4, 0, 0.2, 1] : [0.4, 0, 1, 1],
+              delay: isChecked ? 0.15 : 1,
+            }}
+            className="w-[745px] h-full absolute right-0 top-0 -z-50"
+          >
+            <Swiper
+              spaceBetween={50}
+              slidesPerView={1}
+              effect=""
+              speed={500}
+              modules={[]}
+              onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+              className={`w-full h-full relative`}
+            >
+              <SwiperSlide className="flex flex-col pr-[64px] relative">
+                <img
+                  src="/images/saas/slide-1.png"
+                  alt="slide-1"
+                  className="mt-auto"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex">
+                <img
+                  src="/images/saas/slide-2.png"
+                  alt="slide-2"
+                  className="my-auto w-[652px]"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex">
+                <img
+                  src="/images/saas/slide-3.png"
+                  alt="slide-3"
+                  className="my-auto w-[652px]"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex justify-center pr-[64px]">
+                <img
+                  src="/images/saas/slide-4.png"
+                  alt="slide-4"
+                  className="my-auto w-[423px]"
+                />
+              </SwiperSlide>
+
+              <button
+                className=""
+                onClick={() => swiperRef.current.slidePrev()}
+              >
+                <img
+                  src="/images/carousal-backward.png"
+                  alt="carousal-backward"
+                  className={`absolute bottom-[21px] left-0 size-[50px] z-50 ${
+                    currentIndex !== 0
+                      ? "opacity-100 scale-100"
+                      : "opacity-0 scale-0"
+                  } transition-all duration-[350] ease-in-out`}
+                />
+              </button>
+
+              <button
+                className=""
+                onClick={() => swiperRef.current.slideNext()}
+              >
+                <img
+                  src="/images/carousal-forward.png"
+                  alt="carousal-forward"
+                  className={`absolute bottom-[21px] right-[86px] size-[50px] z-50  ${
+                    currentIndex !== 3
+                      ? "opacity-100 scale-100"
+                      : "opacity-0 scale-0"
+                  } transition-all duration-[350] ease-in-out`}
+                />
+              </button>
+            </Swiper>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {isChecked && (
         <button
           onClick={handleCloseClick}

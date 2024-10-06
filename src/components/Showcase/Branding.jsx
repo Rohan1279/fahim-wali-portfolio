@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import ShowcaseCard from "./ShowcaseCard";
 
 const Branding = () => {
+  const [isChecked, setIsChecked] = useState(false);
+  const handleOnClick = useCallback(
+    (e) => {
+      if (!isChecked) {
+        setIsChecked(true);
+      } else {
+        // Prevent the click from propagating to the label when checked
+        e.preventDefault();
+      }
+    },
+    [isChecked]
+  );
+
+  const handleCloseClick = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsChecked(false);
+  }, []);
   return (
     <ShowcaseCard
+      isChecked={isChecked}
+      handleOnClick={handleOnClick}
       htmlFor={"branding"}
       id={"branding"}
       className={`translate-y-[38px] transition-all ease-in-out duration-300 relative overflow-hidden group/branding `}
@@ -19,6 +39,18 @@ const Branding = () => {
         <span className="block text-[#A67458] -mt-1">di</span>
         <span className="block">ng</span>
       </div>
+      {isChecked && (
+        <button
+          onClick={handleCloseClick}
+          className="absolute top-[18px] right-4 z-50"
+        >
+          <img
+            src="/images/close-button.svg"
+            alt="close-button"
+            className="size-[46px]"
+          />
+        </button>
+      )}
     </ShowcaseCard>
   );
 };
