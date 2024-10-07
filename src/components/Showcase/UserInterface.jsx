@@ -66,18 +66,67 @@ const UserInterface = () => {
         animate={{ opacity: isChecked ? 1 : 0 }}
         transition={{ duration: 0.5 }}
       />
+
       <motion.button
         onClick={handleCloseClick}
         className="absolute top-5 left-1/2 z-50"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isChecked ? 1 : 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{
+          scale: 0,
+          opacity: 0,
+          rotate: -180,
+          y: -50,
+        }}
+        animate={{
+          scale: 1,
+          opacity: 1,
+          rotate: 0,
+          y: 0,
+        }}
+        exit={{
+          scale: 0,
+          opacity: 0,
+          rotate: 180,
+          y: -50,
+        }}
+        whileHover={{
+          scale: 1.1,
+        }}
+        whileTap={{
+          scale: 0.95,
+          rotate: -10,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 200,
+          damping: 15,
+          duration: 0.6,
+        }}
       >
-        <img
-          src="/images/close-button-white.svg"
-          alt="close-button"
-          className="size-[55px]"
-        />
+        <motion.div
+          className="rounded-full"
+          whileHover={{
+            rotate: 90,
+            transition: {
+              type: "spring",
+              stiffness: 300,
+              damping: 10,
+            },
+          }}
+          initial={{ rotate: -90 }}
+          animate={{ rotate: 0 }}
+          transition={{
+            delay: 0.2,
+            type: "spring",
+            stiffness: 200,
+            damping: 10,
+          }}
+        >
+          <img
+            src="/images/close-button-white.svg"
+            alt="close-button"
+            className="size-[55px]"
+          />
+        </motion.div>
       </motion.button>
 
       <motion.div
