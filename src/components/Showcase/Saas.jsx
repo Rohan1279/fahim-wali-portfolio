@@ -72,8 +72,8 @@ const Saas = () => {
     >
       <div className="z-50 pt-[126px] bg-[#d9d9d9] w-fit h-full">
         <p
-          className={`font-poppins text-xl text-[#161414] tracking-widest ml-[57px] font-medium opacity-0 blur-sm ${
-            isChecked ? "opacity-100 blur-none" : ""
+          className={`font-poppins text-xl text-[#161414] tracking-widest ml-[57px] font-medium opacity-0 ${
+            isChecked ? "opacity-100" : ""
           } transition-all duration-500 ease-in-out delay-150`}
         >
           product category

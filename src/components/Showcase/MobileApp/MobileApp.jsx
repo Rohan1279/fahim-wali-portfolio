@@ -3,6 +3,44 @@ import ShowcaseCard from "../ShowcaseCard";
 import Pedal from "./Pedal";
 import Simvest from "./Simvest";
 import { motion } from "framer-motion";
+const containerVariants = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const mobileTextVariants = {
+  initial: (custom) => ({
+    opacity: 0,
+    y: 0,
+  }),
+  animate: (custom) => ({
+    opacity: 1,
+    y: custom * -4, // Upward movement for Mobile texts
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+};
+
+const appTextVariants = {
+  initial: (custom) => ({
+    opacity: 0,
+    y: 0,
+  }),
+  animate: (custom) => ({
+    opacity: 1,
+    y: custom * 4, // Downward movement for App texts
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+};
 const MobileApp = () => {
   const [currentApp, setCurrentApp] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,44 +67,6 @@ const MobileApp = () => {
     setIsChecked(false);
     setCurrentApp(null);
   }, []);
-  const containerVariants = {
-    initial: {},
-    animate: {
-      transition: {
-        staggerChildren: 0.08,
-      },
-    },
-  };
-
-  const mobileTextVariants = {
-    initial: (custom) => ({
-      opacity: 0,
-      y: 0,
-    }),
-    animate: (custom) => ({
-      opacity: 1,
-      y: custom * -4, // Upward movement for Mobile texts
-      transition: {
-        duration: 0.5,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    }),
-  };
-
-  const appTextVariants = {
-    initial: (custom) => ({
-      opacity: 0,
-      y: 0,
-    }),
-    animate: (custom) => ({
-      opacity: 1,
-      y: custom * 4, // Downward movement for App texts
-      transition: {
-        duration: 0.5,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    }),
-  };
 
   return (
     <ShowcaseCard
@@ -76,7 +76,7 @@ const MobileApp = () => {
       id={"mobile-app"}
       className={`translate-y-[116px] overflow-hidden group`}
     >
-      {currentIndex === 0 ? (
+      {!currentApp ? (
         <motion.div
           className="bg-[#d9d9d9] w-fit h-full group-has-[:checked]:py-[57px] group-has-[:checked]:pl-[43px] transition-all ease-in-out duration-300 z-50"
           variants={containerVariants}
@@ -176,39 +176,82 @@ const MobileApp = () => {
           </motion.h2>
         </motion.div>
       ) : (
-        <div className="font-poppins pl-[43px] pt-[68px] z-50">
-          <p className={`text-xl text-[#2D2D2D] font-medium tracking-widest`}>
+        <div className="font-poppins pl-[43px] pt-[68px] z-50 w-fit h-full bg-[#d9d9d9]">
+          <motion.p
+            className="text-xl text-[#2D2D2D] font-medium tracking-widest"
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.05, duration: 0.4, ease: "easeOut" }}
+          >
             product category
-          </p>
-          <h2 className=" text-[64px] font-extrabold text-[#2D2D2D]/10  leading-none mt-3">
+          </motion.p>
+          <motion.h2
+            className="text-[64px] font-extrabold text-[#2D2D2D]/10 leading-none mt-3"
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.4, ease: "easeOut" }}
+          >
             Mobile
-          </h2>
-          <h2 className=" text-[64px] font-extrabold text-[#2D2D2D]/10  leading-none">
+          </motion.h2>
+          <motion.h2
+            className="text-[64px] font-extrabold text-[#2D2D2D]/10 leading-none"
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.15, duration: 0.4, ease: "easeOut" }}
+          >
             App
-          </h2>
-          <p
-            className={`text-xl text-[#2D2D2D] font-medium tracking-widest mt-[69px]`}
+          </motion.h2>
+          <motion.p
+            className="text-xl text-[#2D2D2D] font-medium tracking-widest mt-[69px]"
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.4, ease: "easeOut" }}
           >
             product name
-          </p>
+          </motion.p>
           {currentApp === "pedal" ? (
-            <img
+            <motion.img
               src="/images/mobile-app/pedal/pedal-logo.png"
               alt="pedal-logo"
               className="w-[122px] -translate-x-10 -translate-y-3"
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.25, duration: 0.4, ease: "easeOut" }}
             />
           ) : (
-            <img
+            <motion.img
               src="/images/mobile-app/simvest/simvest-logo.png"
               alt="simvest-logo"
               className="w-[193px] mt-[11px] mb-[37px]"
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.25, duration: 0.4, ease: "easeOut" }}
             />
           )}
-          <p className={`text-xl text-[#2D2D2D] font-medium tracking-widest`}>
+          <motion.p
+            className="text-xl text-[#2D2D2D] font-medium tracking-widest"
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
+          >
             role
-          </p>
-          <p className="text-[32px] font-extralight leading-none">ux/ui</p>
-          <p className="text-[32px] font-extralight leading-none">designer</p>
+          </motion.p>
+          <motion.p
+            className="text-[32px] font-extralight leading-none"
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.35, duration: 0.4, ease: "easeOut" }}
+          >
+            ux/ui
+          </motion.p>
+          <motion.p
+            className="text-[32px] font-extralight leading-none"
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.4, ease: "easeOut" }}
+          >
+            designer
+          </motion.p>
         </div>
       )}
 

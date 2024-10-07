@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Navigation,
   Pagination,
@@ -17,6 +17,14 @@ const Pedal = ({
   setCurrentIndex,
 }) => {
   const swiperRef = useRef(null);
+  useEffect(() => {
+    if (!currentApp) {
+      if (swiperRef.current) {
+        swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+      }
+    }
+  }, [currentApp]);
+
   return (
     <div className="h-full pt-[89px] leading-none flex border-blue-500 ">
       <Swiper
@@ -116,53 +124,53 @@ const Pedal = ({
             className="h-[455px] w-[669px] ml-auto"
           />
         </SwiperSlide>
-        {currentIndex > 0 && (
-          <div className="ml-auto flex justify-between w-[664px] absolute bottom-7 right-0 ">
-            <button
-              className="size-[50px] z-50"
-              onClick={() => swiperRef.current.slidePrev()}
-            >
-              <img
-                src="/images/carousal-backward.png"
-                alt="carousal-backward"
-                className={` z-50  ${
-                  currentIndex <= 3
-                    ? "opacity-100 scale-100"
-                    : "opacity-0 scale-0"
-                } transition-all duration-[350] ease-in-out`}
-              />
-            </button>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setCurrentApp(null);
-                if (swiperRef.current) {
-                  swiperRef.current.slideTo(0); // Reset Swiper to the first slide
-                }
-              }}
-              className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373] z-50"
-            >
-              back to mobile app{" "}
-            </button>
-
-            <button
-              className="size-[50px] z-50"
-              onClick={() => swiperRef.current.slideNext()}
-            >
-              <img
-                src="/images/carousal-forward.png"
-                alt="carousal-forward"
-                className={` z-50  ${
-                  currentIndex === 3
-                    ? "opacity-0 scale-0"
-                    : "opacity-100 scale-100"
-                } transition-all duration-[350] ease-in-out`}
-              />
-            </button>
-          </div>
-        )}
       </Swiper>
+      {currentApp && swiperRef.current && swiperRef.current.activeIndex > 0 && (
+        <div className="ml-auto flex justify-between w-[664px] absolute bottom-7 right-0 ">
+          <button
+            className="size-[50px] z-50"
+            onClick={() => swiperRef.current.slidePrev()}
+          >
+            <img
+              src="/images/carousal-backward.png"
+              alt="carousal-backward"
+              className={` z-50  ${
+                currentIndex <= 3
+                  ? "opacity-100 scale-100"
+                  : "opacity-0 scale-0"
+              } transition-all duration-[350] ease-in-out`}
+            />
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setCurrentApp(null);
+              if (swiperRef.current) {
+                swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+              }
+            }}
+            className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373] z-50"
+          >
+            back to mobile app{" "}
+          </button>
+
+          <button
+            className="size-[50px] z-50"
+            onClick={() => swiperRef.current.slideNext()}
+          >
+            <img
+              src="/images/carousal-forward.png"
+              alt="carousal-forward"
+              className={` z-50  ${
+                currentIndex === 3
+                  ? "opacity-0 scale-0"
+                  : "opacity-100 scale-100"
+              } transition-all duration-[350] ease-in-out`}
+            />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
