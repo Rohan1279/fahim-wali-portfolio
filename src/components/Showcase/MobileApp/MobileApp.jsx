@@ -76,7 +76,7 @@ const MobileApp = () => {
       id={"mobile-app"}
       className={`translate-y-[116px] overflow-hidden group`}
     >
-      {!currentApp ? (
+      {currentIndex === 0 || !currentApp ? (
         <motion.div
           className="bg-[#d9d9d9] w-fit h-full group-has-[:checked]:py-[57px] group-has-[:checked]:pl-[43px] transition-all ease-in-out duration-300 z-50"
           variants={containerVariants}
@@ -213,7 +213,7 @@ const MobileApp = () => {
             <motion.img
               src="/images/mobile-app/pedal/pedal-logo.png"
               alt="pedal-logo"
-              className="w-[122px] -translate-x-10 -translate-y-3"
+              className="w-[122px] -ml-10 -translate-y-3"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.25, duration: 0.4, ease: "easeOut" }}
