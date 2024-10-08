@@ -86,3 +86,19 @@
   inset: 0;
   z-index: 0;
 }
+
+.gradientBorderMask::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #a67458, #2d2d2d) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}

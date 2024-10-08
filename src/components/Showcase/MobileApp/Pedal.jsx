@@ -9,7 +9,7 @@ import {
   EffectCube,
 } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-
+import { motion } from "framer-motion";
 const Pedal = ({
   currentApp,
   setCurrentApp,
