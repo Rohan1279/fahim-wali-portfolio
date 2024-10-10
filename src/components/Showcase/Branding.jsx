@@ -1,14 +1,15 @@
 import React, { useCallback, useState } from "react";
 import ShowcaseCard from "./ShowcaseCard";
 import { motion } from "framer-motion";
+
 const Branding = () => {
   const [isChecked, setIsChecked] = useState(false);
+
   const handleOnClick = useCallback(
     (e) => {
       if (!isChecked) {
         setIsChecked(true);
       } else {
-        // Prevent the click from propagating to the label when checked
         e.preventDefault();
       }
     },
@@ -20,20 +21,78 @@ const Branding = () => {
     e.stopPropagation();
     setIsChecked(false);
   }, []);
+
+  const imageVariants = {
+    hidden: { x: -100, opacity: 0 },
+    visible: (custom) => ({
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: custom * 0.2,
+        duration: 0.8,
+        type: "spring",
+        stiffness: 100,
+        damping: 12,
+      },
+    }),
+  };
+
+  const images = [
+    {
+      src: "/images/branding/color-palette.png",
+      alt: "color-palette",
+      className: "w-[467px] absolute left-[62px] top-10 z-50",
+      customDelay: 0,
+    },
+    {
+      src: "/images/branding/hero.png",
+      alt: "hero",
+      className: "w-[593px] absolute bottom-[0]",
+      customDelay: 1,
+    },
+    {
+      src: "/images/branding/cup.png",
+      alt: "cup",
+      className: "w-[187px] absolute right-[48px] z-50",
+      customDelay: 2,
+    },
+    {
+      src: "/images/branding/water-bottle.png",
+      alt: "water-bottle",
+      className: "w-[282px] absolute right-0 top-[141px] z-40",
+      customDelay: 3,
+    },
+    {
+      src: "/images/branding/water-bottle-2.png",
+      alt: "water-bottle-2",
+      className: "w-[176px] absolute right-[53px] bottom-5 z-50",
+      customDelay: 4,
+    },
+  ];
+
   return (
     <ShowcaseCard
       isChecked={isChecked}
       handleOnClick={handleOnClick}
-      htmlFor={"branding"}
-      id={"branding"}
-      className={`translate-y-[38px] transition-all ease-in-out duration-300 relative overflow-hidden group/branding `}
+      htmlFor="branding"
+      id="branding"
+      className="translate-y-[38px] transition-all ease-in-out duration-300 relative overflow-hidden group/branding"
     >
-      <img
-        src="/images/branding-image.png"
-        alt="branding-image"
-        className="w-[794px] mt-[32px] ml-[35px]  object-cover opacity-0 group-has-[:checked]:opacity-100 transition-all duration-500 ease-in-out "
-      />
-      <div className="absolute top-[100px] right-[80px] transition-all delay-[600ms] z-50  font-poppins text-[128px] font-extrabold text-[#2d2d2d] leading-[5.2rem]">
+      <div className="relative w-[794px] h-[540px] mt-[32px] ml-[35px]">
+        {images.map((image, index) => (
+          <motion.img
+            key={image.alt}
+            src={image.src}
+            alt={image.alt}
+            className={image.className}
+            initial="hidden"
+            animate={isChecked ? "visible" : "hidden"}
+            variants={imageVariants}
+            custom={image.customDelay}
+          />
+        ))}
+      </div>
+      <div className="absolute top-0 right-0 pt-[100px] pr-[74px] text-right bg-[#d9d9d9] h-full w-[300px] transition-all delay-[600ms] z-50 font-poppins text-[128px] font-extrabold text-[#2d2d2d] leading-[5.2rem]">
         <span className="block">br</span>
         <span className="block">an</span>
         <span className="block text-[#A67458] -mt-1">di</span>

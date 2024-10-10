@@ -455,9 +455,6 @@ const MobileApp = () => {
               duration: 0.5,
               ease: "easeOut",
             }}
-            type="email"
-            name="email"
-            placeholder="Type your email address here..."
             className="w-full h-full bg-transparent text-[14px] text-[#D9D9D9] font-poppins font-extralight subpixel-antialiased tracking-widest"
           >
             <motion.span
