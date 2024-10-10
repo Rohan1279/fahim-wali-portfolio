@@ -1,4 +1,74 @@
 <svg width="188" height="38" viewBox="0 0 188 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- <style>
+    path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw 2s forwards;
+    }
+    
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    
+    /* Stagger the animations */
+    path:nth-child(1) { animation-delay: 0.1s; }
+    path:nth-child(2) { animation-delay: 0.2s; }
+    path:nth-child(3) { animation-delay: 0.3s; }
+    path:nth-child(4) { animation-delay: 0.4s; }
+    path:nth-child(5) { animation-delay: 0.5s; }
+    path:nth-child(6) { animation-delay: 0.6s; }
+    path:nth-child(7) { animation-delay: 0.7s; }
+    path:nth-child(8) { animation-delay: 0.8s; }
+    path:nth-child(9) { animation-delay: 0.9s; }
+    path:nth-child(10) { animation-delay: 1.0s; }
+    path:nth-child(11) { animation-delay: 1.1s; }
+    path:nth-child(12) { animation-delay: 1.2s; }
+    path:nth-child(13) { animation-delay: 1.3s; }
+    path:nth-child(14) { animation-delay: 1.4s; }
+    path:nth-child(15) { animation-delay: 1.5s; }
+    path:nth-child(16) { animation-delay: 1.6s; }
+    path:nth-child(17) { animation-delay: 1.7s; }
+    path:nth-child(18) { animation-delay: 1.8s; }
+    path:nth-child(19) { animation-delay: 1.9s; }
+    path:nth-child(19) { animation-delay: 2s; }
+  </style> -->
+  <style>
+    path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw 2s forwards;
+    }
+    
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    
+    /* Corrected staggered animations for all 20 paths */
+    path:nth-child(1) { animation-delay: 0.1s; }
+    path:nth-child(2) { animation-delay: 0.2s; }
+    path:nth-child(3) { animation-delay: 0.3s; }
+    path:nth-child(4) { animation-delay: 0.4s; }
+    path:nth-child(5) { animation-delay: 0.5s; }
+    path:nth-child(6) { animation-delay: 0.6s; }
+    path:nth-child(7) { animation-delay: 0.7s; }
+    path:nth-child(8) { animation-delay: 0.8s; }
+    path:nth-child(9) { animation-delay: 0.9s; }
+    path:nth-child(10) { animation-delay: 1.0s; }
+    path:nth-child(11) { animation-delay: 1.1s; }
+    path:nth-child(12) { animation-delay: 1.2s; }
+    path:nth-child(13) { animation-delay: 1.3s; }
+    path:nth-child(14) { animation-delay: 1.4s; }
+    path:nth-child(15) { animation-delay: 1.5s; }
+    path:nth-child(16) { animation-delay: 1.6s; }
+    path:nth-child(17) { animation-delay: 1.7s; }
+    path:nth-child(18) { animation-delay: 1.8s; }
+    path:nth-child(19) { animation-delay: 1.9s; }
+    path:nth-child(20) { animation-delay: 2.0s; } /* Added delay for the last path */
+  </style>
 <path d="M8.24014 8.08191C8.24014 7.057 8.39458 3.30908 7.35434 6.77652C5.6197 12.5587 4.51405 18.5555 3.20508 24.4459" stroke="#1E1E1E" stroke-width="3" stroke-linecap="round"/>
 <path d="M1.94629 3.46648C2.33587 2.80419 2.76267 2.33949 3.57802 2.20771C7.7244 1.53759 13.4738 1.94393 17.1913 3.93269C23.7093 7.41955 15.5327 11.6293 12.2495 12.5109C9.49288 13.2512 7.11697 13.1656 4.46382 12.6974" stroke="#1E1E1E" stroke-width="3" stroke-linecap="round"/>
 <path d="M12.436 17.7325C14.2435 18.6894 13.7158 20.0973 13.4617 22.0216C13.0798 24.9131 14.1694 21.288 14.7904 20.5064C16.6475 18.169 18.2771 17.5144 20.8278 18.1521" stroke="#1E1E1E" stroke-width="3" stroke-linecap="round"/>

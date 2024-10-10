@@ -59,7 +59,7 @@ const CustomSonner = () => {
             },
             borderRadius: {
               delay: 0.2,
-              duration: 1.8,
+              duration: 0.8,
             },
             filter: {
               delay: 0.1,
@@ -87,7 +87,7 @@ const CustomSonner = () => {
           >
             <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               Subscribe on{" "}
-              <span className="hover:text-blue-500 hover:underline transition-all">
+              <span className="hover:text-blue-500 hover:underline transition-all font-bold">
                 LinkedIn
               </span>
             </motion.span>
