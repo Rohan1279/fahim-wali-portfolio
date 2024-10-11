@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import AnimatedSVG from "./AnimatedSVG";
 const Hero = () => {
   return (
     <div className="pt-[9px]">
@@ -80,7 +81,7 @@ const Hero = () => {
             <motion.img
               src="/images/fahim.png"
               alt="fahim"
-              className="absolute inset-y-9 inset-x-12 w-[250px] h-[259px]"
+              className="absolute inset-y-4 inset-x-12 w-[250px] h-[259px]"
               initial={{ rotate: -10, y: 20, opacity: 0 }}
               animate={{ rotate: 5.46, y: 0, opacity: 1 }}
               transition={{
@@ -90,11 +91,24 @@ const Hero = () => {
                 stiffness: 80,
               }}
             />
-            <motion.img
+            {/* <motion.img
               src="/images/product-designer-sketch.svg"
               alt="product-designer-sketch"
               className="object-cover absolute inset-x-16 inset-y-[310px] rotate-[3.08deg]"
-            />
+            /> */}
+            <motion.div
+              className="absolute inset-x-16 inset-y-72"
+              initial={{ scale: 0, rotate: -2 }}
+              animate={{ scale: 1, rotate: 2.08 }}
+              transition={{
+                delay: 0.6,
+                type: "spring",
+                damping: 8,
+                stiffness: 70,
+              }}
+            >
+              <AnimatedSVG />
+            </motion.div>
           </motion.div>
         </div>
       </div>

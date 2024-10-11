@@ -41,7 +41,7 @@ const appTextVariants = {
     },
   }),
 };
-const MobileApp = () => {
+const MobileApp = ({ delay, index }) => {
   const [currentApp, setCurrentApp] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -71,11 +71,13 @@ const MobileApp = () => {
   return (
     <>
       <ShowcaseCard
+        delay={delay}
+        index={index}
         isChecked={isChecked}
         handleOnClick={handleOnClick}
         htmlFor={"mobile-app"}
         id={"mobile-app"}
-        className={`translate-y-[116px] overflow-hidden group`}
+        className={`mt-[116px] overflow-hidden group`}
       >
         {currentIndex === 0 || !currentApp ? (
           <motion.div

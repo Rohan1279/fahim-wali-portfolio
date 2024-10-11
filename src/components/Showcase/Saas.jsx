@@ -13,7 +13,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ShowcaseCard from "./ShowcaseCard";
 import LinearBlur from "../ProgressiveBlur/ProgressiveBlur";
 
-const Saas = () => {
+const Saas = ({ delay, index }) => {
   const swiperRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -65,6 +65,8 @@ const Saas = () => {
   return (
     <>
       <ShowcaseCard
+        delay={delay}
+        index={index}
         htmlFor={"saas"}
         id={"saas"}
         isChecked={isChecked}

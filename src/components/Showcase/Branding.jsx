@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import ShowcaseCard from "./ShowcaseCard";
 import { motion } from "framer-motion";
 
-const Branding = () => {
+const Branding = ({ delay, index }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleOnClick = useCallback(
@@ -71,33 +71,37 @@ const Branding = () => {
   ];
 
   return (
-    <ShowcaseCard
-      isChecked={isChecked}
-      handleOnClick={handleOnClick}
-      htmlFor="branding"
-      id="branding"
-      className="translate-y-[38px] transition-all ease-in-out duration-300 relative overflow-hidden group/branding"
-    >
-      <div className="relative w-[794px] h-[540px] mt-[32px] ml-[35px]">
-        {images.map((image, index) => (
-          <motion.img
-            key={image.alt}
-            src={image.src}
-            alt={image.alt}
-            className={image.className}
-            initial="hidden"
-            animate={isChecked ? "visible" : "hidden"}
-            variants={imageVariants}
-            custom={image.customDelay}
-          />
-        ))}
-      </div>
-      <div className="absolute top-0 right-0 pt-[100px] pr-[74px] text-right bg-[#d9d9d9] h-full w-[300px] transition-all delay-[600ms] z-50 font-poppins text-[128px] font-extrabold text-[#2d2d2d] leading-[5.2rem]">
-        <span className="block">br</span>
-        <span className="block">an</span>
-        <span className="block text-[#A67458] -mt-1">di</span>
-        <span className="block">ng</span>
-      </div>
+    <>
+      <ShowcaseCard
+        delay={delay}
+        index={index}
+        isChecked={isChecked}
+        handleOnClick={handleOnClick}
+        htmlFor="branding"
+        id="branding"
+        className="mt-[38px] relative overflow-hidden group/branding"
+      >
+        <div className="relative w-[794px] h-[540px] mt-[32px] ml-[35px]">
+          {images.map((image, index) => (
+            <motion.img
+              key={image.alt}
+              src={image.src}
+              alt={image.alt}
+              className={image.className}
+              initial="hidden"
+              animate={isChecked ? "visible" : "hidden"}
+              variants={imageVariants}
+              custom={image.customDelay}
+            />
+          ))}
+        </div>
+        <div className="absolute top-0 right-0 pt-[100px] pr-[74px] text-right bg-[#d9d9d9] h-full w-[300px] transition-all delay-[600ms] z-50 font-poppins text-[128px] font-extrabold text-[#2d2d2d] leading-[5.2rem]">
+          <span className="block">br</span>
+          <span className="block">an</span>
+          <span className="block text-[#A67458] -mt-1">di</span>
+          <span className="block">ng</span>
+        </div>
+      </ShowcaseCard>
       {isChecked && (
         <motion.button
           onClick={handleCloseClick}
@@ -161,7 +165,7 @@ const Branding = () => {
           </motion.div>
         </motion.button>
       )}
-    </ShowcaseCard>
+    </>
   );
 };
 

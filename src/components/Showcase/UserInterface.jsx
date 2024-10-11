@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import ShowcaseCard from "./ShowcaseCard";
 import { motion } from "framer-motion";
 
-const UserInterface = () => {
+const UserInterface = ({ delay, index }) => {
   const [isChecked, setIsChecked] = useState(false);
   const handleOnClick = useCallback(
     (e) => {
@@ -53,6 +53,8 @@ const UserInterface = () => {
   return (
     <>
       <ShowcaseCard
+        delay={delay}
+        index={index}
         isChecked={isChecked}
         handleOnClick={handleOnClick}
         htmlFor={"user-interface"}

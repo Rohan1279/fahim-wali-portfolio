@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 .showcase-gallery:has(label input:checked) > label {
-  transform: translateY(0px);
+  margin-top: 0px;
   height: 100%;
   transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
   animation: grow cubic-bezier(0.76, 0, 0.24, 1) forwards 0.5s;
