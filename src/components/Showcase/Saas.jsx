@@ -18,6 +18,7 @@ const Saas = ({ delay, index }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [isChecked, setIsChecked] = useState(false);
+  console.log("isChecked", isChecked);
   const handleOnClick = useCallback(
     (e) => {
       if (!isChecked) {
@@ -139,12 +140,11 @@ const Saas = ({ delay, index }) => {
               exit={{
                 x: 100,
                 opacity: 0,
-                filter: "blur(10px)",
               }}
               transition={{
-                duration: isChecked ? 0.8 : 0.3,
-                ease: isChecked ? [0.4, 0, 0.2, 1] : [0.4, 0, 1, 1],
-                delay: isChecked ? 1 : 0.15,
+                duration: 0.8,
+                ease: [0.4, 0, 0.2, 1],
+                delay: 1,
               }}
               className="w-3/4 h-full absolute right-0 top-0 -z-50 "
             >

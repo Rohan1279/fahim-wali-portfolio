@@ -5,7 +5,7 @@ import Philosophy from "./components/Philosophy/Philosophy";
 import Showcase from "./components/Showcase/Showcase";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
-
+import { Worker } from "@react-pdf-viewer/core";
 const CustomSonner = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -107,13 +107,15 @@ const CustomSonner = () => {
 };
 const App = () => {
   return (
-    <div className="bg-[#161414] min-h-screen flex flex-col justify-center items-center">
-      <Hero />
-      <Showcase />
-      <Inspiration />
-      <Philosophy />
-      <CustomSonner />
-    </div>
+    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+      <div className="bg-[#161414] min-h-screen flex flex-col justify-center items-center">
+        <Hero />
+        <Showcase />
+        <Inspiration />
+        <Philosophy />
+        <CustomSonner />
+      </div>
+    </Worker>
   );
 };
 
