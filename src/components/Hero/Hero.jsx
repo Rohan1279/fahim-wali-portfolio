@@ -11,7 +11,7 @@ const Hero = () => {
       />
       <div className="flex space-x-[142px] justify-center items-center pl-[61px] pr-[92px]">
         {/* HERO LEFT */}
-        <div className=" translate-y-[40px]">
+        <div className=" translate-y-[40px] ">
           <img
             src="/images/banner-left.svg"
             alt="Banner"

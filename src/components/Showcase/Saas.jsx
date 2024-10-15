@@ -73,7 +73,7 @@ const Saas = ({ delay, index }) => {
         handleOnClick={handleOnClick}
         className={`relative group`}
       >
-        <div className="z-50 pt-[126px] bg-[#d9d9d9] w-fit h-full">
+        <div className="z-50 pt-[126px] bg-[#d9d9d9] w-fit h-full ">
           <p
             className={`font-poppins text-xl text-[#161414] tracking-widest ml-[57px] font-medium opacity-0 ${
               isChecked ? "opacity-100" : ""
@@ -144,9 +144,9 @@ const Saas = ({ delay, index }) => {
               transition={{
                 duration: isChecked ? 0.8 : 0.3,
                 ease: isChecked ? [0.4, 0, 0.2, 1] : [0.4, 0, 1, 1],
-                delay: isChecked ? 0.15 : 1,
+                delay: isChecked ? 1 : 0.15,
               }}
-              className="w-[745px] h-full absolute right-0 top-0 -z-50"
+              className="w-3/4 h-full absolute right-0 top-0 -z-50 "
             >
               <Swiper
                 spaceBetween={50}
@@ -156,37 +156,38 @@ const Saas = ({ delay, index }) => {
                 modules={[]}
                 onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
-                className={`w-full h-full relative`}
+                className={`w-full h-full relative `}
               >
                 <SwiperSlide className="flex flex-col pr-[64px] relative">
                   <img
                     src="/images/saas/slide-1.png"
                     alt="slide-1"
-                    className="mt-auto"
+                    className="w-[710px] mt-auto ml-auto"
                   />
                 </SwiperSlide>
-                <SwiperSlide className="flex">
+                <SwiperSlide className="flex pr-[93px]">
                   <img
                     src="/images/saas/slide-2.png"
                     alt="slide-2"
-                    className="my-auto w-[652px]"
+                    className="my-auto w-[652px] ml-auto"
                   />
                 </SwiperSlide>
-                <SwiperSlide className="flex">
+                <SwiperSlide className="flex pr-[93px]">
                   <img
                     src="/images/saas/slide-3.png"
                     alt="slide-3"
-                    className="my-auto w-[652px]"
+                    className="my-auto w-[652px] ml-auto"
                   />
                 </SwiperSlide>
-                <SwiperSlide className="flex justify-center pr-[64px]">
+                <SwiperSlide className="flex justify-center pr-[174px] ">
                   <img
                     src="/images/saas/slide-4.png"
                     alt="slide-4"
-                    className="my-auto w-[423px]"
+                    className="my-auto w-[423px] ml-auto "
                   />
                 </SwiperSlide>
 
+                {/* NEXT & PREV BUTTON */}
                 <button
                   className=""
                   onClick={() => swiperRef.current.slidePrev()}
@@ -194,7 +195,7 @@ const Saas = ({ delay, index }) => {
                   <img
                     src="/images/carousal-backward.png"
                     alt="carousal-backward"
-                    className={`absolute bottom-[21px] left-0 size-[50px] z-50 ${
+                    className={`absolute bottom-[21px] left-[105px] size-[50px] z-50 ${
                       currentIndex !== 0
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-0"
@@ -220,6 +221,7 @@ const Saas = ({ delay, index }) => {
             </motion.div>
           )}
         </AnimatePresence>
+        {/* CLOSE BUTTON */}
         {isChecked && (
           <motion.button
             onClick={handleCloseClick}
@@ -284,6 +286,7 @@ const Saas = ({ delay, index }) => {
           </motion.button>
         )}
       </ShowcaseCard>
+      {/* VIEW PDF */}
       {isChecked && (
         <motion.a
           href={"https://app.storylane.io/share/itvfjcoo4ft4"}

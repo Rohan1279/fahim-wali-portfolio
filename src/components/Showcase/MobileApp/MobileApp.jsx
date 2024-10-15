@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import ShowcaseCard from "../ShowcaseCard";
 import Pedal from "./Pedal";
 import Simvest from "./Simvest";
-import { motion } from "framer-motion";
+import { motion, transform } from "framer-motion";
 const containerVariants = {
   initial: {},
   animate: {
@@ -16,12 +16,20 @@ const mobileTextVariants = {
   initial: (custom) => ({
     opacity: 0,
     y: 0,
+    // color: "#2D2D2D",
+    // scale: 1.05,
+    // filter: "blur(10px)",
+    // transform: "rotate3D(1, 0, 0, 90deg)",
   }),
   animate: (custom) => ({
     opacity: 1,
     y: custom * -4, // Upward movement for Mobile texts
+    // color: "#D9D9D9",
+    // scale: 1,
+    // filter: "blur(0px)",
+    // transform: "rotate3D(1, 0, 0, 0deg)",
     transition: {
-      duration: 0.5,
+      duration: 0.8,
       ease: [0.16, 1, 0.3, 1],
     },
   }),
@@ -31,12 +39,20 @@ const appTextVariants = {
   initial: (custom) => ({
     opacity: 0,
     y: 0,
+    // color: "#2D2D2D",
+    // scale: 1.05,
+    // filter: "blur(10px)",
+    // transform: "rotate3D(1, 0, 0, 90deg)",
   }),
   animate: (custom) => ({
     opacity: 1,
     y: custom * 4, // Downward movement for App texts
+    // color: "#D9D9D9",
+    // scale: 1,
+    // filter: "blur(0px)",
+    // transform: "rotate3D(1, 0, 0, 0deg)",
     transition: {
-      duration: 0.5,
+      duration: 0.8,
       ease: [0.16, 1, 0.3, 1],
     },
   }),
