@@ -7,7 +7,27 @@ const AnimatedLeftBanner = () => {
   //   // This will trigger a re-render on mount and on each page refresh
   //   setKey((prevKey) => prevKey + 1);
   // }, []);
-
+  const cloudVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (custom) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: custom.delay,
+        duration: 1,
+        ease: "easeOut",
+      },
+    }),
+    float: (custom) => ({
+      y: [0, -10, 0],
+      x: [0, custom.floatX, 0],
+      transition: {
+        repeat: Infinity,
+        duration: 4,
+        ease: "easeInOut",
+      },
+    }),
+  };
   return (
     <svg
       width="600"
@@ -440,8 +460,8 @@ const AnimatedLeftBanner = () => {
               x: 0,
             }}
             transition={{
-              duration: 1,
-              delay: 0.3,
+              duration: 1.2,
+              delay: 0.5,
               type: "spring",
               stiffness: 100,
               damping: 10,
@@ -1507,82 +1527,37 @@ const AnimatedLeftBanner = () => {
         </motion.g>
 
         <motion.path
-          initial={{
-            opacity: 0,
-            x: -30,
-            scale: 0.5,
-            filter: "blur(10px)",
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-            scale: 1,
-            filter: "blur(0px)",
-          }}
-          transition={{
-            duration: 1.5,
-            delay: 0.5,
-            type: "spring",
-            stiffness: 100,
-            damping: 10,
-            mass: 0.8,
-          }}
-          id="cloud right"
+          id="cloud-right"
+          custom={{ delay: 1, floatX: 0 }}
+          variants={cloudVariants}
+          initial="hidden"
+          animate={["visible", "float"]}
           d="M416.679 80.1198C416.679 79.4963 414.091 84.1665 414.508 86.0411C417.014 97.3186 423.094 94.6025 431.548 92.4888C433.819 91.9211 435.326 93.1787 436.943 94.5942C441.254 98.3661 444.754 101.498 450.562 102.884C457.381 104.511 464.664 104.455 471.419 102.489C476.667 100.962 481.334 95.4952 486.946 95.6469C498.984 95.9722 511.109 102.008 517.342 86.8964C519.519 81.6184 521.189 56.0004 509.315 59.8556C506.939 60.6271 505.913 62.7791 504.052 64.1321C501.312 66.1246 503.953 57.3164 503.263 54C500.811 42.2349 489.275 37.6182 478.195 39.5914C474.724 40.2096 472.34 41.6312 469.313 43.1442C466.731 44.4355 463.444 39.5219 461.681 38.4071C448.882 30.3133 430.444 30.7616 420.824 43.4732C417.499 47.8674 413.971 38.2162 406.81 42.6179C399.905 46.8623 398.073 55.6355 398.849 63.0136C399.208 66.4184 397.412 72.6814 399.968 75.3827C404.866 80.5609 413.995 80.4092 420.232 82.4883"
           stroke="#D9D9D9"
           strokeLinecap="round"
+          strokeWidth="2"
         />
         <motion.path
-          initial={{
-            opacity: 0,
-            x: -30,
-            scale: 0.5,
-            filter: "blur(10px)",
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-            scale: 1,
-            filter: "blur(0px)",
-          }}
-          transition={{
-            duration: 1.5,
-            delay: 0.8,
-            type: "spring",
-            stiffness: 100,
-            damping: 10,
-            mass: 0.8,
-          }}
-          id="cloud left"
+          id="cloud-left"
+          custom={{ delay: 0.7, floatX: 0 }}
+          variants={cloudVariants}
+          initial="hidden"
+          animate={["visible", "float"]}
           d="M62.582 65.501C62.582 61.4497 60.5431 63.898 59.0292 65.501C56.167 68.5315 55.3195 74.6361 57.3186 78.3964C59.8654 83.1868 65.115 75.9291 68.5034 79.3175C73.4216 84.2357 78.4154 87.9237 85.7411 84.5809C89.8472 82.7072 91.4054 77.3908 95.8732 78.7911C102.775 80.9544 114.06 81.4007 118.374 74.1856C122.1 67.9552 121.262 56.4828 115.874 51.4213C112.666 48.4071 109.392 52.1105 108.505 47.8685C107.028 40.7968 102.498 34.1279 94.1626 36.2889C87.6459 37.9785 89.2418 43.3088 86.6622 36.8153C83.2455 28.2147 74.2567 29.2099 66.9243 31.9466C63.5309 33.2132 54.3731 35.3172 51.792 37.868C44.3548 45.2177 46.1676 50.2518 52.9763 55.7636C55.6189 57.9029 51.4504 64.6903 52.4499 68.0011C52.8125 69.202 55.4764 70.238 55.4764 70.238"
           stroke="#D9D9D9"
           strokeLinecap="round"
+          strokeWidth="2"
         />
         <motion.path
-          initial={{
-            opacity: 0,
-            x: -30,
-            scale: 0.5,
-            filter: "blur(10px)",
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-            scale: 1,
-            filter: "blur(0px)",
-          }}
-          transition={{
-            duration: 1.5,
-            delay: 1,
-            type: "spring",
-            stiffness: 100,
-            damping: 10,
-            mass: 0.8,
-          }}
-          id="cloud centre"
+          id="cloud-centre"
+          custom={{ delay: 0.3, floatX: 3 }}
+          variants={cloudVariants}
+          initial="hidden"
+          animate={["visible", "float"]}
           d="M289.962 128.395C289.804 129.66 288.593 130.106 287.857 131.027C285.167 134.389 291.024 144.907 293.515 146.62C297.31 149.229 303.816 146.231 305.818 142.672C308.077 138.657 311.251 141.816 315.621 142.607C324.642 144.238 327.87 143.546 332.596 136.027C334.932 132.31 342.233 138.309 344.833 134.053C347.656 129.435 344.071 121.808 340.82 118.395C336.734 114.105 333.46 117.272 329.306 116.026C327.578 115.508 329.128 109.315 324.043 108.526C319.802 107.868 318.415 111.384 315.884 108.131C306.968 96.6669 301.131 107.948 291.541 108.263C286.124 108.44 280.488 109.705 280.488 116.026C280.488 119.394 279.257 118.989 277.659 122.54C274.618 129.297 288.898 129.994 293.515 130.764"
           stroke="#D9D9D9"
           strokeLinecap="round"
+          strokeWidth="2"
         />
       </g>
     </svg>
