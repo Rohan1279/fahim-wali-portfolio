@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import AnimatedSVG from "./AnimatedSVG";
+import AnimatedLeftBanner from "./AnimatedLeftBanner";
 const Hero = () => {
   return (
     <div className="pt-[9px]">
@@ -12,11 +13,12 @@ const Hero = () => {
       <div className="flex space-x-[142px] justify-center items-center pl-[61px] pr-[92px]">
         {/* HERO LEFT */}
         <div className=" translate-y-[40px] ">
-          <img
+          {/* <img
             src="/images/banner-left.svg"
             alt="Banner"
             className="w-[598px] h-[432px] object-cover"
-          />
+          /> */}
+          <AnimatedLeftBanner />
         </div>
         {/* HERO RIGHT */}
         <div className="flex relative  translate-y-[67px]">
