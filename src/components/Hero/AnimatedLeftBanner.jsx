@@ -480,7 +480,7 @@ const AnimatedLeftBanner = () => {
             <motion.g
               id="bus"
               initial={{ x: 0 }} // Start off-screen to the left
-              animate={{ x: [0, 6, -3, 0], y: [0, 1, -1, 0] }} // Move to the right edge of the container
+              animate={{ x: [0, 3, -2, 0], y: [0, 1, -1, 0] }} // Move to the right edge of the container
               transition={{
                 duration: 2, // Adjust this value to control the speed of the bus
                 repeat: Infinity,
