@@ -26,7 +26,7 @@ const Pedal = ({
   }, [currentApp]);
 
   return (
-    <div className="h-full pt-[89px] leading-none flex border-blue-500 ">
+    <div className="h-full pt-[89px] leading-none flex border-blue-500">
       <Swiper
         // spaceBetween={}
         slidesPerView={1}

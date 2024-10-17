@@ -281,7 +281,7 @@ const MobileApp = ({ delay, index }) => {
             <div className="relative flex justify-center gap-x-[40px] pt-[89px] mr-1">
               <div
                 onClick={() => setCurrentApp("pedal")}
-                className={`relative`}
+                className={`relative cursor-pointer group/pedal`}
               >
                 <h2
                   style={{
@@ -290,7 +290,7 @@ const MobileApp = ({ delay, index }) => {
                   }}
                   className={`font-oswald ${
                     currentApp === "pedal" ? "text-[#2D2D2D]" : "text-[#d9d9d9]"
-                  } transition-all text-[110px] font-bold absolute -left-[10.6rem] top-[166px] -z-10`}
+                  } group-hover/pedal:text-[#2D2D2D] transition-all text-[110px] font-bold absolute -left-[10.6rem] top-[166px] -z-10`}
                 >
                   pedal
                 </h2>
@@ -303,7 +303,7 @@ const MobileApp = ({ delay, index }) => {
 
               <div
                 onClick={() => setCurrentApp("simvest")}
-                className={`relative`}
+                className={`relative  cursor-pointer group/simvest `}
               >
                 <h2
                   style={{
@@ -314,7 +314,7 @@ const MobileApp = ({ delay, index }) => {
                     currentApp === "simvest"
                       ? "text-[#2D2D2D]"
                       : "text-[#d9d9d9]"
-                  } transition-all text-[110px] font-bold absolute -right-[13.05rem] top-[166px] -z-10`}
+                  } group-hover/simvest:text-[#2D2D2D] text-[#d9d9d9] transition-all text-[110px] font-bold absolute -right-[13.05rem] top-[166px] -z-10`}
                 >
                   simvest
                 </h2>
