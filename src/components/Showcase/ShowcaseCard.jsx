@@ -46,6 +46,9 @@ const ShowcaseCard = ({
       whileHover="hover"
     >
       <motion.div
+        style={{
+          visibility: isChecked ? "hidden" : "visible",
+        }}
         className="absolute bottom-0 left-0 right-0 bg-[#A67458] -z-10 group-has-[:checked]:bg-[#d9d9d9] group-has-[:checked]:hidden"
         initial={{ height: 0 }}
         variants={{

@@ -67,7 +67,7 @@ const UserInterface = ({ delay, index }) => {
         <motion.img
           src="/images/user-interface.png"
           alt="user-interface"
-          className="absolute right-0 top-0 w-full h-full object-cover z-40"
+          className="absolute right-0 top-0 w-full h-full object-cover z-40 "
           initial={{ opacity: 0 }}
           animate={{ opacity: isChecked ? 1 : 0 }}
           transition={{ duration: 0.5 }}
@@ -137,7 +137,10 @@ const UserInterface = ({ delay, index }) => {
         )}
 
         <motion.div
-          className="absolute right-7 mt-[102px] z-50 text-[#2d2d2d]"
+          style={{
+            transform: isChecked && "translateY(0px)",
+          }}
+          className="absolute right-7 mt-[102px] z-50 text-[#2d2d2d] group-hover/interface:-translate-y-3  ease-in-out duration-300 group-active/interface:scale-95"
           animate={{
             right: isChecked ? "45px" : "28px",
             color: isChecked ? "#D9D9D920" : "#2d2d2d",

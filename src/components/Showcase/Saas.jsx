@@ -72,7 +72,7 @@ const Saas = ({ delay, index }) => {
         id={"saas"}
         isChecked={isChecked}
         handleOnClick={handleOnClick}
-        className={`relative group`}
+        className={`relative group/saas`}
       >
         <div className="z-50 pt-[126px] bg-transparent w-fit h-full relative">
           <p
@@ -83,9 +83,12 @@ const Saas = ({ delay, index }) => {
             product category
           </p>
           <h2
+            style={{
+              transform: isChecked && "translateY(0px)",
+            }}
             className={`font-poppins text-[80px] font-extrabold text-[#2d2d2d] leading-[90%] ml-[54px] ${
               isChecked ? "text-[#2d2d2d]/10" : ""
-            } transition-all duration-300 ease-in-out delay-150`}
+            } transition-all  group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95`}
           >
             SaaS
           </h2>

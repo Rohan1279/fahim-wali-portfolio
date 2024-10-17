@@ -96,9 +96,12 @@ const Branding = ({ delay, index }) => {
           ))}
         </div>
         <div
+          style={{
+            transform: isChecked && "translateY(0px)",
+          }}
           className={`absolute top-0 right-0 pt-[100px] pr-[74px] text-right  ${
             isChecked ? "bg-[#d9d9d9]" : "bg-transparent"
-          } h-full w-[300px] z-50 font-poppins text-[128px] font-extrabold text-[#2d2d2d] leading-[5.2rem]`}
+          } h-full w-[300px] z-50 font-poppins text-[128px] font-extrabold text-[#2d2d2d] leading-[5.2rem] group-hover/branding:-translate-y-3 ease-in-out duration-300 group-active/branding:scale-95`}
         >
           <span className="block">br</span>
           <span className="block">an</span>

@@ -93,13 +93,16 @@ const MobileApp = ({ delay, index }) => {
         handleOnClick={handleOnClick}
         htmlFor={"mobile-app"}
         id={"mobile-app"}
-        className={`mt-[116px] overflow-hidden group`}
+        className={`mt-[116px] overflow-hidden group/mobileApp`}
       >
         {currentIndex === 0 || !currentApp ? (
           <motion.div
+            style={{
+              transform: isChecked && "translateY(0px)",
+            }}
             className={`${
               isChecked ? "bg-[#d9d9d9]" : "bg-transparent"
-            }  w-fit h-full group-has-[:checked]:py-[57px] group-has-[:checked]:pl-[43px] transition-all ease-in-out duration-300 z-50`}
+            }  w-fit h-full group-has-[:checked]:py-[57px] group-has-[:checked]:pl-[43px] transition-all ease-in-out duration-300 z-50 group-hover/mobileApp:-translate-y-3 group-active/mobileApp:scale-95`}
             variants={containerVariants}
             initial="initial"
             animate="animate"
@@ -306,7 +309,7 @@ const MobileApp = ({ delay, index }) => {
               <motion.div
                 initial={{ x: -30, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+                transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
                 onClick={() => setCurrentApp("simvest")}
                 className={`relative cursor-pointer group/simvest z-0`}
               >
