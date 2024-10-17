@@ -74,7 +74,7 @@ const Saas = ({ delay, index }) => {
         handleOnClick={handleOnClick}
         className={`relative group`}
       >
-        <div className="z-50 pt-[126px] bg-[#d9d9d9] w-fit h-full ">
+        <div className="z-50 pt-[126px] bg-transparent w-fit h-full relative">
           <p
             className={`font-poppins text-xl text-[#161414] tracking-widest ml-[57px] font-medium opacity-0 ${
               isChecked ? "opacity-100" : ""
@@ -124,6 +124,7 @@ const Saas = ({ delay, index }) => {
             </motion.div>
           </motion.div>
         </div>
+
         <AnimatePresence>
           {isChecked && (
             <motion.div

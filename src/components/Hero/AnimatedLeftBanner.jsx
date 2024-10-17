@@ -450,6 +450,7 @@ const AnimatedLeftBanner = () => {
             />
           </motion.g>
           <motion.g
+            fill={"#161414"}
             id="bus"
             initial={{
               opacity: 0,
@@ -477,17 +478,7 @@ const AnimatedLeftBanner = () => {
             //   ease: "linear" // Ensures constant speed
             // }}
           >
-            <motion.g
-              id="bus"
-              initial={{ x: 0 }} // Start off-screen to the left
-              animate={{ x: [0, 3, -2, 0], y: [0, 1, -1, 0] }} // Move to the right edge of the container
-              transition={{
-                duration: 2, // Adjust this value to control the speed of the bus
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "linear", // Ensures constant speed
-              }}
-            >
+            <g>
               <path
                 id="Vector 61"
                 d="M393 225.8C391.532 225.983 391.873 232.409 391.326 233.778C390.226 236.527 390.341 241.001 390.341 243.971C390.341 247.96 390.341 251.949 390.341 255.938C390.341 260.003 389.011 263.917 389.011 267.929C389.011 277.113 388.5 286.477 387.706 295.605C387.436 298.709 387.238 301.788 387.238 304.912C387.238 306.104 387.492 307.634 387.14 308.778C386.873 309.647 386.311 312.327 387.238 310.009"
@@ -1543,7 +1534,7 @@ const AnimatedLeftBanner = () => {
                 stroke="#A67458"
                 strokeLinecap="round"
               />
-            </motion.g>
+            </g>
           </motion.g>
         </motion.g>
 

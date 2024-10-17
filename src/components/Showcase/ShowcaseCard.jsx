@@ -40,9 +40,24 @@ const ShowcaseCard = ({
       select-none z-10 overflow-hidden 
       cursor-pointer has-[:checked]:cursor-default
       transition-shadow duration-300
+      relative group
     `}
       {...rest}
+      whileHover="hover"
     >
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 bg-[#A67458] -z-10 group-has-[:checked]:bg-[#d9d9d9] group-has-[:checked]:hidden"
+        initial={{ height: 0 }}
+        variants={{
+          hover: {
+            height: "100%",
+            transition: {
+              duration: 0.7,
+              ease: [0.33, 1, 0.68, 1], // custom cubic-bezier for a more professional, water-like easing
+            },
+          },
+        }}
+      />
       <input
         type="checkbox"
         id={id}
@@ -50,6 +65,7 @@ const ShowcaseCard = ({
         checked={isChecked}
         onChange={() => {}} // Controlled component
       />
+
       {children}
     </motion.label>
   );

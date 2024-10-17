@@ -81,7 +81,7 @@ const Branding = ({ delay, index }) => {
         id="branding"
         className="mt-[38px] relative overflow-hidden group/branding"
       >
-        <div className="relative w-[794px] h-[540px] mt-[32px] ml-[35px]">
+        <div className={` relative w-[794px] h-[540px] mt-[32px] ml-[35px]`}>
           {images.map((image, index) => (
             <motion.img
               key={image.alt}
@@ -95,10 +95,21 @@ const Branding = ({ delay, index }) => {
             />
           ))}
         </div>
-        <div className="absolute top-0 right-0 pt-[100px] pr-[74px] text-right bg-[#d9d9d9] h-full w-[300px] transition-all delay-[600ms] z-50 font-poppins text-[128px] font-extrabold text-[#2d2d2d] leading-[5.2rem]">
+        <div
+          className={`absolute top-0 right-0 pt-[100px] pr-[74px] text-right  ${
+            isChecked ? "bg-[#d9d9d9]" : "bg-transparent"
+          } h-full w-[300px] z-50 font-poppins text-[128px] font-extrabold text-[#2d2d2d] leading-[5.2rem]`}
+        >
           <span className="block">br</span>
           <span className="block">an</span>
-          <span className="block text-[#A67458] -mt-1">di</span>
+          <span
+            style={{
+              color: isChecked && "#A67458",
+            }}
+            className={`block text-[#A67458] group-hover/branding:text-[#D9D9D9] group-checked/branding:text-[#A67458]  -mt-1  transition-colors delay-[250ms]`}
+          >
+            di
+          </span>
           <span className="block">ng</span>
         </div>
       </ShowcaseCard>

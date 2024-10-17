@@ -97,7 +97,9 @@ const MobileApp = ({ delay, index }) => {
       >
         {currentIndex === 0 || !currentApp ? (
           <motion.div
-            className="bg-[#d9d9d9] w-fit h-full group-has-[:checked]:py-[57px] group-has-[:checked]:pl-[43px] transition-all ease-in-out duration-300 z-50"
+            className={`${
+              isChecked ? "bg-[#d9d9d9]" : "bg-transparent"
+            }  w-fit h-full group-has-[:checked]:py-[57px] group-has-[:checked]:pl-[43px] transition-all ease-in-out duration-300 z-50`}
             variants={containerVariants}
             initial="initial"
             animate="animate"
@@ -106,7 +108,7 @@ const MobileApp = ({ delay, index }) => {
             <motion.h2
               custom={4}
               variants={mobileTextVariants}
-              className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[90%] ml-2 peer-[:checked]:ml-[42px] -mt-2"
+              className="font-poppins text-[64px] font-extrabold text-transparent leading-[90%] ml-2 peer-[:checked]:ml-[42px] -mt-2"
               style={{
                 WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D10",
               }}
@@ -116,7 +118,7 @@ const MobileApp = ({ delay, index }) => {
             <motion.h2
               custom={3}
               variants={mobileTextVariants}
-              className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[90%] ml-2 peer-[:checked]:ml-[42px]"
+              className="font-poppins text-[64px] font-extrabold text-transparent leading-[90%] ml-2 peer-[:checked]:ml-[42px]"
               style={{
                 WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D25",
               }}
@@ -126,7 +128,7 @@ const MobileApp = ({ delay, index }) => {
             <motion.h2
               custom={2}
               variants={mobileTextVariants}
-              className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[90%] ml-2 peer-[:checked]:ml-[42px]"
+              className="font-poppins text-[64px] font-extrabold text-transparent leading-[90%] ml-2 peer-[:checked]:ml-[42px]"
               style={{
                 WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D50",
               }}
@@ -136,7 +138,7 @@ const MobileApp = ({ delay, index }) => {
             <motion.h2
               custom={1}
               variants={mobileTextVariants}
-              className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[90%] ml-2 peer-[:checked]:ml-[42px]"
+              className="font-poppins text-[64px] font-extrabold text-transparent leading-[90%] ml-2 peer-[:checked]:ml-[42px]"
               style={{
                 WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D75",
               }}
@@ -145,7 +147,7 @@ const MobileApp = ({ delay, index }) => {
             </motion.h2>
 
             {/* Center Mobile and App */}
-            <h2 className="font-poppins text-[64px] font-extrabold text-[#2D2D2D] leading-[90%] group-has-[:checked]:text-[#2d2d2d]/10 transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px] -mt-[3px]">
+            <h2 className="font-poppins text-[64px] font-extrabold text-[#2D2D2D] leading-[90%] group-has-[:checked]:text-[#2d2d2d]/10 transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px] -mt-[3px] z-[999]">
               Mobile
             </h2>
             <h2 className="font-poppins text-[64px] font-extrabold text-[#2D2D2D] leading-[3.8rem] group-has-[:checked]:text-[#2d2d2d]/10 transition-all duration-300 ease-in-out delay-150 ml-2 peer-[:checked]:ml-[42px]">
@@ -156,7 +158,7 @@ const MobileApp = ({ delay, index }) => {
             <motion.h2
               custom={1}
               variants={appTextVariants}
-              className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[3.8rem] ml-2 peer-[:checked]:ml-[42px] -mt-[3px]"
+              className="font-poppins text-[64px] font-extrabold text-transparent leading-[3.8rem] ml-2 peer-[:checked]:ml-[42px] -mt-[3px]"
               style={{
                 WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D75",
               }}
@@ -166,7 +168,7 @@ const MobileApp = ({ delay, index }) => {
             <motion.h2
               custom={2}
               variants={appTextVariants}
-              className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[3.8rem] ml-2 peer-[:checked]:ml-[42px] -mt-[3px]"
+              className="font-poppins text-[64px] font-extrabold text-transparent leading-[3.8rem] ml-2 peer-[:checked]:ml-[42px] -mt-[3px]"
               style={{
                 WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D50",
               }}
@@ -176,7 +178,7 @@ const MobileApp = ({ delay, index }) => {
             <motion.h2
               custom={3}
               variants={appTextVariants}
-              className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[3.8rem] ml-2 peer-[:checked]:ml-[42px] -mt-[3px]"
+              className="font-poppins text-[64px] font-extrabold text-transparent leading-[3.8rem] ml-2 peer-[:checked]:ml-[42px] -mt-[3px]"
               style={{
                 WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D25",
               }}
@@ -186,7 +188,7 @@ const MobileApp = ({ delay, index }) => {
             <motion.h2
               custom={4}
               variants={appTextVariants}
-              className="font-poppins text-[64px] font-extrabold text-[#d9d9d9] leading-[3.8rem] ml-2 peer-[:checked]:ml-[42px] -mt-[3px]"
+              className="font-poppins text-[64px] font-extrabold text-transparent leading-[3.8rem] ml-2 peer-[:checked]:ml-[42px] -mt-[3px]"
               style={{
                 WebkitTextStroke: isChecked ? "1px #c8c8c8" : "1px #2D2D2D10",
               }}
@@ -195,7 +197,7 @@ const MobileApp = ({ delay, index }) => {
             </motion.h2>
           </motion.div>
         ) : (
-          <div className="font-poppins pl-[43px] pt-[68px] z-50 w-fit h-full bg-[#d9d9d9]">
+          <div className=" font-poppins pl-[43px] pt-[68px] z-[100] w-fit h-full bg-[#d9d9d9]">
             <motion.p
               className="text-xl text-[#2D2D2D] font-medium tracking-widest"
               initial={{ y: 10, opacity: 0 }}
@@ -277,7 +279,7 @@ const MobileApp = ({ delay, index }) => {
         <div
           className={`w-[748px] h-full absolute right-[56px] top-0 invisible blur-sm peer-checked:blur-none peer-checked:visible border-red-400 -z-50 `}
         >
-          {!currentApp && (
+          {!currentApp && isChecked && (
             <div className="relative flex justify-center gap-x-[40px] pt-[89px] mr-1">
               <div
                 onClick={() => setCurrentApp("pedal")}
@@ -301,9 +303,12 @@ const MobileApp = ({ delay, index }) => {
                 />
               </div>
 
-              <div
+              <motion.div
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
                 onClick={() => setCurrentApp("simvest")}
-                className={`relative  cursor-pointer group/simvest `}
+                className={`relative cursor-pointer group/simvest z-0`}
               >
                 <h2
                   style={{
@@ -314,17 +319,17 @@ const MobileApp = ({ delay, index }) => {
                     currentApp === "simvest"
                       ? "text-[#2D2D2D]"
                       : "text-[#d9d9d9]"
-                  } group-hover/simvest:text-[#2D2D2D] text-[#d9d9d9] transition-all text-[110px] font-bold absolute -right-[13.05rem] top-[166px] -z-10`}
+                  } group-hover/simvest:text-[#2D2D2D] text-[#d9d9d9] transition-all text-[110px] font-bold absolute  -right-[13.05rem] top-[166px] -z-10`}
                 >
                   simvest
                 </h2>
                 <img
                   src="/images/mobile-app/simvest/simvest.png"
                   alt="simvest"
-                  className={`w-[245px] z-50 transition-all duration-300`}
+                  className={`w-[245px] transition-all duration-300 z-50`}
                 />
                 {/* ${currentApp === "simvest" ? "ml-[110px]" : "ml-[95px]"} */}
-              </div>
+              </motion.div>
             </div>
           )}
           {currentApp === "pedal" && (
