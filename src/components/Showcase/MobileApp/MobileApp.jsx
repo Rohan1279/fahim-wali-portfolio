@@ -275,7 +275,7 @@ const MobileApp = ({ delay, index }) => {
         )}
 
         <div
-          className={`w-[748px] h-full absolute right-[56px] top-0 invisible blur-sm peer-checked:blur-none peer-checked:visible transition-all duration-500  border-red-400 -z-50 `}
+          className={`w-[748px] h-full absolute right-[56px] top-0 invisible blur-sm peer-checked:blur-none peer-checked:visible border-red-400 -z-50 `}
         >
           {!currentApp && (
             <div className="relative flex justify-center gap-x-[40px] pt-[89px] mr-1">

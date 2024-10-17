@@ -9,7 +9,7 @@ import {
   EffectCube,
 } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-
+import { motion } from "framer-motion";
 const Simvest = ({
   currentApp,
   setCurrentApp,
@@ -30,7 +30,7 @@ const Simvest = ({
         modules={[]}
         onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
-        className={`h-full relative `}
+        className={`h-full relative`}
       >
         <SwiperSlide className="flex">
           <div
@@ -83,21 +83,35 @@ const Simvest = ({
               onClick={() => setCurrentApp("simvest")}
               className={`relative`}
             >
-              <h2
+              <motion.h2
+                initial={{
+                  x: -10,
+                  rotate: "90deg",
+                }}
+                animate={{
+                  x: 0,
+                  rotate: "90deg",
+                }}
                 style={{
                   rotate: "90deg",
                   WebkitTextStroke: currentApp !== "simvest" && "1px #585858",
                 }}
                 className={`font-oswald ${
                   currentApp === "simvest" ? "text-[#A67458]" : "text-[#d9d9d9]"
-                } transition-all text-[110px] font-bold absolute -right-[13.05rem] top-[196px] -z-10`}
+                }  text-[110px] font-bold absolute -right-[13.5rem] top-[193px] -z-10`}
               >
                 simvest
-              </h2>
-              <img
+              </motion.h2>
+              <motion.img
+                initial={{
+                  x: 10,
+                }}
+                animate={{
+                  x: 0,
+                }}
                 src="/images/mobile-app/simvest/simvest.png"
                 alt="simvest"
-                className={`w-[245px] z-50 transition-all duration-300`}
+                className={`w-[245px] z-50`}
               />
               {/* ${currentApp === "simvest" ? "ml-[110px]" : "ml-[95px]"} */}
             </div>

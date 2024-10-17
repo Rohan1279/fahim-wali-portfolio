@@ -42,17 +42,23 @@ const Pedal = ({
             onClick={() => setCurrentApp("pedal")}
             className=" border-blue-500 relative w-fit"
           >
-            <h2
+            <motion.h2
+              initial={{
+                x: 10,
+                rotate: "-90deg",
+              }}
+              animate={{
+                x: 0,
+                rotate: "-90deg",
+              }}
               style={{
                 rotate: "-90deg",
                 WebkitTextStroke: currentApp !== "pedal" && "1px #585858",
               }}
-              className={`font-oswald ${
-                currentApp === "pedal" ? "text-[#2D2D2D]" : "text-[#d9d9d9]"
-              } transition-all text-[110px] font-bold absolute -left-[4.6rem] top-[196px] -z-10`}
+              className={`font-oswald text-[#2D2D2D] -rotate-90 text-[110px] font-bold absolute -left-[4.6rem] top-[193px] -z-10`}
             >
               pedal
-            </h2>
+            </motion.h2>
             <img
               src="/images/mobile-app/pedal/pedal.png"
               alt="pedal"
