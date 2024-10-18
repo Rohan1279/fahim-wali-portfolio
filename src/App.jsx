@@ -47,22 +47,23 @@ const CustomSonner = () => {
             filter: "blur(5px)",
           }}
           transition={{
-            duration: 0.5,
+            duration: 1,
+            delay: 2.5,
             ease: [0.23, 1, 0.32, 1], // Custom easing for smooth motion
             opacity: { duration: 0.8 },
             width: {
-              delay: 0.2,
+              delay: 2.8,
               duration: 0.8,
               type: "spring",
               stiffness: 100,
               damping: 15,
             },
             borderRadius: {
-              delay: 0.2,
+              delay: 2.8,
               duration: 0.8,
             },
             filter: {
-              delay: 0.1,
+              delay: 2.8,
               duration: 0.8,
             },
           }}
@@ -78,7 +79,7 @@ const CustomSonner = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              delay: 0.6,
+              delay: 3,
               ease: "easeOut",
             }}
             className=" border-black text-[#a67458]"

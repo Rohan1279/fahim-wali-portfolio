@@ -450,7 +450,7 @@ const AnimatedLeftBanner = () => {
             />
           </motion.g>
           <motion.g
-            fill={"#161414"}
+            fill={"#16141400"}
             id="bus"
             initial={{
               opacity: 0,
