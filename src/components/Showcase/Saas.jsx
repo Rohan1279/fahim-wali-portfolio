@@ -74,7 +74,7 @@ const Saas = ({ delay, index }) => {
         handleOnClick={handleOnClick}
         className={`relative group/saas`}
       >
-        <div className="z-50 pt-[126px] bg-transparent w-fit h-full relative">
+        <div className="z-50 md:pt-[126px] bg-transparent w-fit h-full relative">
           <p
             className={`font-poppins text-xl text-[#161414] tracking-widest ml-[57px] font-medium opacity-0 ${
               isChecked ? "opacity-100" : ""
@@ -86,11 +86,22 @@ const Saas = ({ delay, index }) => {
             style={{
               transform: isChecked && "translateY(0px)",
             }}
-            className={`font-poppins text-[80px] font-extrabold text-[#2d2d2d] leading-[90%] ml-[54px] ${
+            className={`hidden md:block font-poppins text-[80px] font-extrabold text-[#2d2d2d] leading-[90%] ml-[54px] ${
               isChecked ? "text-[#2d2d2d]/10" : ""
             } transition-all  group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95`}
           >
             SaaS
+          </h2>
+          {/* MOBILE DEVICE */}
+          <h2
+            style={{
+              transform: isChecked && "translateY(0px)",
+            }}
+            className={`absolute md:hidden top-4 -left-5 font-poppins -rotate-90 text-[48px] font-extrabold text-[#2d2d2d]  ${
+              isChecked ? "text-[#2d2d2d]/10" : ""
+            } transition-all group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95`}
+          >
+            Saa<span className="text-[#a67458]">S</span>
           </h2>
 
           <motion.div

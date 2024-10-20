@@ -93,7 +93,7 @@ const MobileApp = ({ delay, index }) => {
         handleOnClick={handleOnClick}
         htmlFor={"mobile-app"}
         id={"mobile-app"}
-        className={`mt-[116px] overflow-hidden group/mobileApp`}
+        className={`mt-[66px] md:mt-[116px] overflow-hidden group/mobileApp`}
       >
         {currentIndex === 0 || !currentApp ? (
           <motion.div

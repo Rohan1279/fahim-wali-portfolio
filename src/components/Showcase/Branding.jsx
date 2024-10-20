@@ -79,7 +79,7 @@ const Branding = ({ delay, index }) => {
         handleOnClick={handleOnClick}
         htmlFor="branding"
         id="branding"
-        className="mt-[38px] relative overflow-hidden group/branding"
+        className="mt-[33px] md:mt-[38px] relative overflow-hidden group/branding"
       >
         <div className={` relative w-[794px] h-[540px] mt-[32px] ml-[35px]`}>
           {images.map((image, index) => (
