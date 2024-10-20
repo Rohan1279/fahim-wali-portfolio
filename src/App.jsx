@@ -109,12 +109,19 @@ const CustomSonner = () => {
 const App = () => {
   return (
     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-      <div className="bg-[#161414] min-h-screen flex flex-col justify-center items-center">
+      <div className="hidden md:flex flex-col justify-center items-center bg-[#161414] min-h-screen ">
         <Hero />
         <Showcase />
         <Inspiration />
         <Philosophy />
         <CustomSonner />
+      </div>
+      <div className="visible md:hidden bg-[#161414] min-h-screen flex flex-col">
+        <Hero />
+        {/* <Showcase />
+        <Inspiration />
+        <Philosophy />
+        <CustomSonner /> */}
       </div>
     </Worker>
   );
