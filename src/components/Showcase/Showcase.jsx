@@ -31,7 +31,7 @@ const AnimatedCard = ({ children, delay }) => (
 );
 const Showcase = () => {
   return (
-    <div className="flex relative justify-center md:justify-between gap-x-[5px] md:gap-x-[19px] md:mx-[154px] mt-[264px] w-full md:w-[1132px] h-[671px] group showcase-gallery">
+    <div className="flex relative justify-center md:justify-between gap-x-[5px] md:gap-x-[19px] md:mx-[154px] md:mt-[264px] w-full md:w-[1132px] h-[671px] group showcase-gallery">
       <Saas delay={""} index={1} />
       <MobileApp delay={""} index={2} />
       <UserInterface delay={""} index={3} />
