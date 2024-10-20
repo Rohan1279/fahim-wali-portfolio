@@ -117,7 +117,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="pt-[14px] visible md:hidden flex flex-col justify-start items-center">
+      <div className="pt-[14px] h-fit visible md:hidden flex flex-col justify-start items-center ">
         <img
           src="/images/fahimwali_logo.png"
           alt="Hero"

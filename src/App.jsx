@@ -118,10 +118,10 @@ const App = () => {
       </div>
       <div className="visible md:hidden bg-[#161414] min-h-screen flex flex-col">
         <Hero />
-        {/* <Showcase />
+        {/* <Showcase /> */}
         <Inspiration />
         <Philosophy />
-        <CustomSonner /> */}
+        {/* <CustomSonner /> */}
       </div>
     </Worker>
   );
