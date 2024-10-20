@@ -15,7 +15,7 @@ const AnimatedSVG = () => {
       height="38"
       viewBox="0 0 188 38"
       fill="none"
-      className="w-[154px]"
+      className="w-[183px]"
     >
       <style>
         {`
