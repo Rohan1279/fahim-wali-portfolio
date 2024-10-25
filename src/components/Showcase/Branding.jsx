@@ -79,7 +79,7 @@ const Branding = ({ delay, index }) => {
         handleOnClick={handleOnClick}
         htmlFor="branding"
         id="branding"
-        className="mt-[33px] md:mt-[38px] relative overflow-hidden group/branding"
+        className="hidden md:block mt-[33px] md:mt-[38px] relative overflow-hidden group/branding"
       >
         <div className={` relative w-[794px] h-[540px] mt-[32px] ml-[35px]`}>
           {images.map((image, index) => (
@@ -116,6 +116,39 @@ const Branding = ({ delay, index }) => {
           <span className="block">ng</span>
         </div>
       </ShowcaseCard>
+      <motion.label
+        initial={{
+          opacity: 0,
+          // y: 40,
+          filter: "blur(10px)",
+        }}
+        animate={{
+          opacity: 1,
+          // y: 33,
+          filter: "blur(0px)",
+          transition: {
+            duration: 0.7,
+            delay: 0.15 * 4,
+            type: "spring",
+            stiffness: 100,
+            damping: 10,
+            mass: 0.8,
+          },
+        }}
+        className="block md:hidden w-full min-w-[90px] h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative translate-y-[33px]"
+      >
+        <input
+          type="checkbox"
+          className="invisible"
+          onChange={() => {}} // Controlled component
+        />
+
+        <h2
+          className={`absolute top-11 -left-5 font-poppins -rotate-90 text-[48px] font-extrabold text-[#2d2d2d] transition-all group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95`}
+        >
+          Saa<span className="text-[#a67458]">S</span>
+        </h2>
+      </motion.label>
       {isChecked && (
         <motion.button
           onClick={handleCloseClick}

@@ -62,7 +62,7 @@ const UserInterface = ({ delay, index }) => {
         handleOnClick={handleOnClick}
         htmlFor={"user-interface"}
         id={"user-interface"}
-        className="relative overflow-hidden group/interface"
+        className="hidden md:block relative overflow-hidden group/interface"
       >
         <motion.img
           src="/images/user-interface.png"
@@ -206,6 +206,39 @@ const UserInterface = ({ delay, index }) => {
           </motion.div>
         </motion.div>
       </ShowcaseCard>
+      <motion.label
+        initial={{
+          opacity: 0,
+          // y: 40,
+          filter: "blur(10px)",
+        }}
+        animate={{
+          opacity: 1,
+          // y: 0,
+          filter: "blur(0px)",
+          transition: {
+            duration: 0.7,
+            delay: 0.15 * 3,
+            type: "spring",
+            stiffness: 100,
+            damping: 10,
+            mass: 0.8,
+          },
+        }}
+        className="block md:hidden w-full min-w-[90px] h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative"
+      >
+        <input
+          type="checkbox"
+          className="invisible"
+          onChange={() => {}} // Controlled component
+        />
+
+        <h2
+          className={`absolute top-11 -left-5 font-poppins -rotate-90 text-[48px] font-extrabold text-[#2d2d2d] transition-all group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95`}
+        >
+          Saa<span className="text-[#a67458]">S</span>
+        </h2>
+      </motion.label>
       {isChecked && (
         <>
           <motion.button

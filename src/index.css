@@ -102,3 +102,33 @@
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
 }
+
+.showcase-gallery-mobile:has(label input:checked) > label {
+  margin-top: 0px;
+  transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  animation: grow-mobile cubic-bezier(0.76, 0, 0.24, 1) forwards 0.5s;
+}
+@keyframes grow-mobile {
+  100% {
+    transform: translateY(0px);
+    width: 100%;
+  }
+}
+.showcase-gallery-mobile:has(label input:checked) {
+  animation: shrink-columns-mobile 0.5s forwards 0.6s;
+}
+.showcase-gallery-mobile:has(label input:checked)
+  > label:not(:has(input:checked)) {
+  transform: translateY(0px);
+  overflow: hidden;
+  white-space: nowrap;
+  animation: shrink 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards 0.2s;
+}
+@keyframes shrink-columns-mobile {
+  0% {
+    column-gap: 5px;
+  }
+  100% {
+    column-gap: 0px;
+  }
+}

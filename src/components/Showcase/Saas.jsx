@@ -72,7 +72,7 @@ const Saas = ({ delay, index }) => {
         id={"saas"}
         isChecked={isChecked}
         handleOnClick={handleOnClick}
-        className={`relative group/saas`}
+        className={`relative group/saas hidden md:block`}
       >
         <div className="z-50 md:pt-[126px] bg-transparent w-fit h-full relative">
           <p
@@ -301,6 +301,39 @@ const Saas = ({ delay, index }) => {
           </motion.button>
         )}
       </ShowcaseCard>
+      <motion.label
+        initial={{
+          opacity: 0,
+          // y: 40,
+          filter: "blur(10px)",
+        }}
+        animate={{
+          opacity: 1,
+          // y: 0,
+          filter: "blur(0px)",
+          transition: {
+            duration: 0.7,
+            delay: 0.15 * 1,
+            type: "spring",
+            stiffness: 100,
+            damping: 10,
+            mass: 0.8,
+          },
+        }}
+        className="block md:hidden w-full min-w-[90px] h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative"
+      >
+        <input
+          type="checkbox"
+          className="invisible"
+          onChange={() => {}} // Controlled component
+        />
+
+        <h2
+          className={`absolute top-11 -left-5 font-poppins -rotate-90 text-[48px] font-extrabold text-[#2d2d2d] transition-all group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95`}
+        >
+          Saa<span className="text-[#a67458]">S</span>
+        </h2>
+      </motion.label>
       {/* VIEW PDF */}
       {isChecked && (
         <motion.a

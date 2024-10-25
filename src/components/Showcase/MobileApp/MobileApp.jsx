@@ -93,7 +93,7 @@ const MobileApp = ({ delay, index }) => {
         handleOnClick={handleOnClick}
         htmlFor={"mobile-app"}
         id={"mobile-app"}
-        className={`mt-[66px] md:mt-[116px] overflow-hidden group/mobileApp`}
+        className={`hidden md:block mt-[66px] md:mt-[116px] overflow-hidden group/mobileApp`}
       >
         {currentIndex === 0 || !currentApp ? (
           <motion.div
@@ -427,6 +427,39 @@ const MobileApp = ({ delay, index }) => {
           </motion.button>
         )}
       </ShowcaseCard>
+      <motion.label
+        initial={{
+          opacity: 0,
+          // y: 40,
+          filter: "blur(10px)",
+        }}
+        animate={{
+          opacity: 1,
+          // y: 66,
+          filter: "blur(0px)",
+          transition: {
+            duration: 0.7,
+            delay: 0.15 * 2,
+            type: "spring",
+            stiffness: 100,
+            damping: 10,
+            mass: 0.8,
+          },
+        }}
+        className="block md:hidden w-full min-w-[90px] h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative translate-y-[66px]"
+      >
+        <input
+          type="checkbox"
+          className="invisible"
+          onChange={() => {}} // Controlled component
+        />
+
+        <h2
+          className={`absolute top-11 -left-5 font-poppins -rotate-90 text-[48px] font-extrabold text-[#2d2d2d] transition-all group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95`}
+        >
+          Saa<span className="text-[#a67458]">S</span>
+        </h2>
+      </motion.label>
       {currentApp === "pedal" && (
         <>
           <motion.button

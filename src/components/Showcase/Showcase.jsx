@@ -31,62 +31,15 @@ const AnimatedCard = ({ children, delay }) => (
 );
 const Showcase = () => {
   return (
-    <div className="flex relative justify-center md:justify-between gap-x-[5px] md:gap-x-[19px] md:mx-[154px] md:mt-[264px] w-full md:w-[1132px] h-[671px] group showcase-gallery">
-      <Saas delay={""} index={1} />
-      <MobileApp delay={""} index={2} />
-      <UserInterface delay={""} index={3} />
-      <Branding delay={""} index={4} />
-    </div>
-    // <div className="flex relative justify-between gap-x-[19px] mx-[154px] mt-[264px] w-[1132px] h-[671px] group showcase-gallery">
-    //   {cards.map((card, index) => (
-    //     <motion.div
-    //       initial={{
-    //         opacity: 0,
-    //         // y: 20,
-    //       }}
-    //       animate={{
-    //         opacity: 1,
-    //         // y: 0,
-    //         transition: {
-    //           duration: 0.5,
-    //           delay: 0.2 * index,
-    //           ease: "easeOut",
-    //           once: true,
-    //         },
-    //       }}
-    //       key={"card" + index}
-    //       className=""
-    //     >
-    //       {card.component}
-    //     </motion.div>
-    //   ))}
-    // </div>
+    <>
+      <div className="flex relative justify-center md:justify-between gap-x-[5px] md:gap-x-[19px] md:mx-[154px] md:mt-[264px] w-full md:w-[1132px] h-[671px] group showcase-gallery-mobile md:showcase-gallery">
+        <Saas delay={""} index={1} />
+        <MobileApp delay={""} index={2} />
+        <UserInterface delay={""} index={3} />
+        <Branding delay={""} index={4} />
+      </div>
+    </>
   );
 };
 
 export default Showcase;
-
-// {
-//   cards.map((card, index) => (
-//     <motion.div
-//       initial={{
-//         opacity: 0,
-//         y: 20,
-//       }}
-//       animate={{
-//         opacity: 1,
-//         y: 0,
-//         transition: {
-//           duration: 0.5,
-//           delay: 0.2 * index,
-//           ease: "easeOut",
-//           once: true,
-//         },
-//       }}
-//       key={"card" + index}
-//       className="last:pr-[5%] md:last:pr-[33%]  rounded-3xl"
-//     >
-//       {card}
-//     </motion.div>
-//   ));
-// }
