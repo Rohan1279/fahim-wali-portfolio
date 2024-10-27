@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 const Branding = ({ delay, index }) => {
   const [isChecked, setIsChecked] = useState(false);
 
+  console.log("isChecked", isChecked);
   const handleOnClick = useCallback(
     (e) => {
       if (!isChecked) {
@@ -41,31 +42,31 @@ const Branding = ({ delay, index }) => {
     {
       src: "/images/branding/color-palette.png",
       alt: "color-palette",
-      className: "w-[467px] absolute left-[62px] top-10 z-50",
+      className: " md:w-[467px]  md:absolute left-[62px] top-10 z-50",
       customDelay: 0,
     },
     {
       src: "/images/branding/hero.png",
       alt: "hero",
-      className: "w-[593px] absolute bottom-[0]",
+      className: " md:w-[593px]  md:absolute bottom-[0]",
       customDelay: 1,
     },
     {
       src: "/images/branding/cup.png",
       alt: "cup",
-      className: "w-[187px] absolute right-[48px] z-50",
+      className: " md:w-[187px]  md:absolute right-[48px] z-50",
       customDelay: 2,
     },
     {
       src: "/images/branding/water-bottle.png",
       alt: "water-bottle",
-      className: "w-[282px] absolute right-0 top-[141px] z-40",
+      className: " md:w-[282px]  md:absolute right-0 top-[141px] z-40",
       customDelay: 3,
     },
     {
       src: "/images/branding/water-bottle-2.png",
       alt: "water-bottle-2",
-      className: "w-[176px] absolute right-[53px] bottom-5 z-50",
+      className: " md:w-[176px]  md:absolute right-[53px] bottom-5 z-50",
       customDelay: 4,
     },
   ];
@@ -117,6 +118,8 @@ const Branding = ({ delay, index }) => {
         </div>
       </ShowcaseCard>
       <motion.label
+        htmlFor={"branding"}
+        onClick={handleOnClick}
         initial={{
           opacity: 0,
           // y: 40,
@@ -124,30 +127,62 @@ const Branding = ({ delay, index }) => {
         }}
         animate={{
           opacity: 1,
-          // y: 33,
+          // y: 0,
           filter: "blur(0px)",
           transition: {
             duration: 0.7,
-            delay: 0.15 * 4,
+            delay: 0.15 * 1,
             type: "spring",
             stiffness: 100,
             damping: 10,
             mass: 0.8,
           },
         }}
-        className="block md:hidden w-full h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative translate-y-[33px]"
+        className="block md:hidden w-full h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative group overflow-hidden"
       >
         <input
           type="checkbox"
+          id="branding"
+          checked={isChecked}
           className="invisible"
           onChange={() => {}} // Controlled component
         />
 
-        <h2
-          className={`absolute top-11 -left-5 font-poppins -rotate-90 text-[48px] font-extrabold text-[#2d2d2d] transition-all group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95`}
+        <div
+          style={{
+            transform: isChecked && "translateY(0px)",
+          }}
+          className={`absolute top-16  left-2  text-left  ${
+            isChecked ? "bg-[#d9d9d9] hidden" : "bg-transparent block"
+          } h-full w-[300px] z-50 font-poppins text-[60px] font-extrabold text-[#2d2d2d] leading-9 group-hover/branding:-translate-y-3 ease-in-out duration-300 group-active/branding:scale-95`}
         >
-          Saa<span className="text-[#a67458]">S</span>
-        </h2>
+          <span className="block">br</span>
+          <span className="block">an</span>
+          <span
+            style={{
+              color: isChecked && "#A67458",
+            }}
+            className={`block text-[#A67458] group-hover/branding:text-[#D9D9D9] group-checked/branding:text-[#A67458]  -mt-1  transition-colors delay-[100ms]`}
+          >
+            di
+          </span>
+          <span className="block">ng</span>
+        </div>
+        <div className={`relative h-full mt-[32px] w-full grid grid-cols-2`}>
+          {images.map((image, index) => (
+            <div key={image.alt} className="border border-black">
+              <motion.img
+                src={image.src}
+                alt={image.alt}
+                className={image.className}
+                initial="hidden"
+                animate={isChecked ? "visible" : "hidden"}
+                variants={imageVariants}
+                custom={image.customDelay}
+              />
+            </div>
+          ))}
+        </div>
       </motion.label>
       {isChecked && (
         <motion.button
