@@ -207,6 +207,8 @@ const UserInterface = ({ delay, index }) => {
         </motion.div>
       </ShowcaseCard>
       <motion.label
+        htmlFor={"user-interface"}
+        onClick={handleOnClick}
         initial={{
           opacity: 0,
           // y: 40,
@@ -225,19 +227,177 @@ const UserInterface = ({ delay, index }) => {
             mass: 0.8,
           },
         }}
-        className="block md:hidden w-full  h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative"
+        className="block md:hidden w-full  h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative overflow-hidden"
       >
         <input
           type="checkbox"
+          id="user-interface"
+          checked={isChecked}
           className="invisible"
           onChange={() => {}} // Controlled component
         />
 
-        <h2
-          className={`absolute top-11 -left-5 font-poppins -rotate-90 text-[48px] font-extrabold text-[#2d2d2d] transition-all group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95`}
+        <div
+          className={`absolute top-1/2 -translate-y-1/2 -left-12 font-poppins -rotate-90 transition-all group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95 leading-6`}
         >
-          Saa<span className="text-[#a67458]">S</span>
-        </h2>
+          <span className="font-poppins font-extralight text-[36px] text-[#a67458] absolute -top-7 left-1 z-50">
+            Diegetic
+          </span>
+          <div className="flex  text-[#2D2D2D] z-40">
+            <span className="font-extrabold text-[64px] ">User</span>
+            <span className="font-semibold text-[16px] mt-[17px]">
+              Interface
+            </span>
+          </div>
+        </div>
+        <motion.img
+          src="/images/user-interface.png"
+          alt="user-interface"
+          className="absolute right-0 top-0 w-full h-full object-cover z-40 "
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isChecked ? 1 : 0 }}
+          transition={{ duration: 0.5 }}
+        />
+        {isChecked && (
+          <>
+            <motion.div
+              style={{
+                transform: isChecked && "translateY(0px)",
+              }}
+              className=" absolute left-0 bottom-0 w-full  mt-[102px] z-50 text-[#2d2d2d] group-hover/interface:-translate-y-3  ease-in-out duration-300 group-active/interface:scale-95"
+              animate={{
+                right: isChecked ? "45px" : "28px",
+                color: isChecked ? "#D9D9D920" : "#2d2d2d",
+              }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* <motion.p
+                className="font-poppins text-xl text-[#D9D9D9] font-medium"
+                initial={{ opacity: 0, filter: "blur(4px)" }}
+                animate={{
+                  opacity: isChecked ? 1 : 0,
+                  filter: isChecked ? "blur(0px)" : "blur(4px)",
+                }}
+                transition={{ duration: 0.5 }}
+              >
+                product category
+              </motion.p>
+              <motion.h2 className="font-poppins font-extralight text-[40px] leading-[3.5rem]">
+                Diegetic
+              </motion.h2>
+              <motion.h2 className="font-poppins font-extrabold text-[96px] leading-[3.5rem]">
+                User
+              </motion.h2>
+              <motion.h2 className="font-poppins font-semibold text-[40px] leading-[3.5rem] ml-[3px]">
+                Interface
+              </motion.h2> */}
+
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate={isChecked ? "visible" : "hidden"}
+                className=" w-full mx-auto flex justify-evenly"
+              >
+                <div>
+                  <motion.h3
+                    variants={itemVariants}
+                    className="font-poppins font-medium text-lg text-[#D9D9D9] tracking-widest mt-[44px]"
+                  >
+                    product name
+                  </motion.h3>
+                  <motion.img
+                    variants={kronImageVariants}
+                    src="/images/KRON.png"
+                    alt="KRON-logo"
+                    className="w-[195px] -translate-y-2 
+                  " // Removed -translate-x-[39px]
+                  />
+                </div>
+                <div>
+                  <motion.h3
+                    variants={itemVariants}
+                    className="font-poppins font-medium text-lg text-[#D9D9D9] tracking-widest mt-[34px] leading-[3rem] mb-1"
+                  >
+                    role{" "}
+                  </motion.h3>
+                  <motion.h2
+                    variants={itemVariants}
+                    className="font-poppins text-[26px] font-extralight text-[#A67458] leading-[5px]"
+                  >
+                    product
+                  </motion.h2>
+                  <motion.h2
+                    variants={itemVariants}
+                    className="font-poppins text-[26px] font-extralight text-[#A67458]"
+                  >
+                    designer
+                  </motion.h2>
+                </div>
+              </motion.div>
+            </motion.div>
+            <motion.button
+              onClick={handleCloseClick}
+              className="absolute top-5 left-1/2 z-50"
+              initial={{
+                scale: 0,
+                opacity: 0,
+                rotate: -180,
+                y: -50,
+              }}
+              animate={{
+                scale: 1,
+                opacity: 1,
+                rotate: 0,
+                y: 0,
+              }}
+              exit={{
+                scale: 0,
+                opacity: 0,
+                rotate: 180,
+                y: -50,
+              }}
+              whileHover={{
+                scale: 1.1,
+              }}
+              whileTap={{
+                scale: 0.95,
+                rotate: -10,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 15,
+                duration: 0.6,
+              }}
+            >
+              <motion.div
+                className="rounded-full"
+                whileHover={{
+                  rotate: 90,
+                  transition: {
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 10,
+                  },
+                }}
+                initial={{ rotate: -90 }}
+                animate={{ rotate: 0 }}
+                transition={{
+                  delay: 0.2,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 10,
+                }}
+              >
+                <img
+                  src="/images/close-button-white.svg"
+                  alt="close-button"
+                  className="size-[55px]"
+                />
+              </motion.div>
+            </motion.button>
+          </>
+        )}
       </motion.label>
       {isChecked && (
         <>
@@ -284,7 +444,7 @@ const UserInterface = ({ delay, index }) => {
                 duration: 0.8,
               },
             }}
-            className={`absolute -bottom-[101px] left-1/2 overflow-hidden gradientBorderMask`}
+            className={`absolute bottom-7 left-1/2 overflow-hidden gradientBorderMask`}
             onClick={() => setShown(true)}
           >
             <motion.button

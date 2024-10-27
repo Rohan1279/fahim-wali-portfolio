@@ -328,7 +328,7 @@ const Saas = ({ delay, index }) => {
           type="checkbox"
           id="saas"
           checked={isChecked}
-          className={`${isChecked ? "hidden" : "visible"}`}
+          className="invisible"
           onChange={() => {}} // Controlled component
         />
 
@@ -371,39 +371,41 @@ const Saas = ({ delay, index }) => {
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
                 className={`w-full h-full relative `}
               >
-                <SwiperSlide className="flex relative">
-                  <div>
-                    <motion.div variants={itemVariants}>
-                      <p className="font-poppins font-medium text-xl text-[#161414] tracking-widest">
+                <SwiperSlide className="flex flex-col relative">
+                  <div className="flex justify-evenly gap-x-2 items-end h-1/3 pt-24">
+                    <motion.div variants={itemVariants} className="">
+                      <p className="font-poppins font-medium text-lg text-[#161414] tracking-widest">
                         product name
                       </p>
-                      <h3 className="font-poppins font-extrabold text-[48px] text-[#2D2D2D]">
+                      <h3 className="font-poppins font-extrabold text-[36px] text-[#2D2D2D]">
                         Driip
                       </h3>
                     </motion.div>
+                    <hr className="border border-[#2d2d2d] w-0 h-24" />
+                    <div>
+                      <motion.div variants={itemVariants}>
+                        <p className="font-poppins font-medium text-lg text-[#161414] tracking-widest leading-[3rem]">
+                          role
+                        </p>
+                      </motion.div>
 
-                    <motion.div variants={itemVariants}>
-                      <p className="font-poppins font-medium text-xl text-[#161414] tracking-widest leading-[3.7rem] mt-5">
-                        role
-                      </p>
-                    </motion.div>
+                      <motion.div variants={itemVariants}>
+                        <h3 className="font-poppins font-extralight text-[26px] text-[#2d2d2d] leading-[6px]">
+                          product
+                        </h3>
+                      </motion.div>
 
-                    <motion.div variants={itemVariants}>
-                      <h3 className="font-poppins font-extralight text-[32px] text-[#2d2d2d] leading-[6px]">
-                        product
-                      </h3>
-                    </motion.div>
-
-                    <motion.div variants={itemVariants}>
-                      <h3 className="font-poppins font-extralight text-[32px] text-[#2d2d2d]">
-                        designer
-                      </h3>
-                    </motion.div>
+                      <motion.div variants={itemVariants}>
+                        <h3 className="font-poppins font-extralight text-[26px] text-[#2d2d2d]">
+                          designer
+                        </h3>
+                      </motion.div>
+                    </div>
                   </div>
                   <img
                     src="/images/saas/slide-1.png"
                     alt="slide-1"
-                    className="w-full mx-auto object-cover mt-auto"
+                    className="mt-auto w-full h-full object-cover"
                   />
                 </SwiperSlide>
                 <SwiperSlide className="flex">
@@ -436,7 +438,7 @@ const Saas = ({ delay, index }) => {
                   <img
                     src="/images/carousal-backward.png"
                     alt="carousal-backward"
-                    className={`absolute bottom-3 left-3 size-[50px] z-50 ${
+                    className={`absolute bottom-11 left-3 size-[50px] z-50 ${
                       currentIndex !== 0
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-0"
@@ -451,7 +453,7 @@ const Saas = ({ delay, index }) => {
                   <img
                     src="/images/carousal-forward.png"
                     alt="carousal-forward"
-                    className={`absolute bottom-3 right-3 size-[50px] z-50  ${
+                    className={`absolute bottom-11 right-3 size-[50px] z-50  ${
                       currentIndex !== 3
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-0"
@@ -466,7 +468,7 @@ const Saas = ({ delay, index }) => {
         {isChecked && (
           <motion.button
             onClick={handleCloseClick}
-            className="absolute top-0 rounded-full right-0 z-50 flex items-center justify-center"
+            className="absolute top-3 right-3 rounded-full z-50 flex items-center justify-center"
             initial={{
               scale: 0,
               opacity: 0,
@@ -521,7 +523,7 @@ const Saas = ({ delay, index }) => {
               <img
                 src="/images/close-button.svg"
                 alt="close-button"
-                className="size-[46px]"
+                className="size-[36px]"
               />
             </motion.div>
           </motion.button>
