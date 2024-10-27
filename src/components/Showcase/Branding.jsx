@@ -135,7 +135,7 @@ const Branding = ({ delay, index }) => {
             mass: 0.8,
           },
         }}
-        className="block md:hidden w-full min-w-[90px] h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative translate-y-[33px]"
+        className="block md:hidden w-full h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative translate-y-[33px]"
       >
         <input
           type="checkbox"

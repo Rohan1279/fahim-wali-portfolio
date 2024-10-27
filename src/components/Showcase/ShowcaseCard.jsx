@@ -35,7 +35,7 @@ const ShowcaseCard = ({
       onClick={handleOnClick}
       className={`
       ${className} 
-      w-[90px] md:min-w-[268px] h-[507px] md:h-[555px] 
+      w-[90px] md:min-w-[268px] h-[555px] 
       rounded-[10px] bg-[#d9d9d9] 
       select-none z-10 overflow-hidden 
       cursor-pointer has-[:checked]:cursor-default

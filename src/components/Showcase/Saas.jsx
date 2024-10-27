@@ -72,7 +72,7 @@ const Saas = ({ delay, index }) => {
         id={"saas"}
         isChecked={isChecked}
         handleOnClick={handleOnClick}
-        className={`relative group/saas hidden md:block`}
+        className={`relative group/saas hidden md:block `}
       >
         <div className="z-50 md:pt-[126px] bg-transparent w-fit h-full relative">
           <p
@@ -302,6 +302,7 @@ const Saas = ({ delay, index }) => {
         )}
       </ShowcaseCard>
       <motion.label
+        onClick={(e) => !isChecked && setIsChecked(true) && e.preventDefault()}
         initial={{
           opacity: 0,
           // y: 40,
@@ -320,7 +321,7 @@ const Saas = ({ delay, index }) => {
             mass: 0.8,
           },
         }}
-        className="block md:hidden w-full min-w-[90px] h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative"
+        className="block md:hidden w-full h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative group overflow-hidden"
       >
         <input
           type="checkbox"
@@ -329,10 +330,199 @@ const Saas = ({ delay, index }) => {
         />
 
         <h2
-          className={`absolute top-11 -left-5 font-poppins -rotate-90 text-[48px] font-extrabold text-[#2d2d2d] transition-all group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95`}
+          className={`absolute top-11 -left-5 font-poppins -rotate-90 text-[48px] font-extrabold text-[#2d2d2d] transition-all group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95 group-has-[:checked]:opacity-0`}
         >
           Saa<span className="text-[#a67458]">S</span>
         </h2>
+        <AnimatePresence>
+          {isChecked && (
+            <motion.div
+              initial={{
+                x: 100,
+                opacity: 0,
+                filter: "blur(10px)",
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+                filter: "blur(0px)",
+              }}
+              exit={{
+                x: 100,
+                opacity: 0,
+              }}
+              transition={{
+                duration: 0.8,
+                ease: [0.4, 0, 0.2, 1],
+                delay: 1,
+              }}
+              className="w-full h-full absolute right-0 top-0 -z-50 "
+            >
+              <Swiper
+                spaceBetween={50}
+                slidesPerView={1}
+                effect=""
+                speed={500}
+                modules={[]}
+                onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
+                className={`w-full h-full relative `}
+              >
+                <SwiperSlide className="flex relative">
+                  <div>
+                    <motion.div variants={itemVariants}>
+                      <p className="font-poppins font-medium text-xl text-[#161414] tracking-widest">
+                        product name
+                      </p>
+                      <h3 className="font-poppins font-extrabold text-[48px] text-[#2D2D2D]">
+                        Driip
+                      </h3>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants}>
+                      <p className="font-poppins font-medium text-xl text-[#161414] tracking-widest leading-[3.7rem] mt-5">
+                        role
+                      </p>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants}>
+                      <h3 className="font-poppins font-extralight text-[32px] text-[#2d2d2d] leading-[6px]">
+                        product
+                      </h3>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants}>
+                      <h3 className="font-poppins font-extralight text-[32px] text-[#2d2d2d]">
+                        designer
+                      </h3>
+                    </motion.div>
+                  </div>
+                  <img
+                    src="/images/saas/slide-1.png"
+                    alt="slide-1"
+                    className="w-full mx-auto object-cover mt-auto"
+                  />
+                </SwiperSlide>
+                <SwiperSlide className="flex">
+                  <img
+                    src="/images/saas/slide-2.png"
+                    alt="slide-2"
+                    className="my-auto w-[652px] mx-auto"
+                  />
+                </SwiperSlide>
+                <SwiperSlide className="flex">
+                  <img
+                    src="/images/saas/slide-3.png"
+                    alt="slide-3"
+                    className="my-auto w-[652px] mx-auto"
+                  />
+                </SwiperSlide>
+                <SwiperSlide className="flex ">
+                  <img
+                    src="/images/saas/slide-4.png"
+                    alt="slide-4"
+                    className="my-auto w-[423px] mx-auto "
+                  />
+                </SwiperSlide>
+
+                {/* NEXT & PREV BUTTON */}
+                <button
+                  className=""
+                  onClick={() => swiperRef.current.slidePrev()}
+                >
+                  <img
+                    src="/images/carousal-backward.png"
+                    alt="carousal-backward"
+                    className={`absolute bottom-3 left-3 size-[50px] z-50 ${
+                      currentIndex !== 0
+                        ? "opacity-100 scale-100"
+                        : "opacity-0 scale-0"
+                    } transition-all duration-[350] ease-in-out`}
+                  />
+                </button>
+
+                <button
+                  className=""
+                  onClick={() => swiperRef.current.slideNext()}
+                >
+                  <img
+                    src="/images/carousal-forward.png"
+                    alt="carousal-forward"
+                    className={`absolute bottom-3 right-3 size-[50px] z-50  ${
+                      currentIndex !== 3
+                        ? "opacity-100 scale-100"
+                        : "opacity-0 scale-0"
+                    } transition-all duration-[350] ease-in-out`}
+                  />
+                </button>
+              </Swiper>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        {/* CLOSE BUTTON */}
+        {isChecked && (
+          <motion.button
+            onClick={handleCloseClick}
+            className="absolute top-0 rounded-full right-0 z-50 flex items-center justify-center"
+            initial={{
+              scale: 0,
+              opacity: 0,
+              rotate: -180,
+              y: -50,
+            }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+              rotate: 0,
+              y: 0,
+            }}
+            exit={{
+              scale: 0,
+              opacity: 0,
+              rotate: 180,
+              y: -50,
+            }}
+            whileHover={{
+              scale: 1.1,
+            }}
+            whileTap={{
+              scale: 0.95,
+              rotate: -10,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 200,
+              damping: 15,
+              duration: 0.6,
+            }}
+          >
+            <motion.div
+              className="rounded-full"
+              whileHover={{
+                rotate: 90,
+                transition: {
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 10,
+                },
+              }}
+              initial={{ rotate: -90 }}
+              animate={{ rotate: 0 }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 200,
+                damping: 10,
+              }}
+            >
+              <img
+                src="/images/close-button.svg"
+                alt="close-button"
+                className="size-[46px]"
+              />
+            </motion.div>
+          </motion.button>
+        )}
       </motion.label>
       {/* VIEW PDF */}
       {isChecked && (
