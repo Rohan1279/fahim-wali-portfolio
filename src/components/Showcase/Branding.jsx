@@ -66,7 +66,7 @@ const Branding = ({ delay, index }) => {
     {
       src: "/images/branding/water-bottle-2.png",
       alt: "water-bottle-2",
-      className: " md:w-[176px]  md:absolute right-[53px] bottom-5 z-50",
+      className: "md:w-[176px]  md:absolute right-[53px] bottom-5 z-50",
       customDelay: 4,
     },
   ];
@@ -138,7 +138,7 @@ const Branding = ({ delay, index }) => {
             mass: 0.8,
           },
         }}
-        className="block md:hidden w-full h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative group overflow-hidden"
+        className="block md:hidden w-full h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative group overflow-hidden translate-y-[33px]"
       >
         <input
           type="checkbox"
@@ -168,13 +168,16 @@ const Branding = ({ delay, index }) => {
           </span>
           <span className="block">ng</span>
         </div>
-        <div className={`relative h-full mt-[32px] w-full grid grid-cols-2`}>
+        <div className={`relative mt-7 w-full grid grid-cols-2 gap-2 px-2`}>
           {images.map((image, index) => (
-            <div key={image.alt} className="border border-black">
+            <div
+              key={image.alt}
+              className=" border-black min-w-40 h-40 rounded-2xl overflow-hidden"
+            >
               <motion.img
                 src={image.src}
                 alt={image.alt}
-                className={image.className}
+                className={`${image.className} w-full h-full object-cover object-top`}
                 initial="hidden"
                 animate={isChecked ? "visible" : "hidden"}
                 variants={imageVariants}
@@ -187,7 +190,7 @@ const Branding = ({ delay, index }) => {
       {isChecked && (
         <motion.button
           onClick={handleCloseClick}
-          className="absolute top-[18px] rounded-full right-4 z-50 flex items-center justify-center"
+          className="absolute top-3 rounded-full right-3 z-50 flex items-center justify-center"
           initial={{
             scale: 0,
             opacity: 0,
@@ -242,7 +245,7 @@ const Branding = ({ delay, index }) => {
             <img
               src="/images/close-button.svg"
               alt="close-button"
-              className="size-[46px]"
+              className="size-[36px]"
             />
           </motion.div>
         </motion.button>
