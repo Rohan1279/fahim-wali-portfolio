@@ -428,6 +428,8 @@ const MobileApp = ({ delay, index }) => {
         )}
       </ShowcaseCard>
       <motion.label
+        htmlFor={"mobile-app"}
+        onClick={handleOnClick}
         initial={{
           opacity: 0,
           // y: 40,
@@ -435,30 +437,105 @@ const MobileApp = ({ delay, index }) => {
         }}
         animate={{
           opacity: 1,
-          // y: 66,
+          // y: 0,
           filter: "blur(0px)",
           transition: {
             duration: 0.7,
-            delay: 0.15 * 2,
+            delay: 0.15 * 1,
             type: "spring",
             stiffness: 100,
             damping: 10,
             mass: 0.8,
           },
         }}
-        className="block md:hidden w-full  h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative translate-y-[66px]"
+        className="block md:hidden w-full h-[507px] rounded-[10px] bg-[#d9d9d9] cursor-pointer relative group overflow-hidden translate-y-[66px]"
       >
         <input
           type="checkbox"
+          id="mobile-app"
+          checked={isChecked}
           className="invisible"
           onChange={() => {}} // Controlled component
         />
 
-        <h2
-          className={`absolute top-11 -left-5 font-poppins -rotate-90 text-[48px] font-extrabold text-[#2d2d2d] transition-all group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95`}
+        <div
+          className={`absolute top-24 -left-9 font-poppins font-extrabold -rotate-90  transition-all group-hover/mobile-app:-translate-y-3 ease-in-out duration-300 group-active/mobile-app:scale-95 group-has-[:checked]:opacity-0 leading-8`}
         >
-          Saa<span className="text-[#a67458]">S</span>
-        </h2>
+          <p
+            style={{
+              WebkitTextStroke: "1px #2D2D2D",
+            }}
+            className="text-[48px] text-transparent"
+          >
+            Mobile
+          </p>
+          <p className="text-[#a67458] text-[32px]">App</p>
+        </div>
+
+        {/* CLOSE BUTTON */}
+        {isChecked && (
+          <motion.button
+            onClick={handleCloseClick}
+            className="absolute top-3 right-3 rounded-full z-50 flex items-center justify-center"
+            initial={{
+              scale: 0,
+              opacity: 0,
+              rotate: -180,
+              y: -50,
+            }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+              rotate: 0,
+              y: 0,
+            }}
+            exit={{
+              scale: 0,
+              opacity: 0,
+              rotate: 180,
+              y: -50,
+            }}
+            whileHover={{
+              scale: 1.1,
+            }}
+            whileTap={{
+              scale: 0.95,
+              rotate: -10,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 200,
+              damping: 15,
+              duration: 0.6,
+            }}
+          >
+            <motion.div
+              className="rounded-full"
+              whileHover={{
+                rotate: 90,
+                transition: {
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 10,
+                },
+              }}
+              initial={{ rotate: -90 }}
+              animate={{ rotate: 0 }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 200,
+                damping: 10,
+              }}
+            >
+              <img
+                src="/images/close-button.svg"
+                alt="close-button"
+                className="size-[36px]"
+              />
+            </motion.div>
+          </motion.button>
+        )}
       </motion.label>
       {currentApp === "pedal" && (
         <>
