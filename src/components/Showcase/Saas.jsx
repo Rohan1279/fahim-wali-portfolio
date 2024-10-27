@@ -302,7 +302,8 @@ const Saas = ({ delay, index }) => {
         )}
       </ShowcaseCard>
       <motion.label
-        onClick={(e) => !isChecked && setIsChecked(true) && e.preventDefault()}
+        htmlFor={"saas"}
+        onClick={handleOnClick}
         initial={{
           opacity: 0,
           // y: 40,
@@ -325,7 +326,9 @@ const Saas = ({ delay, index }) => {
       >
         <input
           type="checkbox"
-          className="invisible"
+          id="saas"
+          checked={isChecked}
+          className={`${isChecked ? "hidden" : "visible"}`}
           onChange={() => {}} // Controlled component
         />
 
