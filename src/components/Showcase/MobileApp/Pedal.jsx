@@ -248,7 +248,15 @@ const Pedal = ({
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           className=" h-full  border-black "
         >
-          <SwiperSlide className="font-poppins font-normal text-[14px] leading-normal px-9 mt-[73px] bg-[#d9d9d9] h-full">
+          <SwiperSlide className="font-poppins font-normal text-[14px] text-justify leading-normal px-14 mt-8 bg-[#d9d9d9] h-full">
+            <motion.img
+              src="/images/mobile-app/pedal/pedal-logo.png"
+              alt="pedal-logo"
+              className="w-[122px] mb-8 mx-auto"
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.25, duration: 0.4, ease: "easeOut" }}
+            />
             <p className="">
               Pedal is an{" "}
               <span className="text-[14px] font-bold">e-Bike sharing app</span>{" "}

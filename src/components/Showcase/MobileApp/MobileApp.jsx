@@ -743,7 +743,69 @@ const MobileApp = ({ delay, index }) => {
           />
         )}
         {/* CLOSE BUTTON */}
-        {isChecked && <CloseButton />}
+        {isChecked && (
+          <motion.button
+            onClick={handleCloseClick}
+            className="absolute top-3 right-3 rounded-full z-50 flex items-center justify-center"
+            initial={{
+              scale: 0,
+              opacity: 0,
+              rotate: -180,
+              y: -50,
+            }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+              rotate: 0,
+              y: 0,
+            }}
+            exit={{
+              scale: 0,
+              opacity: 0,
+              rotate: 180,
+              y: -50,
+            }}
+            whileHover={{
+              scale: 1.1,
+            }}
+            whileTap={{
+              scale: 0.95,
+              rotate: -10,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 200,
+              damping: 15,
+              duration: 0.6,
+            }}
+          >
+            <motion.div
+              className="rounded-full"
+              whileHover={{
+                rotate: 90,
+                transition: {
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 10,
+                },
+              }}
+              initial={{ rotate: -90 }}
+              animate={{ rotate: 0 }}
+              transition={{
+                delay: 0.2,
+                type: "spring",
+                stiffness: 200,
+                damping: 10,
+              }}
+            >
+              <img
+                src="/images/close-button.svg"
+                alt="close-button"
+                className="size-[36px]"
+              />
+            </motion.div>
+          </motion.button>
+        )}
       </motion.label>
       {/* PDF BUTTON */}
       {currentApp === "pedal" && <PdfButton />}
