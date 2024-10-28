@@ -63,7 +63,7 @@ const Philosophy = () => {
                 viewBox="0 0 176 272"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute bottom-[23px] -right-[103px] translate-y-full "
+                className="absolute bottom-[20px] -right-[103px] translate-y-full "
               >
                 <motion.line
                   x1="175.5"
