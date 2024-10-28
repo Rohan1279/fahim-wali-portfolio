@@ -639,6 +639,7 @@ const MobileApp = ({ delay, index }) => {
               grabCursor={true}
               pagination={{
                 dynamicBullets: true,
+                bulletClass: "swiper-pagination-bullet",
               }}
               modules={[EffectCreative, EffectCube, Pagination]}
               cubeEffect={{
@@ -656,7 +657,7 @@ const MobileApp = ({ delay, index }) => {
                   translate: ["100%", 0, 0],
                 },
               }}
-              className="w-full pb-7 border-black mt-auto"
+              className="w-full pb-7 border-black mt-auto "
               onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
               onSwiper={(swiper) => (swiperRef.current = swiper)}
             >
@@ -666,7 +667,7 @@ const MobileApp = ({ delay, index }) => {
                     currentIndex === 1
                       ? "saturate-[.25] blur-[2px]"
                       : "blur-none"
-                  } transition-all duration-300`}
+                  } transition-all duration-300 delay-100`}
                 >
                   <h2
                     style={{
@@ -694,7 +695,7 @@ const MobileApp = ({ delay, index }) => {
                     currentIndex === 0
                       ? "saturate-[.25] blur-[2px]"
                       : "blur-none"
-                  } transition-all duration-1000`}
+                  } transition-all duration-1000 delay-100`}
                 >
                   <h2
                     style={{

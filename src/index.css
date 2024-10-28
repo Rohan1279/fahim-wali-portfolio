@@ -143,3 +143,10 @@
     }
   }
 }
+
+.swiper-pagination-bullet {
+  background-color: #2d2d2d;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+}
