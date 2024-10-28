@@ -193,15 +193,15 @@ const UserInterface = ({ delay, index }) => {
             </motion.h3>
             <motion.h2
               variants={itemVariants}
-              className="font-poppins text-[32px] font-extralight text-[#A67458] leading-[5px]"
+              className="font-poppins text-[32px] font-extralight text-[#A67458] leading-[5px] mb-1"
             >
-              product
+              diegetic
             </motion.h2>
             <motion.h2
               variants={itemVariants}
               className="font-poppins text-[32px] font-extralight text-[#A67458]"
             >
-              designer
+              ui designer
             </motion.h2>
           </motion.div>
         </motion.div>
@@ -324,13 +324,13 @@ const UserInterface = ({ delay, index }) => {
                     variants={itemVariants}
                     className="font-poppins text-[26px] font-extralight text-[#A67458] leading-[5px]"
                   >
-                    product
+                    diegetic
                   </motion.h2>
                   <motion.h2
                     variants={itemVariants}
                     className="font-poppins text-[26px] font-extralight text-[#A67458]"
                   >
-                    designer
+                    ui designer
                   </motion.h2>
                 </div>
               </motion.div>
@@ -401,7 +401,9 @@ const UserInterface = ({ delay, index }) => {
       </motion.label>
       {isChecked && (
         <>
-          <motion.button
+          <motion.a
+            href="https://drive.google.com/file/d/1vZYaHi0knMxQcLCLDKQBieVuGCcsX3xX/view?usp=sharing"
+            target="_blank"
             initial={{
               y: -100,
               width: 61,
@@ -441,7 +443,7 @@ const UserInterface = ({ delay, index }) => {
               },
             }}
             className={`block md:hidden absolute bottom-7 left-1/2 overflow-hidden gradientBorderMask`}
-            onClick={() => setShown(true)}
+            // onClick={() => setShown(true)}
           >
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
@@ -465,7 +467,7 @@ const UserInterface = ({ delay, index }) => {
                 view design process{" "}
               </motion.span>
             </motion.button>
-          </motion.button>
+          </motion.a>
           <motion.button
             initial={{
               y: -100,

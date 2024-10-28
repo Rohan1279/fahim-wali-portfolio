@@ -39,7 +39,9 @@ const PDFModal = ({ pdfUrl, shown, setShown }) => {
               </button>
             </div>
             <embed
-              src={pdfUrl}
+              src={
+                "https://drive.google.com/file/d/1zMbyK-hjfJQUNqn00KPDV_Ss06V7gQtb/view?usp=sharing"
+              }
               type="application/pdf"
               width="100%"
               height="700px"
