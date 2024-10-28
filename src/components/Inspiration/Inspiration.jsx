@@ -100,9 +100,9 @@ export default function Inspiration() {
           alt="saul-bass"
           className="w-[322px] h-[553px] ml-[6px]"
         />
-        <div className="font-oswald text-[80px] font-semibold text-[#D9D9D9] leading-[4.2rem] tracking-[-0.11em] absolute -top-[5px] left-7">
+        <div className="font-oswald text-[70px] font-semibold text-[#D9D9D9] leading-[3.8rem] tracking-[-0.11em] absolute -top-[5px] left-6">
           <h2 className="uppercase">design</h2>
-          <h2 className="uppercase translate-x-[2.27rem] ">
+          <h2 className="uppercase translate-x-[2.07rem] ">
             insp
             <span className="text-[#2F67AA] relative inline-block">i</span>
             ration

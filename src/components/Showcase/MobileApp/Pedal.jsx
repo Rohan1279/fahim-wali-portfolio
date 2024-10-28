@@ -248,11 +248,11 @@ const Pedal = ({
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           className=" h-full  border-black "
         >
-          <SwiperSlide className="font-poppins font-normal text-[14px] text-justify leading-normal px-14 mt-8 bg-[#d9d9d9] h-full">
+          <SwiperSlide className="font-poppins font-normal text-[14px] text-justify leading-normal px-10 mt-2 bg-[#d9d9d9] h-full">
             <motion.img
               src="/images/mobile-app/pedal/pedal-logo.png"
               alt="pedal-logo"
-              className="w-[122px] mb-8 mx-auto"
+              className="w-[122px] mb-3 mx-auto"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.25, duration: 0.4, ease: "easeOut" }}
@@ -263,7 +263,7 @@ const Pedal = ({
               that allow riders to rent and ride across their favourite cities
               and contribute to an eco-friendly environment.
             </p>
-            <p className="mt-[34px]">
+            <p className="mt-[24px]">
               I joined the PEDAL team and worked on the MVP and made necessary
               changes to the MVP to make the user experience seamless and visual
               upgrades to the app’s user interface.

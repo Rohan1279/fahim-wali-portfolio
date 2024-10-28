@@ -73,7 +73,7 @@ const appTextVariants = {
 };
 const MobileApp = ({ delay, index }) => {
   const [currentApp, setCurrentApp] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(null);
   console.log("currentIndex", currentIndex);
   const [shown, setShown] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -671,7 +671,10 @@ const MobileApp = ({ delay, index }) => {
                       ? "saturate-[.25] blur-[2px]"
                       : "blur-none"
                   } transition-all duration-300 `}
-                  onClick={() => setCurrentApp("pedal")}
+                  onClick={() => {
+                    setCurrentApp("pedal");
+                    setCurrentIndex(null);
+                  }}
                 >
                   <h2
                     style={{
@@ -700,7 +703,10 @@ const MobileApp = ({ delay, index }) => {
                       ? "saturate-[.25] blur-[2px]"
                       : "blur-none"
                   } transition-all duration-300 delay-150`}
-                  onClick={() => setCurrentApp("simvest")}
+                  onClick={() => {
+                    setCurrentApp("simvest");
+                    setCurrentIndex(null);
+                  }}
                 >
                   <h2
                     style={{

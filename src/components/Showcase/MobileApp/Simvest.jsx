@@ -220,7 +220,7 @@ const Simvest = ({
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           className=" h-full  border-black "
         >
-          <SwiperSlide className="font-poppins font-normal text-[14px] text-justify leading-normal px-14 mt-8 bg-[#d9d9d9] h-full">
+          <SwiperSlide className="font-poppins font-normal text-[14px] text-justify leading-normal px-10 mt-8 bg-[#d9d9d9] h-full">
             <motion.img
               src="/images/mobile-app/simvest/simvest-logo.png"
               alt="simvest-logo"
