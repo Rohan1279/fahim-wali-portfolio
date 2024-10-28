@@ -495,12 +495,15 @@ const MobileApp = ({ delay, index }) => {
             </div>
           )}
           {currentApp === "pedal" && (
-            <Pedal
-              currentApp={currentApp}
-              setCurrentApp={setCurrentApp}
-              currentIndex={currentIndex}
-              setCurrentIndex={setCurrentIndex}
-            />
+            <>
+              <Pedal
+                currentApp={currentApp}
+                setCurrentApp={setCurrentApp}
+                currentIndex={currentIndex}
+                setCurrentIndex={setCurrentIndex}
+              />
+              Pedal
+            </>
           )}
           {currentApp === "simvest" && (
             <Simvest
@@ -668,6 +671,7 @@ const MobileApp = ({ delay, index }) => {
                       ? "saturate-[.25] blur-[2px]"
                       : "blur-none"
                   } transition-all duration-300 delay-100`}
+                  onClick={() => setCurrentApp("pedal")}
                 >
                   <h2
                     style={{
@@ -696,6 +700,7 @@ const MobileApp = ({ delay, index }) => {
                       ? "saturate-[.25] blur-[2px]"
                       : "blur-none"
                   } transition-all duration-1000 delay-100`}
+                  onClick={() => setCurrentApp("simvest")}
                 >
                   <h2
                     style={{
@@ -720,6 +725,24 @@ const MobileApp = ({ delay, index }) => {
               </SwiperSlide>
             </Swiper>
           </div>
+        )}
+        {currentApp === "pedal" && (
+          <>
+            <Pedal
+              currentApp={currentApp}
+              setCurrentApp={setCurrentApp}
+              currentIndex={currentIndex}
+              setCurrentIndex={setCurrentIndex}
+            />
+          </>
+        )}
+        {currentApp === "simvest" && (
+          <Simvest
+            currentApp={currentApp}
+            setCurrentApp={setCurrentApp}
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+          />
         )}
         {/* CLOSE BUTTON */}
         {isChecked && <CloseButton />}
