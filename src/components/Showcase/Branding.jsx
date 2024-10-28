@@ -162,7 +162,7 @@ const Branding = ({ delay, index }) => {
             style={{
               color: isChecked && "#A67458",
             }}
-            className={`block text-[#A67458] group-hover/branding:text-[#D9D9D9] group-checked/branding:text-[#A67458]  -mt-1  transition-colors delay-[100ms]`}
+            className={`block text-[#A67458] group-hover/branding:text-[#D9D9D9] group-checked/branding:text-[#A67458]    transition-colors delay-[100ms]`}
           >
             di
           </span>

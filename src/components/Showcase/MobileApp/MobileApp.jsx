@@ -1,9 +1,21 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import ShowcaseCard from "../ShowcaseCard";
 import Pedal from "./Pedal";
 import Simvest from "./Simvest";
 import { motion, transform } from "framer-motion";
 import PDFModal from "../../PDFModal/PDFModal";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  EffectCards,
+  EffectCube,
+  EffectCreative,
+  Pagination,
+} from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-cards";
+import "swiper/css/effect-cube";
+import "swiper/css/effect-creative";
+import "swiper/css/pagination";
 
 const containerVariants = {
   initial: {},
@@ -62,8 +74,8 @@ const appTextVariants = {
 const MobileApp = ({ delay, index }) => {
   const [currentApp, setCurrentApp] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  console.log("currentIndex", currentIndex);
   const [shown, setShown] = useState(false);
-
   const [isChecked, setIsChecked] = useState(false);
   const handleOnClick = useCallback(
     (e) => {
@@ -83,6 +95,153 @@ const MobileApp = ({ delay, index }) => {
     setIsChecked(false);
     setCurrentApp(null);
   }, []);
+  const CloseButton = () => {
+    return (
+      <motion.button
+        onClick={handleCloseClick}
+        className="absolute top-3 right-3 rounded-full z-50 flex items-center justify-center"
+        initial={{
+          scale: 0,
+          opacity: 0,
+          rotate: -180,
+          y: -50,
+        }}
+        animate={{
+          scale: 1,
+          opacity: 1,
+          rotate: 0,
+          y: 0,
+        }}
+        exit={{
+          scale: 0,
+          opacity: 0,
+          rotate: 180,
+          y: -50,
+        }}
+        whileHover={{
+          scale: 1.1,
+        }}
+        whileTap={{
+          scale: 0.95,
+          rotate: -10,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 200,
+          damping: 15,
+          duration: 0.6,
+        }}
+      >
+        <motion.div
+          className="rounded-full"
+          whileHover={{
+            rotate: 90,
+            transition: {
+              type: "spring",
+              stiffness: 300,
+              damping: 10,
+            },
+          }}
+          initial={{ rotate: -90 }}
+          animate={{ rotate: 0 }}
+          transition={{
+            delay: 0.2,
+            type: "spring",
+            stiffness: 200,
+            damping: 10,
+          }}
+        >
+          <img
+            src="/images/close-button.svg"
+            alt="close-button"
+            className="size-[36px]"
+          />
+        </motion.div>
+      </motion.button>
+    );
+  };
+  const PdfButton = () => {
+    return (
+      <>
+        {" "}
+        <>
+          <motion.button
+            // href={
+            //   "https://drive.google.com/file/d/1zMbyK-hjfJQUNqn00KPDV_Ss06V7gQtb/view?usp=sharing"
+            // }
+            // target="_blank"
+            initial={{
+              y: -100,
+              width: 61,
+              height: 61,
+              opacity: 0,
+              borderRadius: "50%",
+              filter: "blur(10px)",
+              transform: "translateX(-50%)",
+            }}
+            animate={{
+              y: 0,
+              width: 282,
+              height: 61,
+              opacity: 1,
+              borderRadius: "0px",
+              filter: "blur(0px)",
+              transform: "translateX(-50%)",
+            }}
+            transition={{
+              duration: 1,
+              ease: [0.23, 1, 0.32, 1], // Custom easing for smooth motion
+              opacity: { duration: 0.8 },
+              width: {
+                delay: 0.2,
+                duration: 0.8,
+                type: "spring",
+                stiffness: 100,
+                damping: 15,
+              },
+              borderRadius: {
+                delay: 0.2,
+                duration: 0.8,
+              },
+              filter: {
+                delay: 0.1,
+                duration: 0.8,
+              },
+            }}
+            className={`absolute -bottom-[101px] left-1/2 overflow-hidden gradientBorderMask`}
+            onClick={() => setShown(true)}
+          >
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                delay: 0.6,
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              className="w-full h-full bg-transparent text-[14px] text-[#D9D9D9] font-poppins font-extralight subpixel-antialiased tracking-widest"
+            >
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8, duration: 0.4 }}
+                className="uppercase"
+              >
+                view ux/ui case study{" "}
+              </motion.span>
+            </motion.button>
+          </motion.button>
+
+          <PDFModal pdfUrl={"/pedal.pdf"} shown={shown} setShown={setShown} />
+        </>
+      </>
+    );
+  };
+  const apps = [
+    { name: "pedal", image: "/images/mobile-app/pedal/pedal.png" },
+    { name: "simvest", image: "/images/mobile-app/simvest/simvest.png" },
+  ];
+  const swiperRef = useRef(null);
 
   return (
     <>
@@ -457,7 +616,7 @@ const MobileApp = ({ delay, index }) => {
           className="invisible"
           onChange={() => {}} // Controlled component
         />
-
+        {/* CARD TITLE */}
         <div
           className={`absolute top-24 -left-9 font-poppins font-extrabold -rotate-90  transition-all group-hover/mobile-app:-translate-y-3 ease-in-out duration-300 group-active/mobile-app:scale-95 group-has-[:checked]:opacity-0 leading-8`}
         >
@@ -471,144 +630,129 @@ const MobileApp = ({ delay, index }) => {
           </p>
           <p className="text-[#a67458] text-[32px]">App</p>
         </div>
-
-        {/* CLOSE BUTTON */}
-        {isChecked && (
-          <motion.button
-            onClick={handleCloseClick}
-            className="absolute top-3 right-3 rounded-full z-50 flex items-center justify-center"
-            initial={{
-              scale: 0,
-              opacity: 0,
-              rotate: -180,
-              y: -50,
-            }}
-            animate={{
-              scale: 1,
-              opacity: 1,
-              rotate: 0,
-              y: 0,
-            }}
-            exit={{
-              scale: 0,
-              opacity: 0,
-              rotate: 180,
-              y: -50,
-            }}
-            whileHover={{
-              scale: 1.1,
-            }}
-            whileTap={{
-              scale: 0.95,
-              rotate: -10,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 200,
-              damping: 15,
-              duration: 0.6,
-            }}
-          >
-            <motion.div
-              className="rounded-full"
-              whileHover={{
-                rotate: 90,
-                transition: {
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 10,
+        {/* CARD BODY */}
+        {!currentApp && isChecked && (
+          <div className="relative pt-12">
+            {/* <div
+              onClick={() => setCurrentApp("pedal")}
+              className={`relative cursor-pointer group/pedal`}
+            >
+              <h2
+                style={{
+                  rotate: "-90deg",
+                  WebkitTextStroke: currentApp !== "pedal" && "1px #585858",
+                }}
+                className={`font-oswald ${
+                  currentApp === "pedal" ? "text-[#2D2D2D]" : "text-[#d9d9d9]"
+                } group-hover/pedal:text-[#2D2D2D] transition-all text-[110px] font-bold absolute -left-[10.6rem] top-[166px] -z-10`}
+              >
+                pedal
+              </h2>
+              <img
+                src="/images/mobile-app/pedal/pedal.png"
+                alt="pedal"
+                className={`w-[245px] z-50 transition-all duration-300`}
+              />
+            </div>
+            <div
+              onClick={() => setCurrentApp("simvest")}
+              className={`relative cursor-pointer group/simvest z-0`}
+            >
+              <h2
+                style={{
+                  rotate: "90deg",
+                  WebkitTextStroke: currentApp !== "simvest" && "1px #585858",
+                }}
+                className={`font-oswald ${
+                  currentApp === "simvest" ? "text-[#2D2D2D]" : "text-[#d9d9d9]"
+                } group-hover/simvest:text-[#2D2D2D] text-[#d9d9d9] transition-all text-[110px] font-bold absolute  -right-[13.05rem] top-[166px] -z-10`}
+              >
+                simvest
+              </h2>
+              <img
+                src="/images/mobile-app/simvest/simvest.png"
+                alt="simvest"
+                className={`w-[245px] transition-all duration-300 z-50`}
+              />
+            </div> */}
+            <Swiper
+              // effect={"cube"}
+              effect={"creative"}
+              grabCursor={true}
+              pagination={{
+                dynamicBullets: true,
+              }}
+              modules={[EffectCreative, EffectCube, Pagination]}
+              cubeEffect={{
+                shadow: false,
+                // slideShadows: true,
+                // shadowOffset: 20,
+                // shadowScale: 0.94,
+              }}
+              creativeEffect={{
+                prev: {
+                  // shadow: true,
+                  translate: [-30, 0, -200],
+                },
+                next: {
+                  translate: ["100%", 0, 0],
                 },
               }}
-              initial={{ rotate: -90 }}
-              animate={{ rotate: 0 }}
-              transition={{
-                delay: 0.2,
-                type: "spring",
-                stiffness: 200,
-                damping: 10,
-              }}
+              className="w-full  border-black mt-auto"
+              onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
             >
-              <img
-                src="/images/close-button.svg"
-                alt="close-button"
-                className="size-[36px]"
-              />
-            </motion.div>
-          </motion.button>
+              <SwiperSlide>
+                <div className="relative cursor-pointer w-fit mx-auto">
+                  <h2
+                    style={{
+                      rotate: "-90deg",
+                      WebkitTextStroke: "1px #585858",
+                    }}
+                    className={`font-oswald ${
+                      currentIndex === 1 ? "text-[#585858]" : "text-transparent"
+                    } transition-all text-7xl font-bold absolute -left-[7.0rem] top-[166px] -z-10`}
+                  >
+                    pedal
+                  </h2>
+                  <img
+                    src="/images/mobile-app/pedal/pedal.png"
+                    alt="pedal"
+                    className="w-[200px] z-50 transition-all duration-300"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="relative cursor-pointer w-fit mx-auto">
+                  <h2
+                    style={{
+                      rotate: "90deg",
+                      WebkitTextStroke:
+                        currentApp !== "simvest" && "1px #585858",
+                    }}
+                    className={`font-oswald ${
+                      currentApp === "simvest"
+                        ? "text-[#2D2D2D]"
+                        : "text-[#d9d9d9]"
+                    } group-hover/simvest:text-[#2D2D2D] text-[#d9d9d9] transition-all text-7xl font-bold absolute -right-[8.7rem] top-[166px] -z-10`}
+                  >
+                    simvest
+                  </h2>
+                  <img
+                    src="/images/mobile-app/simvest/simvest.png"
+                    alt="simvest"
+                    className="w-[200px] z-50 transition-all duration-300"
+                  />
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
         )}
+        {/* CLOSE BUTTON */}
+        {isChecked && <CloseButton />}
       </motion.label>
-      {currentApp === "pedal" && (
-        <>
-          <motion.button
-            // href={
-            //   "https://drive.google.com/file/d/1zMbyK-hjfJQUNqn00KPDV_Ss06V7gQtb/view?usp=sharing"
-            // }
-            // target="_blank"
-            initial={{
-              y: -100,
-              width: 61,
-              height: 61,
-              opacity: 0,
-              borderRadius: "50%",
-              filter: "blur(10px)",
-              transform: "translateX(-50%)",
-            }}
-            animate={{
-              y: 0,
-              width: 282,
-              height: 61,
-              opacity: 1,
-              borderRadius: "0px",
-              filter: "blur(0px)",
-              transform: "translateX(-50%)",
-            }}
-            transition={{
-              duration: 1,
-              ease: [0.23, 1, 0.32, 1], // Custom easing for smooth motion
-              opacity: { duration: 0.8 },
-              width: {
-                delay: 0.2,
-                duration: 0.8,
-                type: "spring",
-                stiffness: 100,
-                damping: 15,
-              },
-              borderRadius: {
-                delay: 0.2,
-                duration: 0.8,
-              },
-              filter: {
-                delay: 0.1,
-                duration: 0.8,
-              },
-            }}
-            className={`absolute -bottom-[101px] left-1/2 overflow-hidden gradientBorderMask`}
-            onClick={() => setShown(true)}
-          >
-            <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: 0.6,
-                duration: 0.5,
-                ease: "easeOut",
-              }}
-              className="w-full h-full bg-transparent text-[14px] text-[#D9D9D9] font-poppins font-extralight subpixel-antialiased tracking-widest"
-            >
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8, duration: 0.4 }}
-                className="uppercase"
-              >
-                view ux/ui case study{" "}
-              </motion.span>
-            </motion.button>
-          </motion.button>
-
-          <PDFModal pdfUrl={"/pedal.pdf"} shown={shown} setShown={setShown} />
-        </>
-      )}
+      {/* PDF BUTTON */}
+      {currentApp === "pedal" && <PdfButton />}
     </>
   );
 };
