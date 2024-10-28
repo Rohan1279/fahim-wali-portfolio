@@ -632,49 +632,7 @@ const MobileApp = ({ delay, index }) => {
         </div>
         {/* CARD BODY */}
         {!currentApp && isChecked && (
-          <div className="relative pt-12">
-            {/* <div
-              onClick={() => setCurrentApp("pedal")}
-              className={`relative cursor-pointer group/pedal`}
-            >
-              <h2
-                style={{
-                  rotate: "-90deg",
-                  WebkitTextStroke: currentApp !== "pedal" && "1px #585858",
-                }}
-                className={`font-oswald ${
-                  currentApp === "pedal" ? "text-[#2D2D2D]" : "text-[#d9d9d9]"
-                } group-hover/pedal:text-[#2D2D2D] transition-all text-[110px] font-bold absolute -left-[10.6rem] top-[166px] -z-10`}
-              >
-                pedal
-              </h2>
-              <img
-                src="/images/mobile-app/pedal/pedal.png"
-                alt="pedal"
-                className={`w-[245px] z-50 transition-all duration-300`}
-              />
-            </div>
-            <div
-              onClick={() => setCurrentApp("simvest")}
-              className={`relative cursor-pointer group/simvest z-0`}
-            >
-              <h2
-                style={{
-                  rotate: "90deg",
-                  WebkitTextStroke: currentApp !== "simvest" && "1px #585858",
-                }}
-                className={`font-oswald ${
-                  currentApp === "simvest" ? "text-[#2D2D2D]" : "text-[#d9d9d9]"
-                } group-hover/simvest:text-[#2D2D2D] text-[#d9d9d9] transition-all text-[110px] font-bold absolute  -right-[13.05rem] top-[166px] -z-10`}
-              >
-                simvest
-              </h2>
-              <img
-                src="/images/mobile-app/simvest/simvest.png"
-                alt="simvest"
-                className={`w-[245px] transition-all duration-300 z-50`}
-              />
-            </div> */}
+          <div className="relative pt-12 h-full">
             <Swiper
               // effect={"cube"}
               effect={"creative"}
@@ -698,19 +656,27 @@ const MobileApp = ({ delay, index }) => {
                   translate: ["100%", 0, 0],
                 },
               }}
-              className="w-full  border-black mt-auto"
+              className="w-full pb-7 border-black mt-auto"
               onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
               onSwiper={(swiper) => (swiperRef.current = swiper)}
             >
               <SwiperSlide>
-                <div className="relative cursor-pointer w-fit mx-auto">
+                <div
+                  className={`relative cursor-pointer w-fit mx-auto ${
+                    currentIndex === 1
+                      ? "saturate-[.25] blur-[2px]"
+                      : "blur-none"
+                  } transition-all duration-300`}
+                >
                   <h2
                     style={{
                       rotate: "-90deg",
                       WebkitTextStroke: "1px #585858",
                     }}
                     className={`font-oswald ${
-                      currentIndex === 1 ? "text-[#585858]" : "text-transparent"
+                      currentIndex === 1
+                        ? "text-[#585858] "
+                        : "text-transparent"
                     } transition-all text-7xl font-bold absolute -left-[7.0rem] top-[166px] -z-10`}
                   >
                     pedal
@@ -723,7 +689,13 @@ const MobileApp = ({ delay, index }) => {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative cursor-pointer w-fit mx-auto">
+                <div
+                  className={`relative cursor-pointer w-fit mx-auto ${
+                    currentIndex === 0
+                      ? "saturate-[.25] blur-[2px]"
+                      : "blur-none"
+                  } transition-all duration-1000`}
+                >
                   <h2
                     style={{
                       rotate: "90deg",
