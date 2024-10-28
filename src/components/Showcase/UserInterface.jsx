@@ -402,10 +402,6 @@ const UserInterface = ({ delay, index }) => {
       {isChecked && (
         <>
           <motion.button
-            // href={
-            //   "https://drive.google.com/file/d/1vZYaHi0knMxQcLCLDKQBieVuGCcsX3xX/view?usp=sharing"
-            // }
-            // target="_blank"
             initial={{
               y: -100,
               width: 61,
@@ -444,7 +440,72 @@ const UserInterface = ({ delay, index }) => {
                 duration: 0.8,
               },
             }}
-            className={`absolute bottom-7 left-1/2 overflow-hidden gradientBorderMask`}
+            className={`block md:hidden absolute bottom-7 left-1/2 overflow-hidden gradientBorderMask`}
+            onClick={() => setShown(true)}
+          >
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                delay: 0.6,
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              type="email"
+              name="email"
+              placeholder="Type your email address here..."
+              className="w-full h-full bg-transparent text-[14px] text-[#D9D9D9] font-poppins font-extralight subpixel-antialiased tracking-widest"
+            >
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8, duration: 0.4 }}
+                className="uppercase"
+              >
+                view design process{" "}
+              </motion.span>
+            </motion.button>
+          </motion.button>
+          <motion.button
+            initial={{
+              y: -100,
+              width: 61,
+              height: 61,
+              opacity: 0,
+              borderRadius: "50%",
+              filter: "blur(10px)",
+              transform: "translateX(-50%)",
+            }}
+            animate={{
+              y: 0,
+              width: 282,
+              height: 61,
+              opacity: 1,
+              borderRadius: "0px",
+              filter: "blur(0px)",
+              transform: "translateX(-50%)",
+            }}
+            transition={{
+              duration: 1,
+              ease: [0.23, 1, 0.32, 1], // Custom easing for smooth motion
+              opacity: { duration: 0.8 },
+              width: {
+                delay: 0.2,
+                duration: 0.8,
+                type: "spring",
+                stiffness: 100,
+                damping: 15,
+              },
+              borderRadius: {
+                delay: 0.2,
+                duration: 0.8,
+              },
+              filter: {
+                delay: 0.1,
+                duration: 0.8,
+              },
+            }}
+            className={`hidden md:block absolute -bottom-[101px] left-1/2 overflow-hidden gradientBorderMask`}
             onClick={() => setShown(true)}
           >
             <motion.button
