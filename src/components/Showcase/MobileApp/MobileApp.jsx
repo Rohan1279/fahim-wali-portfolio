@@ -670,7 +670,7 @@ const MobileApp = ({ delay, index }) => {
                     currentIndex === 1
                       ? "saturate-[.25] blur-[2px]"
                       : "blur-none"
-                  } transition-all duration-300 delay-100`}
+                  } transition-all duration-300 `}
                   onClick={() => setCurrentApp("pedal")}
                 >
                   <h2
@@ -699,7 +699,7 @@ const MobileApp = ({ delay, index }) => {
                     currentIndex === 0
                       ? "saturate-[.25] blur-[2px]"
                       : "blur-none"
-                  } transition-all duration-1000 delay-100`}
+                  } transition-all duration-300 delay-150`}
                   onClick={() => setCurrentApp("simvest")}
                 >
                   <h2
@@ -709,10 +709,8 @@ const MobileApp = ({ delay, index }) => {
                         currentApp !== "simvest" && "1px #585858",
                     }}
                     className={`font-oswald ${
-                      currentApp === "simvest"
-                        ? "text-[#2D2D2D]"
-                        : "text-[#d9d9d9]"
-                    } group-hover/simvest:text-[#2D2D2D] text-[#d9d9d9] transition-all text-7xl font-bold absolute -right-[8.7rem] top-[166px] -z-10`}
+                      currentIndex === 0 ? "text-[#585858]" : "text-transparent"
+                    } group-hover/simvest:text-[#2D2D2D] transition-all  delay-300 text-7xl font-bold absolute -right-[8.7rem] top-[166px] -z-10`}
                   >
                     simvest
                   </h2>
