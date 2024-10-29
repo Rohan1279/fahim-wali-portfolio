@@ -74,7 +74,6 @@ const appTextVariants = {
 const MobileApp = ({ delay, index }) => {
   const [currentApp, setCurrentApp] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
-  console.log("currentIndex", currentIndex);
   const [shown, setShown] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const handleOnClick = useCallback(
@@ -445,7 +444,7 @@ const MobileApp = ({ delay, index }) => {
             <div className="relative flex justify-center gap-x-[40px] pt-[89px] mr-1">
               <div
                 onClick={() => setCurrentApp("pedal")}
-                className={`relative cursor-pointer group/pedal`}
+                className={` relative cursor-pointer group/pedal z-0`}
               >
                 <h2
                   style={{

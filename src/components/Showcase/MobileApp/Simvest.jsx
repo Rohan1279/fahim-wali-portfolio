@@ -24,7 +24,8 @@ const Simvest = ({
   currentIndex,
   setCurrentIndex,
 }) => {
-  const swiperRef = useRef(null);
+  const swiperRef1 = useRef(null);
+  const swiperRef2 = useRef(null);
 
   return (
     <>
@@ -38,7 +39,7 @@ const Simvest = ({
           speed={500}
           modules={[]}
           onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSwiper={(swiper) => (swiperRef1.current = swiper)}
           className={`h-full relative`}
         >
           <SwiperSlide className="flex">
@@ -66,8 +67,8 @@ const Simvest = ({
                     onClick={(e) => {
                       e.stopPropagation();
                       setCurrentApp(null);
-                      if (swiperRef.current) {
-                        swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+                      if (swiperRef1.current) {
+                        swiperRef1.current.slideTo(0); // Reset Swiper to the first slide
                       }
                     }}
                     className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373] mt-[70px]"
@@ -76,7 +77,7 @@ const Simvest = ({
                   </button>
                   <button
                     className="size-[50px] mr-[12px]"
-                    onClick={() => swiperRef.current.slideNext()}
+                    onClick={() => swiperRef1.current.slideNext()}
                   >
                     <img
                       src="/images/carousal-forward.png"
@@ -139,7 +140,7 @@ const Simvest = ({
             <div className="ml-auto flex justify-between w-[664px] mt-[40px]">
               <button
                 className="size-[50px] z-50"
-                onClick={() => swiperRef.current.slidePrev()}
+                onClick={() => swiperRef1.current.slidePrev()}
               >
                 <img
                   src="/images/carousal-backward.png"
@@ -156,8 +157,8 @@ const Simvest = ({
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentApp(null);
-                  if (swiperRef.current) {
-                    swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+                  if (swiperRef1.current) {
+                    swiperRef1.current.slideTo(0); // Reset Swiper to the first slide
                   }
                 }}
                 className="flex-1 font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373]"
@@ -217,7 +218,7 @@ const Simvest = ({
             EffectCoverflow,
           ]}
           onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSwiper={(swiper) => (swiperRef2.current = swiper)}
           className=" h-full  border-black "
         >
           <SwiperSlide className="font-poppins font-normal text-[14px] text-justify leading-normal px-10 mt-8 bg-[#d9d9d9] h-full">
@@ -264,8 +265,8 @@ const Simvest = ({
               onClick={(e) => {
                 e.stopPropagation();
                 setCurrentApp(null);
-                if (swiperRef.current) {
-                  swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+                if (swiperRef2.current) {
+                  swiperRef2.current.slideTo(0); // Reset Swiper to the first slide
                 }
               }}
               className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373] z-50"

@@ -25,26 +25,28 @@ const Pedal = ({
   currentIndex,
   setCurrentIndex,
 }) => {
-  const swiperRef = useRef(null);
+  const swiperRef1 = useRef(null);
+  const swiperRef2 = useRef(null);
   useEffect(() => {
     if (!currentApp) {
-      if (swiperRef.current) {
-        swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+      if (swiperRef1.current) {
+        swiperRef1.current.slideTo(0); // Reset Swiper to the first slide
       }
     }
   }, [currentApp]);
+  console.log("currentIndex", currentIndex);
 
   return (
     <>
       <div className="hidden md:flex h-full pt-[89px] leading-none border-blue-500">
         <Swiper
-          // spaceBetween={}
+          ref={swiperRef1}
           slidesPerView={1}
           effect=""
           speed={500}
           modules={[]}
           onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSwiper={(swiper) => (swiperRef1.current = swiper)}
           className={`h-full relative `}
         >
           <SwiperSlide className="flex">
@@ -96,8 +98,8 @@ const Pedal = ({
                   onClick={(e) => {
                     e.stopPropagation();
                     setCurrentApp(null);
-                    if (swiperRef.current) {
-                      swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+                    if (swiperRef1.current) {
+                      swiperRef1.current.slideTo(0); // Reset Swiper to the first slide
                     }
                   }}
                   className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373] mt-[70px]"
@@ -106,7 +108,7 @@ const Pedal = ({
                 </button>
                 <button
                   className="size-[50px] mr-[12px]"
-                  onClick={() => swiperRef.current.slideNext()}
+                  onClick={() => swiperRef1.current.slideNext()}
                 >
                   <img
                     src="/images/carousal-forward.png"
@@ -145,13 +147,13 @@ const Pedal = ({
         </Swiper>
 
         {currentApp &&
-          swiperRef.current &&
-          swiperRef.current.activeIndex > 0 && (
+          swiperRef1.current &&
+          swiperRef1.current.activeIndex > 0 && (
             <div className="ml-auto flex justify-between w-[664px] absolute bottom-7 right-0 ">
               {/* PREVIOUS BUTTON */}
               <button
                 className="size-[50px] z-50"
-                onClick={() => swiperRef.current.slidePrev()}
+                onClick={() => swiperRef1.current.slidePrev()}
               >
                 <img
                   src="/images/carousal-backward.png"
@@ -169,8 +171,8 @@ const Pedal = ({
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentApp(null);
-                  if (swiperRef.current) {
-                    swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+                  if (swiperRef1.current) {
+                    swiperRef1.current.slideTo(0); // Reset Swiper to the first slide
                   }
                 }}
                 className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373] z-50"
@@ -181,7 +183,7 @@ const Pedal = ({
               {/* NEXT BUTTON */}
               <button
                 className="size-[50px] z-50"
-                onClick={() => swiperRef.current.slideNext()}
+                onClick={() => swiperRef1.current.slideNext()}
               >
                 <img
                   src="/images/carousal-forward.png"
@@ -198,6 +200,7 @@ const Pedal = ({
       </div>
       <div className="bg-[#d9d9d9] block md:hidden  leading-none pt-8 h-[88%]">
         <Swiper
+          ref={swiperRef2}
           slidesPerView={1}
           effect="coverflow"
           speed={500}
@@ -245,7 +248,7 @@ const Pedal = ({
             EffectCoverflow,
           ]}
           onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSwiper={(swiper) => (swiperRef2.current = swiper)}
           className=" h-full  border-black "
         >
           <SwiperSlide className="font-poppins font-normal text-[14px] text-justify leading-normal px-10 mt-2 bg-[#d9d9d9] h-full">
@@ -291,8 +294,8 @@ const Pedal = ({
               onClick={(e) => {
                 e.stopPropagation();
                 setCurrentApp(null);
-                if (swiperRef.current) {
-                  swiperRef.current.slideTo(0); // Reset Swiper to the first slide
+                if (swiperRef2.current) {
+                  swiperRef2.current.slideTo(0); // Reset Swiper to the first slide
                 }
               }}
               className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373] z-50"
