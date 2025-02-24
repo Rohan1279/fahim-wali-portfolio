@@ -533,7 +533,11 @@ const UserInterface = ({ delay, index }) => {
               </motion.span>
             </motion.button>
           </motion.button>
-          <PDFModal pdfUrl={"/kron.pdf"} shown={shown} setShown={setShown} />
+          <PDFModal
+            pdfUrl={"1vZYaHi0knMxQcLCLDKQBieVuGCcsX3xX"}
+            shown={shown}
+            setShown={setShown}
+          />
         </>
       )}
     </>
