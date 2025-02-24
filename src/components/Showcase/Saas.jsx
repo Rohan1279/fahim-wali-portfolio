@@ -533,7 +533,7 @@ const Saas = ({ delay, index }) => {
       {isChecked && (
         <>
           <motion.a
-            href={"https://app.storylane.io/share/itvfjcoo4ft4"}
+            href={"https://driip.ai"}
             target="_blank"
             initial={{
               y: -100,
@@ -593,7 +593,7 @@ const Saas = ({ delay, index }) => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 0.4 }}
               >
-                VIEW PRODUCT WALK-THRU
+                VIEW PRODUCT
               </motion.span>
             </motion.button>
           </motion.a>
