@@ -38,15 +38,13 @@ const PDFModal = ({ pdfUrl, shown, setShown }) => {
                 <X className="h-4 w-4 mx-auto" />
               </button>
             </div>
-            <embed
-              src={
-                "https://drive.google.com/file/d/1zMbyK-hjfJQUNqn00KPDV_Ss06V7gQtb/view?usp=sharing"
-              }
-              type="application/pdf"
+            <iframe
+              src={`https://drive.google.com/file/d/${pdfUrl}/preview`}
               width="100%"
               height="700px"
               className="rounded-[19px]"
-            />
+              allow="autoplay"
+            ></iframe>
           </div>
         </div>
       )}

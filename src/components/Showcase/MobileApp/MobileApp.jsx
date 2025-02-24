@@ -231,7 +231,11 @@ const MobileApp = ({ delay, index }) => {
             </motion.button>
           </motion.button>
 
-          <PDFModal pdfUrl={"/pedal.pdf"} shown={shown} setShown={setShown} />
+          <PDFModal
+            pdfUrl="1zMbyK-hjfJQUNqn00KPDV_Ss06V7gQtb"
+            shown={shown}
+            setShown={setShown}
+          />
         </>
       </>
     );
@@ -942,7 +946,11 @@ const MobileApp = ({ delay, index }) => {
             </motion.button>
           </motion.a>
 
-          <PDFModal pdfUrl={"/pedal.pdf"} shown={shown} setShown={setShown} />
+          <PDFModal
+            pdfUrl="1zMbyK-hjfJQUNqn00KPDV_Ss06V7gQtb"
+            shown={shown}
+            setShown={setShown}
+          />
         </>
       )}
     </>
