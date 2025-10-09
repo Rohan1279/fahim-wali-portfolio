@@ -19,7 +19,6 @@ const Saas = ({ delay, index }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [isChecked, setIsChecked] = useState(false);
-  console.log("isChecked", isChecked);
   const handleOnClick = useCallback(
     (e) => {
       if (!isChecked) {
@@ -83,11 +82,20 @@ const Saas = ({ delay, index }) => {
           >
             product category
           </p>
+          <h2 
+          style={{
+              transform: isChecked && "translateY(0px)",
+            }}
+          className={`mr-4 text-right font-poppins font-extralight text-[40px] leading-[2rem] transition-all  group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95 ${
+              isChecked ? "text-[#2d2d2d]/10" : ""
+            }`}>
+            Consumer
+          </h2>
           <h2
             style={{
               transform: isChecked && "translateY(0px)",
             }}
-            className={`hidden md:block font-poppins text-[80px] font-extrabold text-[#2d2d2d] leading-[90%] ml-[54px] ${
+            className={`hidden md:block font-poppins text-[80px] font-extrabold text-[#2d2d2d] leading-[90%] ml-[46px] ${
               isChecked ? "text-[#2d2d2d]/10" : ""
             } transition-all  group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95`}
           >
@@ -115,9 +123,16 @@ const Saas = ({ delay, index }) => {
               <p className="font-poppins font-medium text-xl text-[#161414] tracking-widest">
                 product name
               </p>
-              <h3 className="font-poppins font-extrabold text-[48px] text-[#2D2D2D]">
-                Driip
-              </h3>
+              <motion.h3 
+                key={currentIndex}
+                initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="font-poppins font-extrabold text-[48px] text-[#2D2D2D]"
+              >
+                {currentIndex === 0 ? "Driip" : "Dravmo"}
+              </motion.h3>
             </motion.div>
 
             <motion.div variants={itemVariants}>
@@ -140,9 +155,10 @@ const Saas = ({ delay, index }) => {
           </motion.div>
         </div>
 
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {isChecked && (
             <motion.div
+              key="swiper-container"
               initial={{
                 x: 100,
                 opacity: 0,
@@ -172,34 +188,20 @@ const Saas = ({ delay, index }) => {
                 modules={[]}
                 onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
-                className={`w-full h-full relative `}
+                className={`w-full h-full relative`}
               >
-                <SwiperSlide className="flex flex-col pr-[64px] relative">
+                <SwiperSlide className="flex flex-col relative ">
                   <img
-                    src="/images/saas/slide-1.png"
-                    alt="slide-1"
-                    className="w-[710px] mt-auto ml-auto"
+                    src="/images/saas/driip.png"
+                    alt="driip"
+                    className="w-full my-auto ml-auto"
                   />
                 </SwiperSlide>
-                <SwiperSlide className="flex pr-[93px]">
+                <SwiperSlide className="flex">
                   <img
-                    src="/images/saas/slide-2.png"
-                    alt="slide-2"
-                    className="my-auto w-[652px] ml-auto"
-                  />
-                </SwiperSlide>
-                <SwiperSlide className="flex pr-[93px]">
-                  <img
-                    src="/images/saas/slide-3.png"
-                    alt="slide-3"
-                    className="my-auto w-[652px] ml-auto"
-                  />
-                </SwiperSlide>
-                <SwiperSlide className="flex justify-center pr-[174px] ">
-                  <img
-                    src="/images/saas/slide-4.png"
-                    alt="slide-4"
-                    className="my-auto w-[423px] ml-auto "
+                    src="/images/saas/dravmo.png"
+                    alt="dravmo"
+                    className="my-auto w-full "
                   />
                 </SwiperSlide>
 
@@ -211,7 +213,7 @@ const Saas = ({ delay, index }) => {
                   <img
                     src="/images/carousal-backward.png"
                     alt="carousal-backward"
-                    className={`absolute bottom-[21px] left-[105px] size-[50px] z-50 ${
+                    className={`absolute bottom-[21px] left-[28px] size-[50px] z-50 ${
                       currentIndex !== 0
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-0"
@@ -226,8 +228,8 @@ const Saas = ({ delay, index }) => {
                   <img
                     src="/images/carousal-forward.png"
                     alt="carousal-forward"
-                    className={`absolute bottom-[21px] right-[86px] size-[50px] z-50  ${
-                      currentIndex !== 3
+                    className={`absolute bottom-[21px] right-[28px] size-[50px] z-50  ${
+                      currentIndex !== 1
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-0"
                     } transition-all duration-[350] ease-in-out`}
@@ -311,8 +313,9 @@ const Saas = ({ delay, index }) => {
 
       {/* VIEW PDF */}
       {isChecked && (
+        <div className="hidden w-full md:flex justify-center items-center absolute -bottom-[101px] gap-x-5">
         <motion.a
-          href={"https://driip.ai"}
+          href={"https://generated-bowl-a9a.notion.site/Driip_Pivot_Case-Study-20ef256a042d80c69096da9557ea9c2b"}
           target="_blank"
           initial={{
             y: -100,
@@ -321,7 +324,7 @@ const Saas = ({ delay, index }) => {
             opacity: 0,
             borderRadius: "50%",
             filter: "blur(10px)",
-            transform: "translateX(-50%)",
+            transform: "",
           }}
           animate={{
             y: 0,
@@ -330,7 +333,7 @@ const Saas = ({ delay, index }) => {
             opacity: 1,
             borderRadius: "0px",
             filter: "blur(0px)",
-            transform: "translateX(-50%)",
+            transform: "",
           }}
           transition={{
             duration: 1,
@@ -346,7 +349,7 @@ const Saas = ({ delay, index }) => {
             borderRadius: { delay: 0.2, duration: 0.8 },
             filter: { delay: 0.1, duration: 0.8 },
           }}
-          className="hidden md:block absolute -bottom-[101px] left-1/2 overflow-hidden gradientBorderMask"
+          className="overflow-hidden gradientBorderMask"
         >
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
@@ -362,10 +365,121 @@ const Saas = ({ delay, index }) => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.4 }}
             >
-              VIEW PRODUCT
+              VIEW DRIIP CASE STUDY
             </motion.span>
           </motion.button>
         </motion.a>
+        <motion.a
+          href={"https://driip.ai"}
+          target="_blank"
+          initial={{
+            y: -100,
+            width: 61,
+            height: 61,
+            opacity: 0,
+            borderRadius: "50%",
+            filter: "blur(10px)",
+            transform: "",
+          }}
+          animate={{
+            y: 0,
+            width: 282,
+            height: 61,
+            opacity: 1,
+            borderRadius: "0px",
+            filter: "blur(0px)",
+            transform: "",
+          }}
+          transition={{
+            duration: 1,
+            ease: [0.23, 1, 0.32, 1],
+            opacity: { duration: 0.8 },
+            width: {
+              delay: 0.2,
+              duration: 0.8,
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+            },
+            borderRadius: { delay: 0.2, duration: 0.8 },
+            filter: { delay: 0.1, duration: 0.8 },
+          }}
+          className=" overflow-hidden gradientBorderMask"
+        >
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
+            type="email"
+            name="email"
+            placeholder="Type your email address here..."
+            className="w-full h-full bg-transparent text-[14px] text-[#D9D9D9] font-poppins font-extralight subpixel-antialiased tracking-widest"
+          >
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.4 }}
+            >
+              VISIT DRIIP
+            </motion.span>
+          </motion.button>
+        </motion.a>
+        <motion.a
+          href={"https://dravmo.io"}
+          target="_blank"
+          initial={{
+            y: -100,
+            width: 61,
+            height: 61,
+            opacity: 0,
+            borderRadius: "50%",
+            filter: "blur(10px)",
+            transform: "",
+          }}
+          animate={{
+            y: 0,
+            width: 282,
+            height: 61,
+            opacity: 1,
+            borderRadius: "0px",
+            filter: "blur(0px)",
+            transform: "",
+          }}
+          transition={{
+            duration: 1,
+            ease: [0.23, 1, 0.32, 1],
+            opacity: { duration: 0.8 },
+            width: {
+              delay: 0.2,
+              duration: 0.8,
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+            },
+            borderRadius: { delay: 0.2, duration: 0.8 },
+            filter: { delay: 0.1, duration: 0.8 },
+          }}
+          className=" overflow-hidden gradientBorderMask"
+        >
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
+            type="email"
+            name="email"
+            placeholder="Type your email address here..."
+            className="w-full h-full bg-transparent text-[14px] text-[#D9D9D9] font-poppins font-extralight subpixel-antialiased tracking-widest"
+          >
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.4 }}
+            >
+              VISIT DRAVMO
+            </motion.span>
+          </motion.button>
+        </motion.a>
+        </div>
       )}
     </>
   );

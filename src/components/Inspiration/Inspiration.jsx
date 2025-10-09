@@ -94,7 +94,7 @@ export default function Inspiration() {
         </div>
       </div>
 
-      <div className="relative visible md:hidden flex flex-col w-full bg-[#A67458] pb-7 rounded-b-[20px]">
+      <div className="mt-36 relative visible md:hidden flex flex-col w-full bg-[#A67458] pb-7 rounded-b-[20px]">
         <img
           src="/images/saul-bass.svg"
           alt="saul-bass"
