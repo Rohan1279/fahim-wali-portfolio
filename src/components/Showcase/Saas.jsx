@@ -74,9 +74,9 @@ const Saas = ({ delay, index }) => {
         handleOnClick={handleOnClick}
         className={`relative group/saas hidden md:block `}
       >
-        <div className="z-50 md:pt-[126px] bg-transparent w-fit h-full relative">
+        <div className="z-50 md:pt-[126px] bg-transparent w-fit h-full relative text-[#2d2d2d]">
           <p
-            className={`font-poppins text-xl text-[#161414] tracking-widest ml-[57px] font-medium opacity-0 ${
+            className={`font-poppins text-xl text-[#161414] tracking-widest ml-[45px] font-medium opacity-0 ${
               isChecked ? "opacity-100" : ""
             } transition-all duration-500 ease-in-out delay-150`}
           >
@@ -86,7 +86,7 @@ const Saas = ({ delay, index }) => {
           style={{
               transform: isChecked && "translateY(0px)",
             }}
-          className={`mr-4 text-right font-poppins font-extralight text-[40px] leading-[2rem] transition-all  group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95 ${
+          className={`mr-0 text-right font-poppins font-extralight text-[40px] leading-[2rem] transition-all  group-hover/saas:-translate-y-3 ease-in-out duration-300 group-active/saas:scale-95 ${
               isChecked ? "text-[#2d2d2d]/10" : ""
             }`}>
             Consumer
