@@ -63,18 +63,32 @@ const Simvest = ({
                   reviews, and feedbacks.
                 </p>
                 <div className="flex justify-between items-end w-full">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setCurrentApp(null);
-                      if (swiperRef1.current) {
-                        swiperRef1.current.slideTo(0); // Reset Swiper to the first slide
-                      }
-                    }}
-                    className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373] mt-[70px]"
-                  >
-                    back to mobile app{" "}
-                  </button>
+                  <div className="flex flex-col items-start gap-y-3 mt-[70px]">
+                    <a
+                      href="https://apps.apple.com/us/app/simvest/id1665723727"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <img
+                        src="/images/mobile-app/simvest/simvest-icon.jpg"
+                        alt="Simvest App Store"
+                        className="w-[48px] h-[48px] rounded-[11px] shadow-md hover:scale-105 transition-transform duration-200"
+                      />
+                    </a>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentApp(null);
+                        if (swiperRef1.current) {
+                          swiperRef1.current.slideTo(0);
+                        }
+                      }}
+                      className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373]"
+                    >
+                      back to mobile app{" "}
+                    </button>
+                  </div>
                   <button
                     className="size-[50px] mr-[12px]"
                     onClick={() => swiperRef1.current.slideNext()}
@@ -222,10 +236,23 @@ const Simvest = ({
           className=" h-full  border-black "
         >
           <SwiperSlide className="font-poppins font-normal text-[14px] text-justify leading-normal px-10 mt-8 bg-[#d9d9d9] h-full">
+            <a
+              href="https://apps.apple.com/us/app/simvest/id1665723727"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="block w-fit mx-auto mb-3"
+            >
+              <img
+                src="/images/mobile-app/simvest/simvest-icon.jpg"
+                alt="Simvest on App Store"
+                className="w-[48px] h-[48px] rounded-[12px] shadow-md hover:scale-105 transition-transform duration-200"
+              />
+            </a>
             <motion.img
               src="/images/mobile-app/simvest/simvest-logo.png"
               alt="simvest-logo"
-              className="w-[193px]  mb-8 mx-auto "
+              className="w-[193px] mb-8 mx-auto"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.25, duration: 0.4, ease: "easeOut" }}
@@ -259,14 +286,13 @@ const Simvest = ({
           }
         </Swiper>
         {currentApp && (
-          <div className=" flex justify-evenly w-full absolute bottom-6 right-0 ">
-            {/* BACK TO MOBILE APP*/}
+          <div className="flex justify-center w-full absolute bottom-6 right-0">
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 setCurrentApp(null);
                 if (swiperRef2.current) {
-                  swiperRef2.current.slideTo(0); // Reset Swiper to the first slide
+                  swiperRef2.current.slideTo(0);
                 }
               }}
               className="font-poppins font-normal text-[14px] underline underline-offset-1 text-[#737373] z-50"
